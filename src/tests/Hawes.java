@@ -25,7 +25,7 @@ public class Hawes {
         SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
         Date date1=formatter1.parse(sDate1);
         
-        String a="mou";
+        String a="o";
         int b=100;
         MaConnexion mc = MaConnexion.getInstance();
         

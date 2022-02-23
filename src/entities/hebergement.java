@@ -5,6 +5,10 @@ import java.util.*;
 
 
 public class hebergement {
+
+    public static Object entrySet() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private int id_hbg;
     private String nom;
     private String city;

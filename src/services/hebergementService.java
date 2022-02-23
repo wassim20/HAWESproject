@@ -1,6 +1,12 @@
 
 package services;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*;
+
 import entities.*;
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
+import static java.util.stream.Collectors.toMap;
 import tools.MaConnexion;
 
 public class hebergementService {
@@ -245,7 +252,16 @@ public class hebergementService {
             System.out.println(ex.getMessage());
         }
         
-        return hebergements;
+
+        
+        Map<hebergement, Integer> sortedhebergement = hebergements 
+                .entrySet() 
+                .stream() 
+                .sorted(Map.Entry.<hebergement, Integer> comparingByValue()) 
+                .collect( 
+                        toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        
+        return (HashMap<hebergement, Integer>) sortedhebergement;
         
     }
 
