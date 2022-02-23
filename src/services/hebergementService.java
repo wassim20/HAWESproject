@@ -57,13 +57,16 @@ public class hebergementService {
      *
      * @return
      */
-    public Map<hebergement,Integer> afficherHebergement(){
-        Map<hebergement,Integer> hebergements = new HashMap<>();
-        String query="select * from hebergement";
+    public HashMap<hebergement,Integer> afficherHebergement(){
+        HashMap<hebergement,Integer> hebergements = new HashMap<>();
+        String query;
+        query = "select * from hebergement";
         
         try {
-            PreparedStatement ste = cnx.prepareStatement(query);
-            ResultSet rs= ste.executeQuery();
+            PreparedStatement ste;
+            ste = cnx.prepareStatement(query);
+            ResultSet rs;
+            rs = ste.executeQuery();
             //rs.next();
             while(rs.next()){
                 //id_hbg;nom;city;date_ajout;adress;nom_hotel;nb_chambres;nb_suites;piscine;image;prix;
@@ -85,12 +88,14 @@ public class hebergementService {
                 
                 
                 String query1="select * from categorie WHERE id_hbg="+rs.getInt("id_hbg")+"";
-                PreparedStatement ste1 =cnx.prepareStatement(query1);
-                ResultSet rs1 =ste1.executeQuery();
+                PreparedStatement ste1;
+                ste1 = cnx.prepareStatement(query1);
+                ResultSet rs1;
+                rs1 = ste1.executeQuery();
                 rs1.next();
 
                 hebergements.put(h, rs1.getInt("etoile"));
-                
+                //rs.next();
                 
             }
         } catch (SQLException ex) {
@@ -189,6 +194,58 @@ public class hebergementService {
         } catch (SQLException e) { /* Ignored */}
     }
     }
+        
+    }
+    
+     public HashMap<hebergement,Integer> rechercheHebergement(Object a){
+        HashMap<hebergement,Integer> hebergements = new HashMap<>();
+        String query = null;
+        if(a instanceof String){
+        query = "select * from hebergement where nom LIKE '"+a+"%' OR nom LIKE '%"+a+"' OR nom LIKE '%"+a+"%' OR city LIKE '"+a+"%' OR city LIKE '%"+a+"' OR city LIKE '%"+a+"%' OR adress LIKE '"+a+"%' OR adress LIKE '%"+a+"' OR adress LIKE '%"+a+"%' OR nom_hotel LIKE '"+a+"%' OR nom_hotel LIKE '%"+a+"' OR nom_hotel LIKE '%"+a+"%'     ";
+     }else if(a instanceof Integer){
+        query="select * from hebergement where prix>="+a+"";
+     }
+        try {
+            PreparedStatement ste;
+            ste = cnx.prepareStatement(query);
+            ResultSet rs;
+            rs = ste.executeQuery();
+            //rs.next();
+            while(rs.next()){
+                //id_hbg;nom;city;date_ajout;adress;nom_hotel;nb_chambres;nb_suites;piscine;image;prix;
+                hebergement h = new hebergement();
+                
+                h.setId_hbg(rs.getInt("id_hbg"));
+                h.setNom(rs.getString("nom"));
+                h.setCity(rs.getString("city"));
+                h.setDate_ajout(rs.getDate("date_ajout"));
+                h.setAdress(rs.getString("adress"));
+                
+                h.setNom_hotel(rs.getString("nom_hotel"));
+                
+                h.setNb_chambres(rs.getInt("nb_chambres"));
+                h.setNb_suites(rs.getInt("nb_suites"));
+                h.setPiscine(rs.getInt("piscine"));
+                h.setImage(rs.getString("image"));
+                h.setPrix(rs.getInt("prix"));
+                
+                
+                String query1="select * from categorie WHERE id_hbg="+rs.getInt("id_hbg")+"";
+                PreparedStatement ste1;
+                ste1 = cnx.prepareStatement(query1);
+                ResultSet rs1;
+                rs1 = ste1.executeQuery();
+                rs1.next();
+
+                hebergements.put(h, rs1.getInt("etoile"));
+                //rs.next();
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return hebergements;
         
     }
 
