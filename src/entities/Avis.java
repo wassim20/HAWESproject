@@ -9,7 +9,7 @@ import java.sql.Date;
 
 
 public class Avis {
-    private int id_avis,etoile,id_hbg,id_user;
+    private int id_avis,etoile,id_hbg,idUser;
     private String desc_avis;
     private Date dateAjoutavis;
     
@@ -18,11 +18,11 @@ public class Avis {
     }
     
     
-    public Avis(int id_avis, String desc_avis, int etoile, Date dateAjoutavis, int id_hbg, int id_user) {
+    public Avis(int id_avis, String desc_avis, int etoile, Date dateAjoutavis, int id_hbg, int idUser) {
         this.id_avis = id_avis;
         this.etoile = etoile;
         this.id_hbg = id_hbg;
-        this.id_user = id_user;
+        this.idUser = idUser;
         this.desc_avis = desc_avis;
         this.dateAjoutavis = dateAjoutavis;
     }
@@ -52,11 +52,11 @@ public class Avis {
     }
 
     public int getId_user() {
-        return id_user;
+        return idUser;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setId_user(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getDesc_avis() {
@@ -79,7 +79,7 @@ public class Avis {
     
     @Override
     public String toString() {
-        return "Reclamation{" + "id avis=" + id_avis + ", id hebergement=" + id_hbg +", id utilisateur=" + id_user + ", description=" + desc_avis + ", etoile=" + etoile + ", Date Ajout=" + dateAjoutavis + '}'; 
+        return "Reclamation{" + "id avis=" + id_avis + ", id hebergement=" + id_hbg +", id utilisateur=" + idUser + ", description=" + desc_avis + ", etoile=" + etoile + ", Date Ajout=" + dateAjoutavis + '}'; 
     }
 
 

@@ -31,7 +31,7 @@ public class AvisService {
     }
 
         public void ajouterAvis(Avis a){
-        String sql="INSERT INTO `avis`(`id_avis`, `desc_avis`, `etoile` ,`dateAjoutavis`, `id_hbg`, `id_user`) VALUES ('"+a.getId_avis()+"','"+a.getDesc_avis()+"','"+a.getEtoile()+"','"+a.getDateAjoutavis()+"','"+a.getId_hbg()+"','"+a.getId_user()+"')";
+        String sql="INSERT INTO `avis`(`id_avis`, `desc_avis`, `etoile` ,`dateAjoutavis`, `id_hbg`, `idUser`) VALUES ('"+a.getId_avis()+"','"+a.getDesc_avis()+"','"+a.getEtoile()+"','"+a.getDateAjoutavis()+"','"+a.getId_hbg()+"','"+a.getId_user()+"')";
         try {
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
@@ -43,8 +43,8 @@ public class AvisService {
     
 /////////////////////////////
         
-public void modifierAvis(Avis a,int id, String desc_avis,int etoile, Date dateAjoutavis ,  int Id_hbg, int Id_user) {
-String sql="UPDATE `avis` SET `desc_avis` = '" + desc_avis + "', `etoile` = '" + etoile + "', `dateAjoutavis` = '" + dateAjoutavis + "', `id_hbg` = '" + Id_hbg + "', `id_user` = '" + Id_user + "' WHERE `avis`.`id_avis` = '"+id+"'";        
+public void modifierAvis(Avis a,int id, String desc_avis,int etoile, Date dateAjoutavis ,  int Id_hbg, int IdUser) {
+String sql="UPDATE `avis` SET `desc_avis` = '" + desc_avis + "', `etoile` = '" + etoile + "', `dateAjoutavis` = '" + dateAjoutavis + "', `id_hbg` = '" + Id_hbg + "', `idUser` = '" + IdUser + "' WHERE `avis`.`id_avis` = '"+id+"'";        
         try {
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
@@ -71,7 +71,7 @@ String sql="UPDATE `avis` SET `desc_avis` = '" + desc_avis + "', `etoile` = '" +
                 a.setEtoile(rs.getInt("etoile"));
                 a.setDateAjoutavis(rs.getDate("dateAjoutavis"));
                 a.setId_hbg(rs.getInt("id_hbg"));
-                a.setId_user(rs.getInt("id_user"));
+                a.setId_user(rs.getInt("idUser"));
                 aviss.add(a);
                 
             }

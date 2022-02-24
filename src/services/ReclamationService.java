@@ -29,7 +29,7 @@ public class ReclamationService {
         cnx=MaConnexion.getInstance().getCnx();
     }
     public void ajouterReclamation(Reclamation r){
-        String sql="INSERT INTO `reclamation`(`id_rec`, `desc_rec`, `traite` ,`dateAjoutrec`, `dateTraitrec`, `id_hbg`, `id_user`) VALUES ('"+r.getId_rec()+"','"+r.getDesc_rec()+"','"+r.getTraite()+"','"+r.getDateAjoutrec()+"','"+r.getDateTraitrec()+"','"+r.getId_hbg()+"','"+r.getId_user()+"')";
+        String sql="INSERT INTO `reclamation`(`id_rec`, `desc_rec`, `traite` ,`dateAjoutrec`, `dateTraitrec`, `id_hbg`, `idUser`) VALUES ('"+r.getId_rec()+"','"+r.getDesc_rec()+"','"+r.getTraite()+"','"+r.getDateAjoutrec()+"','"+r.getDateTraitrec()+"','"+r.getId_hbg()+"','"+r.getId_user()+"')";
         try {
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
@@ -40,8 +40,8 @@ public class ReclamationService {
     }
     
     ///////////
-public void modifierReclamation(Reclamation r,int id, String desc_rec,int Trait, Date dateAjoutrec , Date dateTraitrec, int Id_hbg, int Id_user) {
-String sql="UPDATE `reclamation` SET `desc_rec` = '" + desc_rec + "', `traite` = '" + Trait + "', `dateAjoutrec` = '" + dateAjoutrec + "', `dateTraitrec` = '" + dateTraitrec + "', `id_hbg` = '" + Id_hbg + "', `id_user` = '" + Id_user + "' WHERE `reclamation`.`id_rec` = '"+id+"'";        
+public void modifierReclamation(Reclamation r,int id, String desc_rec,int Trait, Date dateAjoutrec , Date dateTraitrec, int Id_hbg, int IdUser) {
+String sql="UPDATE `reclamation` SET `desc_rec` = '" + desc_rec + "', `traite` = '" + Trait + "', `dateAjoutrec` = '" + dateAjoutrec + "', `dateTraitrec` = '" + dateTraitrec + "', `id_hbg` = '" + Id_hbg + "', `idUser` = '" + IdUser + "' WHERE `reclamation`.`id_rec` = '"+id+"'";        
         try {
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
@@ -165,7 +165,7 @@ String sql="UPDATE `reclamation` SET `desc_rec` = '" + desc_rec + "', `traite` =
                 r.setDateAjoutrec(rs.getDate("dateAjoutrec"));
                 r.setDateTraitrec(rs.getDate("dateTraitrec"));
                 r.setId_hbg(rs.getInt("id_hbg"));
-                r.setId_user(rs.getInt("id_user"));
+                r.setId_user(rs.getInt("idUser"));
                 reclamations.add(r);
                 
             }

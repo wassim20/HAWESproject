@@ -24,9 +24,10 @@ public class Main {
     public static void main(String[] args) {
         MaConnexion mc = MaConnexion.getInstance();
         
-        Date d = new Date(100,0,1);
+       // Date d = new Date(100,0,1);
 
-       Reclamation r1 = new Reclamation(0,"test12",0,d,d,1,1);
+        
+       Reclamation r1 = new Reclamation(0,"test12",0,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),1,1);
       
         ReclamationService rs = new ReclamationService();
        //rs.ajouterReclamation(r1);
@@ -34,7 +35,7 @@ public class Main {
         
        //rs.supprimerReclamation(6);  ///testi 3la traitement sinnon mayfgasa5ch w mayamodifich .
       //rs.modifierReclamation(r1, 7, "modifie une reclamation", 1, d, d, 1, 1);
-      Avis a1 = new Avis(1, "test", 4, d, 1, 1);
+      Avis a1 = new Avis(1, "test", 4, new Date(System.currentTimeMillis()), 1, 1);
       AvisService avs = new AvisService();
       
       //avs.ajouterAvis(a1);

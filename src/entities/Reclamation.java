@@ -12,7 +12,7 @@ import java.sql.Date;
  * @author Fayechi
  */
 public class Reclamation {
-    private int id_rec,id_hbg,id_user;
+    private int id_rec,id_hbg,idUser;
     private String desc_rec;
     private int  traite;
     private Date dateAjoutrec,dateTraitrec;
@@ -21,10 +21,10 @@ public class Reclamation {
     public Reclamation() {
     }
 
-    public Reclamation(int id_rec,String reclamation, int traite, Date dateAjoutrec, Date dateTraitrec, int id_hbg, int id_user) {
+    public Reclamation(int id_rec,String reclamation, int traite, Date dateAjoutrec, Date dateTraitrec, int id_hbg, int idUser) {
         this.id_rec = id_rec;
         this.id_hbg = id_hbg;
-        this.id_user = id_user;
+        this.idUser = idUser;
         this.desc_rec = reclamation;
         this.traite = traite;
         this.dateAjoutrec = dateAjoutrec;
@@ -48,11 +48,11 @@ public class Reclamation {
     }
 
     public int getId_user() {
-        return id_user;
+        return idUser;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setId_user(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getDesc_rec() {
@@ -91,7 +91,7 @@ public class Reclamation {
     
     @Override
     public String toString() {
-        return "Reclamation{" + "id reclamation=" + id_rec + ", id hebergement=" + id_hbg +", id utilisateur=" + id_user + ", description=" + desc_rec + ", traitée=" + traite + ", Date Ajout=" + dateAjoutrec + ", Date traitement =" + dateTraitrec + '}';
+        return "Reclamation{" + "id reclamation=" + id_rec + ", id hebergement=" + id_hbg +", id utilisateur=" + idUser + ", description=" + desc_rec + ", traitée=" + traite + ", Date Ajout=" + dateAjoutrec + ", Date traitement =" + dateTraitrec + '}';
     }
     
     
