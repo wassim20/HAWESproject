@@ -19,5 +19,6 @@
       <Button fx:id="btnajr" layoutX="494.0" layoutY="341.0" mnemonicParsing="false" onAction="#ajouterReservation" prefHeight="31.0" prefWidth="254.0" text="Effectuer une Réservation" />
       <Button fx:id="btnmdr" layoutX="494.0" layoutY="211.0" mnemonicParsing="false" onAction="#modifierReservation" prefHeight="31.0" prefWidth="254.0" text="Modifier une Réservation" />
       <Button fx:id="btnsuppr" layoutX="494.0" layoutY="275.0" mnemonicParsing="false" onAction="#supprimerReservation" prefHeight="31.0" prefWidth="254.0" text="Annuler une Réservation" />
+      <Button fx:id="btnstat" layoutX="121.0" layoutY="341.0" mnemonicParsing="false" onAction="#displayStatistics" prefHeight="31.0" prefWidth="254.0" text="Statistiques" />
    </children>
 </AnchorPane>

@@ -23,8 +23,8 @@
          </font>
       </Label>
       <Button fx:id="btnconfirmer" layoutX="486.0" layoutY="429.0" mnemonicParsing="false" onAction="#traiterReservation" text="Valider" />
-      <RadioButton fx:id="rdvalider" layoutX="30.0" layoutY="465.0" mnemonicParsing="false" text="Valider" />
-      <RadioButton fx:id="rdannuler" layoutX="128.0" layoutY="465.0" mnemonicParsing="false" text="Annuler" />
+      <RadioButton fx:id="rdvalider" layoutX="30.0" layoutY="465.0" mnemonicParsing="false" onAction="#setEtatValid" text="Valider" />
+      <RadioButton fx:id="rdannuler" layoutX="128.0" layoutY="465.0" mnemonicParsing="false" onAction="#CancelReservation" text="Annuler" />
       <Button fx:id="btngetback" layoutX="659.0" layoutY="17.0" mnemonicParsing="false" onAction="#loadMenu" text="Menu Principale" />
    </children>
 </AnchorPane>

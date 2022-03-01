@@ -9,15 +9,16 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutPaiementFXMLController">
    <children>
-      <Label layoutX="67.0" layoutY="243.0" text="Méthode : " />
-      <Label layoutX="67.0" layoutY="174.0" text="Montant :" />
-      <ChoiceBox fx:id="txtmethode" layoutX="201.0" layoutY="238.0" prefHeight="31.0" prefWidth="306.0" />
-      <TextField fx:id="txtmontant" layoutX="201.0" layoutY="169.0" prefHeight="31.0" prefWidth="306.0" />
+      <Label layoutX="80.0" layoutY="231.0" text="Méthode : " />
+      <Label layoutX="80.0" layoutY="162.0" text="Montant :" />
+      <ChoiceBox fx:id="txtmethode" layoutX="214.0" layoutY="226.0" prefHeight="31.0" prefWidth="306.0" />
+      <TextField fx:id="txtmontant" layoutX="214.0" layoutY="157.0" prefHeight="31.0" prefWidth="306.0" />
       <Button fx:id="btnajoutP" layoutX="438.0" layoutY="321.0" mnemonicParsing="false" onAction="#addPaiement" prefHeight="31.0" prefWidth="108.0" text="Réserver" />
       <Label layoutX="217.0" layoutY="51.0" prefHeight="53.0" prefWidth="166.0" text="Paiement ">
          <font>
             <Font name="Calibri" size="40.0" />
          </font>
       </Label>
+      <Button fx:id="btngetback" layoutX="46.0" layoutY="321.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="31.0" prefWidth="108.0" text="Retour" />
    </children>
 </AnchorPane>
