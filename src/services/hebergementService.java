@@ -1,4 +1,3 @@
-
 package services;
 
 import java.util.HashMap;
@@ -26,7 +25,8 @@ public class hebergementService {
         cnx=MaConnexion.getInstance().getCnx();
     }
     //id_hbg;nom;city;date_ajout;adress;nom_hotel;nb_chambres;nb_suites;piscine;image;prix;
-    public void ajouterhebergement(hebergement l,int a){
+    public int ajouterhebergement(hebergement l,int a){
+        int added = 0;
         String sql="insert into hebergement(id_hbg,nom,city,date_ajout,adress,nom_hotel,nb_chambres,nb_suites,piscine,image,prix) values(?,?,?,?,?,?,?,?,?,?,?)";
         String sql1="insert into categorie(id_hbg,etoile) values(?,?)";
         try {
@@ -55,9 +55,14 @@ public class hebergementService {
             ste1.executeUpdate();
             
             System.out.println("Hebergement Ajoutée");
+            added=1;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        if(added==1){
+            return 1;
+        }else return 0;
+        
     }
     
     /**
@@ -74,6 +79,7 @@ public class hebergementService {
             ste = cnx.prepareStatement(query);
             ResultSet rs;
             rs = ste.executeQuery();
+            
             //rs.next();
             while(rs.next()){
                 //id_hbg;nom;city;date_ajout;adress;nom_hotel;nb_chambres;nb_suites;piscine;image;prix;

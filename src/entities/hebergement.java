@@ -123,9 +123,8 @@ public class hebergement {
     public String toString() {
         return "hebergement{" + "id_hbg=" + id_hbg + ", nom=" + nom + ", city=" + city + ", date_ajout=" + date_ajout + ", adress=" + adress + ", nom_hotel=" + nom_hotel + ", nb_chambres=" + nb_chambres + ", nb_suites=" + nb_suites + ", piscine=" + piscine + ", image=" + image + ", prix=" + prix + '}';
     }
-
     
-
+    
     public hebergement(int id_hbg, String nom, String city, Date date_ajout, String adress, String nom_hotel, int nb_chambres, int nb_suites, int piscine, String image, int prix) {
         this.id_hbg = id_hbg;
         this.nom = nom;
