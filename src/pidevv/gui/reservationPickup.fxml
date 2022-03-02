@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevv.controller.ReservationPickupController">
+   <children>
+      <Pane layoutX="50.0" layoutY="64.0" prefHeight="63.0" prefWidth="799.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Text fill="#6b6565" fontSmoothingType="LCD" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Reservation Pickups" wrappingWidth="423.7999766469002">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnReservation" layoutX="602.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnReservation" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #5ed84f;" text="Add Reservation" textFill="WHITE" />
+         </children>
+      </Pane>
+      <TableView fx:id="tvVol" layoutX="68.0" layoutY="200.0" onMouseClicked="#tvDoubleClicked" prefHeight="313.0" prefWidth="799.0">
+         <columns>
+            <TableColumn fx:id="tcId" minWidth="0.0" prefWidth="0.0" text="id" />
+            <TableColumn fx:id="tcUser" minWidth="0.0" prefWidth="0.0" text="idUser" />
+            <TableColumn fx:id="tcPickup" prefWidth="476.8001022338867" text="Pickup" />
+            <TableColumn fx:id="tcDate" prefWidth="188.7999267578125" text="Date" />
+            <TableColumn fx:id="tcEtat" prefWidth="135.2000732421875" text="etat" />
+         </columns>
+      </TableView>
+      <TextField fx:id="search" layoutX="68.0" layoutY="159.0" onInputMethodTextChanged="#search" onKeyReleased="#search__" prefHeight="26.0" prefWidth="443.0" />
+   </children>
+</AnchorPane>

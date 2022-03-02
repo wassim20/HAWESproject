@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevv.controller.PickupController">
+   <children>
+      <Pane layoutX="50.0" layoutY="57.0" prefHeight="63.0" prefWidth="799.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Text fill="#6b6565" fontSmoothingType="LCD" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Pickups" wrappingWidth="186.99998885393143">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnAddPickup" layoutX="648.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnAddPickup" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #5ed84f;" text="Add Pickup" textFill="WHITE" />
+         </children>
+      </Pane>
+      <TableView fx:id="tvVol" layoutX="50.0" layoutY="177.0" onMouseClicked="#tvDoubleClicked" prefHeight="313.0" prefWidth="799.0">
+         <columns>
+            <TableColumn fx:id="tcId" minWidth="0.0" prefWidth="0.0" text="id" />
+            <TableColumn fx:id="tcUser" minWidth="0.0" prefWidth="0.0" text="idUser" />
+            <TableColumn fx:id="tcAdresseDepart" prefWidth="236.80001068115234" text="Adresse Depart" />
+            <TableColumn fx:id="tcAdresseArrivee" prefWidth="183.20001220703125" text="Adresse Arrivee" />
+            <TableColumn fx:id="tcHeureDepart" prefWidth="175.20004272460938" text="Heure Depart" />
+            <TableColumn fx:id="tcPrix" minWidth="4.79998779296875" prefWidth="204.79998779296875" text="Prix" />
+         </columns>
+      </TableView>
+      <TextField fx:id="search" layoutX="50.0" layoutY="136.0" onInputMethodTextChanged="#search" onKeyReleased="#searchPressed" prefHeight="26.0" prefWidth="443.0" />
+   </children>
+</AnchorPane>
