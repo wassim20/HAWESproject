@@ -36,6 +36,7 @@ public class Hawes {
         hebergement h3 = new hebergement(4,"maison_dhote","tunis",date1,"diyar hamamet","",3,0,1,"tunis",150);
         hebergementService ps = new hebergementService();
         
+        System.out.println(ps.afficherHebergement1().toString());
          //ps.ajouterhebergement(h,3);
          //ps.ajouterhebergement(h1, 2);
          //ps.ajouterhebergement(h2, 5);
@@ -44,12 +45,12 @@ public class Hawes {
         //ps.updatehebergement(h1,1,5);
         //ps.rechercheHebergement(a);
        // ps.deletehebergement(h);
-       HashMap<hebergement,Integer> result = new HashMap<hebergement,Integer>();
+       /*HashMap<hebergement,Integer> result = new HashMap<hebergement,Integer>();
        result=(HashMap<hebergement, Integer>) ps.rechercheHebergement(a);
         for (Map.Entry mapentry : result.entrySet()) {
             System.out.println(" "+mapentry.getKey()
                     + " | etoile: " + mapentry.getValue());
-         // System.out.println(ps.afficherHebergement());
+         // System.out.println(ps.afficherHebergement());*/
         //System.out.println(ps.afficherHebergement());
        
     
@@ -57,7 +58,7 @@ public class Hawes {
     }
         
     }
-}
+
         
     
 

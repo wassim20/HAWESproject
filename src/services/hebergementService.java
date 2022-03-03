@@ -119,6 +119,53 @@ public class hebergementService {
         
     }
     
+    public ArrayList<hebergement> afficherHebergement1(){
+        ArrayList<hebergement> hebergements = new ArrayList<>();
+        String query;
+        query = "select * from hebergement";
+        
+        try {
+            PreparedStatement ste;
+            ste = cnx.prepareStatement(query);
+            ResultSet rs;
+            rs = ste.executeQuery();
+            
+            //rs.next();
+            while(rs.next()){
+                //id_hbg;nom;city;date_ajout;adress;nom_hotel;nb_chambres;nb_suites;piscine;image;prix;
+                hebergement h = new hebergement();
+                
+                h.setId_hbg(rs.getInt("id_hbg"));
+                h.setNom(rs.getString("nom"));
+                h.setCity(rs.getString("city"));
+                h.setDate_ajout(rs.getDate("date_ajout"));
+                h.setAdress(rs.getString("adress"));
+                
+                h.setNom_hotel(rs.getString("nom_hotel"));
+                
+                h.setNb_chambres(rs.getInt("nb_chambres"));
+                h.setNb_suites(rs.getInt("nb_suites"));
+                h.setPiscine(rs.getInt("piscine"));
+                h.setImage(rs.getString("image"));
+                h.setPrix(rs.getInt("prix"));
+                
+                
+                
+                hebergements.add(h);
+                //rs.next();
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return hebergements;
+        
+    }
+    
+    
+    
+    
     
     public boolean updatehebergement(hebergement m,int a,int b){
       //  String query="UPDATE hotel h JOIN hebergement he ON h.id_hbg=he.id_hbg SET  nom_hotel='"+m.getNom_hotel()+"',etoile='"+m.getEtoile()+"',nb_chambres='"+m.getNb_chambres()+"',nb_suites='"+m.getNb_suites()+"',piscine='"+m.getPiscine()+"',image='"+m.getImage()+"',prix='"+m.getPrix()+"',city='"+m.getCity()+"',date_ajout='"+m.getDate_ajout()+"',adress='"+m.getAdress()+"' WHERE id_hbg="+a+"";

@@ -10,26 +10,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import services.hebergementService;
 import tools.MaConnexion;
@@ -41,6 +38,9 @@ public class AddFxmlController implements Initializable {
     
     String d = null;
 
+    
+    @FXML
+    private AnchorPane ap;
     @FXML
     private Button add;
     @FXML
@@ -79,9 +79,25 @@ public class AddFxmlController implements Initializable {
         //tpiscine.setItems(tpiscine1);
         tpiscine.setItems(options);
         L = new ArrayList<>();
-        L.add("jpg");
-        L.add("jpeg");
-        L.add("png");
+        L.add("*.jpg");
+        L.add("*.jpeg");
+        L.add("*.png");
+    }
+    
+    @FXML
+    private String filechoix(ActionEvent event) {
+
+       FileChooser fC = new FileChooser();
+
+        fC.getExtensionFilters().add(new FileChooser.ExtensionFilter("image :", L));
+        File F = fC.showOpenDialog(null);
+
+        if (F != null) {
+            d = F.getAbsolutePath();
+
+        }
+        return d;
+
     }
 
     @FXML
@@ -123,10 +139,12 @@ public class AddFxmlController implements Initializable {
             while (rs.next()) {
             
             ++adder;
-                 // Get data from the current row and use it
+                 
             }
             
-        hebergement h = new hebergement(adder+1, n, city, date1, adress, nom_hotel, nb_chambres, nb_suites, p, "waa", prix);
+            String choi=d;
+            
+        hebergement h = new hebergement(adder+1, n, city, date1, adress, nom_hotel, nb_chambres, nb_suites, p,d/*choi=filechoix(event)*/,prix);
 
         MaConnexion mc = MaConnexion.getInstance();
         hebergementService ps = new hebergementService();
@@ -151,51 +169,28 @@ public class AddFxmlController implements Initializable {
         System.out.println(h);
         
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("afficherhbg.fxml"));
-        try {
-            Parent root =loader.load();
-        } catch (IOException ex) {
-            
-        }
-            AfficherhbgController ac = loader.getController();
-           // ac.setListHbg(ps.afficherHebergement().toString());
+        
         
         
     }
 
-    @FXML
-    private String filechoix(ActionEvent event) {
-
-        FileChooser fC = new FileChooser();
-
-        fC.getExtensionFilters().add(new FileChooser.ExtensionFilter("image :", L));
-        File F = fC.showOpenDialog(null);
-
-        if (F != null) {
-            d = F.getAbsolutePath();
-
-        }
-        return d;
-
-    }
+    
 
    
     @FXML
-    private void afficher(ActionEvent event) {
-       /* hebergementService ps = new hebergementService();
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("afficherhbg.fxml"));
-        try {
-            Parent root =loader.load();
-        } catch (IOException ex) {
-            Logger.getLogger(AddFxmlController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            AfficherhbgController ac = loader.getController();
-            ac.setListHbg(ps.afficherHebergement().toString());
-        
-        
-     */   
+    private void afficher(ActionEvent event) throws IOException {
+       
+       
+         AnchorPane pane = FXMLLoader.load(getClass().getResource("/hawes/GUI/Afficherhbg.fxml"));
+                ap.getChildren().setAll(pane);
+       
     }
+
+    
+        
+        
+       
+    
 
 
 }
