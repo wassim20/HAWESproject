@@ -27,15 +27,21 @@ public class Main {
        // Date d = new Date(100,0,1);
 
         
-       Reclamation r1 = new Reclamation(0,"test12",0,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),1,1);
+       Reclamation r1 = new Reclamation(0,"test60",0,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),1,21);
       
         ReclamationService rs = new ReclamationService();
-       //rs.ajouterReclamation(r1);
+       rs.ajouterReclamation(r1);
        //System.out.println(rs.afficherReclamation());
         
        //rs.supprimerReclamation(6);  ///testi 3la traitement sinnon mayfgasa5ch w mayamodifich .
-      //rs.modifierReclamation(r1, 7, "modifie une reclamation", 1, d, d, 1, 1);
-      Avis a1 = new Avis(1, "test", 4, new Date(System.currentTimeMillis()), 1, 1);
+      if (r1.getTraite()==0){ 
+      //rs.modifierReclamation(r1, 7, "modifie une reclamation", 1, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), 1, 1);
+      
+      }
+   
+    
+      
+      Avis a1 = new Avis(1, "test", 4, new Date(System.currentTimeMillis()), 1, 21);
       AvisService avs = new AvisService();
       
       //avs.ajouterAvis(a1);
@@ -54,3 +60,4 @@ public class Main {
     
     
 }
+

@@ -4,10 +4,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/services/ReclamationService.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AfficherAvisFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/SupprimerAvisFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/MenuReclamationAvisController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AjouterReclamationFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AfficherReclamationModifFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/ModifierAvisFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/SupprimerReclamationFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/tests/Main.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AfficherAvisModifFXMLController.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/services/AvisService.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/entities/Avis.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/tests/Main.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/entities/Reclamation.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AfficherReclamationFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/ModifierReclamtionFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/FXMain.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AjouterAvisFXMLController.java</file>
         </group>
     </open-files>
 </project-private>

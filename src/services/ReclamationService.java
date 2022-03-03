@@ -29,7 +29,7 @@ public class ReclamationService {
         cnx=MaConnexion.getInstance().getCnx();
     }
     public void ajouterReclamation(Reclamation r){
-        String sql="INSERT INTO `reclamation`(`id_rec`, `desc_rec`, `traite` ,`dateAjoutrec`, `dateTraitrec`, `id_hbg`, `idUser`) VALUES ('"+r.getId_rec()+"','"+r.getDesc_rec()+"','"+r.getTraite()+"','"+r.getDateAjoutrec()+"','"+r.getDateTraitrec()+"','"+r.getId_hbg()+"','"+r.getId_user()+"')";
+        String sql="INSERT INTO `reclamation`( `desc_rec`, `traite` ,`dateAjoutrec`, `dateTraitrec`, `id_hbg`, `idUser`) VALUES ('"+r.getDesc_rec()+"','"+r.getTraite()+"',CURRENT_TIMESTAMP(),NULL,'"+r.getId_hbg()+"','"+r.getId_user()+"')";
         try {
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
@@ -40,8 +40,8 @@ public class ReclamationService {
     }
     
     ///////////
-public void modifierReclamation(Reclamation r,int id, String desc_rec,int Trait, Date dateAjoutrec , Date dateTraitrec, int Id_hbg, int IdUser) {
-String sql="UPDATE `reclamation` SET `desc_rec` = '" + desc_rec + "', `traite` = '" + Trait + "', `dateAjoutrec` = '" + dateAjoutrec + "', `dateTraitrec` = '" + dateTraitrec + "', `id_hbg` = '" + Id_hbg + "', `idUser` = '" + IdUser + "' WHERE `reclamation`.`id_rec` = '"+id+"'";        
+public void modifierReclamation(Reclamation r,int id) {
+String sql="UPDATE `reclamation` SET `desc_rec` = '" + r.getDesc_rec() + "', `traite` = '" + r.getTraite() + "', `dateAjoutrec` = '" + r.getDateAjoutrec() + "', `id_hbg` = '" + r.getId_hbg() + "', `idUser` = '" + r.getId_user() + "' WHERE `reclamation`.`id_rec` = '"+id+"'";        
         try {
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
@@ -50,6 +50,20 @@ String sql="UPDATE `reclamation` SET `desc_rec` = '" + desc_rec + "', `traite` =
             System.out.println(ex.getMessage());
         }
     }
+
+/*public void traiterReclamation(Reclamation r,int id) {
+String sql="UPDATE `reclamation` SET `desc_rec` = '" + r.getDesc_rec() + "', `traite` = '" + r.getTraite() + "', `dateAjoutrec` = '" + r.getDateAjoutrec() + "', `id_hbg` = '" + r.getId_hbg() + "', `idUser` = '" + r.getId_user() + "' WHERE `reclamation`.`id_rec` = '"+id+"'";        
+        try {
+            Statement ste = cnx.createStatement();
+            ste.executeUpdate(sql);
+            System.out.println("Reclamation Modifieé");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+*/
+
 
 
 
@@ -151,9 +165,9 @@ String sql="UPDATE `reclamation` SET `desc_rec` = '" + desc_rec + "', `traite` =
     }
 */
     
-     public List<Reclamation> afficherReclamation(){
+     public List<Reclamation> afficherReclamation(){ // zid inr id
         List<Reclamation> reclamations = new ArrayList<>();
-        String query="select * from reclamation";
+        String query="select * from reclamation";// where iduser = int id
         try {
             PreparedStatement ste = cnx.prepareStatement(query);
             ResultSet rs= ste.executeQuery();
@@ -190,6 +204,64 @@ String sql="UPDATE `reclamation` SET `desc_rec` = '" + desc_rec + "', `traite` =
             System.out.println(ex.getMessage());
         }   
     }
+
+    public Reclamation getReclamationById(int idrec) {
+        Reclamation r= new Reclamation();
+            String query="select * from reclamation WHERE `id_rec` = '" + idrec +"' ";
+            try {
+                PreparedStatement ste = cnx.prepareStatement(query);
+                ResultSet rs= ste.executeQuery();
+                while(rs.next()){
+
+                     r.setId_rec(rs.getInt("id_rec"));
+                r.setDesc_rec(rs.getString("desc_rec"));
+                r.setTraite(rs.getInt("traite"));
+                r.setDateAjoutrec(rs.getDate("dateAjoutrec"));
+                r.setDateTraitrec(rs.getDate("dateTraitrec"));
+                r.setId_hbg(rs.getInt("id_hbg"));
+                r.setId_user(rs.getInt("idUser"));
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            return r ;    }
+
+    public List<Reclamation> chercherReclamation(Object o) {
+            String query="";
+            String ch="";
+            int i=0;
+            List<Reclamation> arec = new ArrayList<>();
+            if(o.getClass()==ch.getClass()){
+                ch=(String) o;
+                query="SELECT * FROM `reclamation` WHERE `desc_rec` LIKE '%" + ch + "%' OR `dateAjoutrec` LIKE '%" + ch + "%' OR `dateTraitrec` LIKE '%" + ch + "%'";
+            }
+            if(o instanceof Integer){
+                i=(Integer) o;
+                query="SELECT * FROM `reclamation` WHERE `id_rec` = " + i + " OR `idUser` = " + i + " OR `id_hbg` = " + i + " OR `traite` = " + i + "";
+            }
+            try {
+                System.out.println(query);
+                PreparedStatement ste = cnx.prepareStatement(query);
+                ResultSet rs= ste.executeQuery();
+                while(rs.next()){
+                  Reclamation r = new Reclamation();
+                r.setId_rec(rs.getInt("id_rec"));
+                r.setDesc_rec(rs.getString("desc_rec"));
+                r.setTraite(rs.getInt("traite"));
+                r.setDateAjoutrec(rs.getDate("dateAjoutrec"));
+                r.setDateTraitrec(rs.getDate("dateTraitrec"));
+                r.setId_hbg(rs.getInt("id_hbg"));
+                r.setId_user(rs.getInt("idUser"));
+                arec.add(r);
+                    
+                    System.out.println(arec);
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+            return arec;   
+        }
     
    
     

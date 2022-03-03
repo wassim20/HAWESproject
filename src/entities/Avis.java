@@ -79,7 +79,7 @@ public class Avis {
     
     @Override
     public String toString() {
-        return "Reclamation{" + "id avis=" + id_avis + ", id hebergement=" + id_hbg +", id utilisateur=" + idUser + ", description=" + desc_avis + ", etoile=" + etoile + ", Date Ajout=" + dateAjoutavis + '}'; 
+        return "Reclamation{" + "id avis=" + id_avis + ", id hebergement=" + id_hbg +", id utilisateur=" + idUser + ",\n description=" + desc_avis + ", etoile=" + etoile + ", Date Ajout=" + dateAjoutavis + '}'; 
     }
 
 
