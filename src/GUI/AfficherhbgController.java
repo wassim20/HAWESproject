@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +29,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -248,6 +250,9 @@ public class AfficherhbgController implements Initializable {
 
     @FXML
     private void update(ActionEvent event) throws IOException, ParseException, SQLException {
+        
+        
+        
         int index = listhbg.getSelectionModel().getSelectedIndex();
         
         if(affnom.getText().equals(String.valueOf(nomhbg.getCellData(index))) && affcity.getText().equals(String.valueOf(cityhbg.getCellData(index))) && affdate.getText().equals(String.valueOf(datehbg.getCellData(index))) && affadress.getText().equals(String.valueOf(adresshbg.getCellData(index))) && affnom_h.getText().equals(String.valueOf(nom_h.getCellData(index))) && affnb_ch.getText().equals(String.valueOf(nb_ch.getCellData(index)))&& affnb_sui.getText().equals(String.valueOf(nb_sui.getCellData(index)))&& affp.getText().equals(String.valueOf(pisc.getCellData(index))) && affprix.getText().equals(String.valueOf(price.getCellData(index))) ) {
@@ -260,6 +265,12 @@ public class AfficherhbgController implements Initializable {
             alert.show();
         }
 else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation ");
+        alert.setHeaderText(null);
+        alert.setContentText("Vous voulez vraiment modifier");
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == ButtonType.OK) {
            int a= Integer.parseInt(affid.getText());
         String b= affnom.getText();
         String c= affcity.getText();
@@ -288,15 +299,34 @@ else {
             hebergementService pss =new hebergementService();
             pss.updatehebergement(heb, a,3);
             
-             AnchorPane pane = FXMLLoader.load(getClass().getResource("/hawes/GUI/Afficherhbg.fxml"));
+             AnchorPane pane = FXMLLoader.load(getClass().getResource("Afficherhbg.fxml"));
                 ap.getChildren().setAll(pane);
+        }
         }
         
         
     }
 
     @FXML
-    private void delete(ActionEvent event) {
+    private void delete(ActionEvent event) throws SQLException, IOException {
+        
+        hebergementService ps = new hebergementService();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation ");
+        alert.setHeaderText(null);
+        alert.setContentText("Vous voulez vraiment supprimer");
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == ButtonType.OK) {
+            int a= Integer.parseInt(affid.getText());
+            
+            hebergement heb;
+            heb=ps.gethbg(a);
+            ps.deletehebergement(heb);
+        }
+
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Afficherhbg.fxml"));
+                ap.getChildren().setAll(pane);
+        
     }
             
     }

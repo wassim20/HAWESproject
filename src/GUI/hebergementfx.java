@@ -15,7 +15,7 @@ public class hebergementfx extends Application {
     public void start(Stage primaryStage) throws IOException {
         
       try {
-            Parent root =FXMLLoader.load(getClass().getResource("Afficherhbg.fxml"));
+            Parent root =FXMLLoader.load(getClass().getResource("AddhbgFxml.fxml"));
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Main");

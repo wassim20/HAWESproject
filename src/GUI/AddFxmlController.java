@@ -137,14 +137,23 @@ public class AddFxmlController implements Initializable {
             ResultSet rs;
             rs = ste.executeQuery();
             while (rs.next()) {
+                
             
             ++adder;
+                
                  
+            }
+            rs.last();
+            if(adder<rs.getInt("id_hbg")){
+                adder=rs.getInt("id_hbg")+1;
+            }else if(adder==rs.getInt("id_hbg")) {
+                adder=adder+1;
+                
             }
             
             String choi=d;
             
-        hebergement h = new hebergement(adder+1, n, city, date1, adress, nom_hotel, nb_chambres, nb_suites, p,d/*choi=filechoix(event)*/,prix);
+        hebergement h = new hebergement(adder, n, city, date1, adress, nom_hotel, nb_chambres, nb_suites, p,d/*choi=filechoix(event)*/,prix);
 
         MaConnexion mc = MaConnexion.getInstance();
         hebergementService ps = new hebergementService();
@@ -181,7 +190,7 @@ public class AddFxmlController implements Initializable {
     private void afficher(ActionEvent event) throws IOException {
        
        
-         AnchorPane pane = FXMLLoader.load(getClass().getResource("/hawes/GUI/Afficherhbg.fxml"));
+         AnchorPane pane = FXMLLoader.load(getClass().getResource("Afficherhbg.fxml"));
                 ap.getChildren().setAll(pane);
        
     }
