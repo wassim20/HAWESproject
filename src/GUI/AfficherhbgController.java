@@ -19,10 +19,13 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import static java.util.Locale.filter;
+import static java.util.Locale.filter;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +39,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javax.annotation.processing.Filer;
 import services.hebergementService;
 import tools.MaConnexion;
 
@@ -100,6 +104,8 @@ public class AfficherhbgController implements Initializable {
     private Button bupdate;
     @FXML
     private Button bdelete;
+    @FXML
+    private TextField chercher;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -328,7 +334,42 @@ else {
                 ap.getChildren().setAll(pane);
         
     }
-            
+
+    @FXML
+    private void chercher(ActionEvent event) throws SQLException {
+        FilteredList<hebergement> filter = new FilteredList<>(getlisthbg(), e -> true);
+        chercher.textProperty().addListener((observable, oldValue, newValue) -> {
+                filter.setPredicate(h -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    
+                    if (h.getNom().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if(h.getCity().toLowerCase().contains(lowerCaseFilter)){
+                        return true;
+                    } else if(h.getAdress().toLowerCase().contains(lowerCaseFilter)){
+                        return true;
+                    } else if(h.getNom_hotel().toLowerCase().contains(lowerCaseFilter)){
+                        return true;
+                    } else if(String.valueOf(h.getNb_chambres()).contains(lowerCaseFilter)){
+                        return true;
+                    } else if(String.valueOf(h.getNb_suites()).contains(lowerCaseFilter)){
+                        return true;
+                    } else if(String.valueOf(h.getPrix()).contains(lowerCaseFilter)){
+                        return true;
+                    }else 
+                        return false;
+                });
+
+            });
+        listhbg.setItems(filter);
+    }
+
+
+   
     }
     
     
