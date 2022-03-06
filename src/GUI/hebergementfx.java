@@ -17,6 +17,8 @@ public class hebergementfx extends Application {
       try {
             Parent root =FXMLLoader.load(getClass().getResource("AddhbgFxml.fxml"));
             Scene scene = new Scene(root);
+            String css=this.getClass().getResource("/css/dark-theme.css").toExternalForm();
+            scene.getStylesheets().add(css);
             
             primaryStage.setTitle("Main");
             primaryStage.setScene(scene);
@@ -26,9 +28,7 @@ public class hebergementfx extends Application {
         }
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         launch(args);
     }

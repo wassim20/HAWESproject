@@ -33,6 +33,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -94,7 +95,6 @@ public class AfficherhbgController implements Initializable {
     private TextField affnom_h;
     @FXML
     private TextField affnb_ch;
-    @FXML
     private TextField affp;
     @FXML
     private TextField affprix;
@@ -106,11 +106,21 @@ public class AfficherhbgController implements Initializable {
     private Button bdelete;
     @FXML
     private TextField chercher;
+    @FXML
+    private TableColumn<?, ?> etoile;
+    @FXML
+    private TextField affet;
+    @FXML
+    private ComboBox<String> tpiscine;
+    ObservableList<String> options = FXCollections.observableArrayList(
+            "YES",
+            "NO"
+    );
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
+        tpiscine.setItems(options);
         
         try {
             AfficherTable();
@@ -129,82 +139,7 @@ public class AfficherhbgController implements Initializable {
         
     }   
     
-          /*  public static ObservableMap<hebergement,Integer> gethbg() throws ClassNotFoundException,SQLException{
-        hebergementService ps = new hebergementService();
-                
-                    ResultSet rs = (ResultSet) ps.afficherHebergement();
-                    ObservableMap<hebergement,Integer> hbglist=gethbgObject(rs);
-                    return hbglist;
-                    
-                
-        
-            
-            }
-            private static ObservableMap<hebergement, Integer> gethbgObject(ResultSet rs) throws SQLException,ClassNotFoundException {
-           Connection cnx ;
-           cnx=MaConnexion.getInstance().getCnx();
-            
-                ObservableMap<hebergement,Integer> hbglist = FXCollections.observableMap((Map<hebergement,Integer>)rs);
-                
-                while(rs.next()){
-                    hebergement h=new hebergement();
-                    h.setId_hbg(rs.getInt("id_hbg"));
-                h.setNom(rs.getString("nom"));
-                h.setCity(rs.getString("city"));
-                h.setDate_ajout(rs.getDate("date_ajout"));
-                h.setAdress(rs.getString("adress"));
-                
-                h.setNom_hotel(rs.getString("nom_hotel"));
-                
-                h.setNb_chambres(rs.getInt("nb_chambres"));
-                h.setNb_suites(rs.getInt("nb_suites"));
-                h.setPiscine(rs.getInt("piscine"));
-                h.setImage(rs.getString("image"));
-                h.setPrix(rs.getInt("prix"));
-                
-                String query1="select * from categorie WHERE id_hbg="+rs.getInt("id_hbg")+"";
-                PreparedStatement ste1;
-                ste1 = cnx.prepareStatement(query1);
-                ResultSet rs1;
-                rs1 = ste1.executeQuery();
-                rs1.next();
-
-                hbglist.put(h, rs1.getInt("etoile"));
-                    
-                }
-            
-            return hbglist;
-            }
-
-    private void showtable(ObservableMap<hebergement, Integer> hbglist1) {
-
-        listhbg.setItems((ObservableList<hebergement>) (ObservableMap<hebergement,Integer>) hbglist1);
-        
-    }
-
-    private void loaddata() {
-        ArrayList e=new ArrayList();
-        e=ps.afficherHebergement1();
-        ObservableList<hebergement> hberglist = FXCollections.observableList(e);
-
-
-         idhbg.setCellValueFactory(new PropertyValueFactory<>("id_hbg"));
-            nomhbg.setCellValueFactory(new PropertyValueFactory<>("nom"));
-            cityhbg.setCellValueFactory(new PropertyValueFactory<>("city"));
-            datehbg.setCellValueFactory(new PropertyValueFactory<>("date_ajout"));
-            adresshbg.setCellValueFactory(new PropertyValueFactory<>("adress"));
-            nom_h.setCellValueFactory(new PropertyValueFactory<>("nom_hotel"));
-            nb_ch.setCellValueFactory(new PropertyValueFactory<>("nb_chambres"));
-            nb_sui.setCellValueFactory(new PropertyValueFactory<>("nb_suites"));
-            pisc.setCellValueFactory(new PropertyValueFactory<>("piscine"));
-            price.setCellValueFactory(new PropertyValueFactory<>("prix"));
-            
-            
-     listhbg.setItems(hberglist);
-    
-            //hberglist =  (ObservableList<hebergement>) ps.afficherHebergement1();
-            
-            */
+          
     
     public static ObservableList<hebergement> getlisthbg() throws SQLException {
         hebergementService ms = new hebergementService();
@@ -226,6 +161,7 @@ public class AfficherhbgController implements Initializable {
             nb_sui.setCellValueFactory(new PropertyValueFactory<>("nb_suites"));
             pisc.setCellValueFactory(new PropertyValueFactory<>("piscine"));
             price.setCellValueFactory(new PropertyValueFactory<>("prix"));
+            etoile.setCellValueFactory(new PropertyValueFactory<>("etoile"));
             listhbg.setItems(list);
 
     }
@@ -247,8 +183,13 @@ public class AfficherhbgController implements Initializable {
         affnom_h.setText(String.valueOf(nom_h.getCellData(index)));
         affnb_ch.setText(String.valueOf(nb_ch.getCellData(index)));
         affnb_sui.setText(String.valueOf(nb_sui.getCellData(index)));
-        affp.setText(String.valueOf(pisc.getCellData(index)));
+       // affp.setText(String.valueOf(pisc.getCellData(index)));
+       if(pisc.getCellData(index)==1)
+       tpiscine.setValue("YES");
+       else tpiscine.setValue("NO");
+           
         affprix.setText(String.valueOf(price.getCellData(index)));
+        affet.setText(String.valueOf(etoile.getCellData(index)));
         
         
         //combo.setValue(String.valueOf(id_promo.getCellData(index)));
@@ -258,11 +199,16 @@ public class AfficherhbgController implements Initializable {
     private void update(ActionEvent event) throws IOException, ParseException, SQLException {
         
         
-        
+        String o="";
         int index = listhbg.getSelectionModel().getSelectedIndex();
         
-        if(affnom.getText().equals(String.valueOf(nomhbg.getCellData(index))) && affcity.getText().equals(String.valueOf(cityhbg.getCellData(index))) && affdate.getText().equals(String.valueOf(datehbg.getCellData(index))) && affadress.getText().equals(String.valueOf(adresshbg.getCellData(index))) && affnom_h.getText().equals(String.valueOf(nom_h.getCellData(index))) && affnb_ch.getText().equals(String.valueOf(nb_ch.getCellData(index)))&& affnb_sui.getText().equals(String.valueOf(nb_sui.getCellData(index)))&& affp.getText().equals(String.valueOf(pisc.getCellData(index))) && affprix.getText().equals(String.valueOf(price.getCellData(index))) ) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if(pisc.getCellData(index)==1)
+        {
+            o="YES";
+        }else o = "NO";
+        
+        if(affnom.getText().equals(String.valueOf(nomhbg.getCellData(index))) && affcity.getText().equals(String.valueOf(cityhbg.getCellData(index))) && affdate.getText().equals(String.valueOf(datehbg.getCellData(index))) && affadress.getText().equals(String.valueOf(adresshbg.getCellData(index))) && affnom_h.getText().equals(String.valueOf(nom_h.getCellData(index))) && tpiscine.getValue()==o && affnb_ch.getText().equals(String.valueOf(nb_ch.getCellData(index)))&& affnb_sui.getText().equals(String.valueOf(nb_sui.getCellData(index)))  && affprix.getText().equals(String.valueOf(price.getCellData(index))) && affet.getText().equals(String.valueOf(etoile.getCellData(index))) ) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             
             // set content text
             alert.setContentText("verifié vos parametre ");
@@ -285,10 +231,16 @@ else {
         Date d=formatter1.parse(sDate1);
         String e= affadress.getText();
         String f=affnom_h.getText();
+        
         int i =Integer.parseInt(affnb_ch.getText());
         int j=Integer.parseInt(affnb_sui.getText());
-        int k=Integer.parseInt(affp.getText());
+        //int k=Integer.parseInt(affp.getText());
+        int k = 1;
+        if ("NO".equals(tpiscine.getValue())) {
+            k = 0;
+        }
         int l=Integer.parseInt(affprix.getText());
+        int m=Integer.parseInt(affet.getText());
             System.out.println("wselt");
         
             //id_hbg;nom;city;date_ajout;adress;nom_hotel;nb_chambres;nb_suites;piscine;image;prix;
@@ -301,9 +253,9 @@ else {
                 ResultSet rs1;
                 rs1 = ste1.executeQuery();
                 rs1.next();
-            heb = new hebergement(a,b, c, d, e,f, i, j, k, rs1.getString("image"), l);
+            heb = new hebergement(a,b, c, d, e,f, i, j, k, rs1.getString("image"), l,m);
             hebergementService pss =new hebergementService();
-            pss.updatehebergement(heb, a,3);
+            pss.updatehebergement(heb, a,m);
             
              AnchorPane pane = FXMLLoader.load(getClass().getResource("Afficherhbg.fxml"));
                 ap.getChildren().setAll(pane);

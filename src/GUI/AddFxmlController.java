@@ -88,6 +88,7 @@ public class AddFxmlController implements Initializable {
     private String filechoix(ActionEvent event) {
 
        FileChooser fC = new FileChooser();
+       fC.setTitle("choisir une image");
 
         fC.getExtensionFilters().add(new FileChooser.ExtensionFilter("image :", L));
         File F = fC.showOpenDialog(null);

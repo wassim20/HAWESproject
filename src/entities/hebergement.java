@@ -20,6 +20,32 @@ public class hebergement {
     private int piscine;
     private String image;
     private int prix;
+    private int etoile;
+
+    public hebergement(int id_hbg, String nom, String city, Date date_ajout, String adress, String nom_hotel, int nb_chambres, int nb_suites, int piscine, String image, int prix, int etoile) {
+        this.id_hbg = id_hbg;
+        this.nom = nom;
+        this.city = city;
+        this.date_ajout = date_ajout;
+        this.adress = adress;
+        this.nom_hotel = nom_hotel;
+        this.nb_chambres = nb_chambres;
+        this.nb_suites = nb_suites;
+        this.piscine = piscine;
+        this.image = image;
+        this.prix = prix;
+        this.etoile = etoile;
+    }
+
+    public int getEtoile() {
+        return etoile;
+    }
+
+    public void setEtoile(int etoile) {
+        this.etoile = etoile;
+    }
+     
+    
     
 
     

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.2" prefWidth="822.4" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FronthbgController">
+   <children>
+      <ImageView fx:id="img1" fitHeight="255.7" fitWidth="274.1" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img2" fitHeight="255.7" fitWidth="274.1" layoutX="274.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img3" fitHeight="255.7" fitWidth="274.1" layoutX="548.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img4" fitHeight="255.7" fitWidth="274.1" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img5" fitHeight="255.7" fitWidth="274.1" layoutX="274.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img6" fitHeight="255.7" fitWidth="274.1" layoutX="548.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img7" fitHeight="255.7" fitWidth="274.1" layoutY="512.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img8" fitHeight="255.7" fitWidth="274.1" layoutX="274.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img9" fitHeight="255.7" fitWidth="274.1" layoutX="548.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
