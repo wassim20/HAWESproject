@@ -8,7 +8,7 @@ package tests;
 import entities.Reservation;
 import services.ReservationService;
 import entities.ReservationEvent;
-import services.ReservationEventService;
+//import services.ReservationEventService;
 import entities.Paiement;
 import services.PaiementService;
 import entities.Ticket;
@@ -27,7 +27,7 @@ import tools.MaConnexion;
     public class Methods{
         //Services//
         ReservationService rs = new ReservationService();
-        ReservationEventService res = new ReservationEventService();
+        //ReservationEventService res = new ReservationEventService();
         TicketService ts = new TicketService();
         PaiementService ps = new PaiementService();
         // Variables Necessaires //
@@ -48,7 +48,7 @@ import tools.MaConnexion;
         
 
 ///////////////////////////////////////         AJOUT DES EVENTS A LA RESERVATION       /////////////////////////////////////        
-            public ReservationEvent addReservationEvent(Reservation reservation){     //// A Changer 
+            /*public ReservationEvent addReservationEvent(Reservation reservation){     //// A Changer 
                 ReservationEvent re = new ReservationEvent();
                 String ce;
                 Scanner scanner = new Scanner(System.in);
@@ -74,7 +74,7 @@ import tools.MaConnexion;
                     System.out.println("Erreur ---> Choix Invalide");
                 }}while("o".equals(ce));
                 return re;
-            }    
+            } */   
         
 ////////////////////////////////////////////////////// AJOUT D'UN PAIEMENT /////////////////////////////////////////////////        
             public Paiement addPaiement(Reservation reservation) {
@@ -98,7 +98,7 @@ import tools.MaConnexion;
                 System.out.println("Entrez le montant payée : ");
                 p.setMontant(scan.nextDouble());
                 p.setCanceled(0);
-                ps.ajoutertPaiement(p);
+                ps.ajouterPaiement(p);
                 return p;
                  //ps.annulerPaiement(1);
                 //System.out.println(ps.afficherPaiement());

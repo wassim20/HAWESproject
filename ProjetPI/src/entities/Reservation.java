@@ -137,14 +137,20 @@ public class Reservation {
     public void setDeadlineAnnulation(Date deadlineAnnulation) {
         this.deadlineAnnulation = deadlineAnnulation;
     }
-
-    
+ 
     @Override
     public String toString() {
-        return "idReservation =" + idRes + ", idClient =" + idUser + ", idHebergement =" + idHebr + ", idVol =" + idVol
-                + ", valide= " + valide + ", nombre des Personne(s) = " + nbPersonne +  ", forfait = " + forfait +  ", nbChambre= " + nbChambre + 
-                 ", nbSuite= " + nbSuite + "\ndate Arrivée =" + dateArr + ", date Départ =" + 
-                dateDep + ", date Résérvation =" + dateRes + ", deadline Annulation=" + deadlineAnnulation + "}\n\n";
+        return "idClient =" + idUser + ", idHebergement =" + idHebr + ", idVol =" + idVol
+                + ", valide= " + valide + ", nombre des Personne(s) = " + nbPersonne +  ",\n forfait = " + forfait +  ", nbChambre= " + nbChambre + 
+                 ", nbSuite= " + nbSuite + ", date Arrivée =" + dateArr + ",\n date Départ =" + 
+                dateDep + ", date Résérvation =" + dateRes + ", deadline Annulation=" + deadlineAnnulation + "}\n";
+    }
+
+    public String prepareToPDF() {
+        return "Votre Numéro de Réservation (" + idRes + ")\n À" + idHebr + "\n Numéro de vol : " + idVol + "\n"
+                + nbPersonne + " Personne(s) " +  "\n Forfait  " + forfait + "\n " + nbChambre + " Chambre(s) \n" 
+                + nbSuite + " Suite(s) \n"  + " Acceuil Le " + dateArr + "\n Départ Le " + 
+                dateDep + "\n Date de Résérvation,  Le " + dateRes + "\n";
     }
     
     

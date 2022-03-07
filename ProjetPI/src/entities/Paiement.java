@@ -82,7 +82,12 @@ public class Paiement {
     
     @Override
     public String toString() {
-        return "Paiement{" + "idPmt=" + idPmt + ", idRes=" + idRes + ", datePmt=" + datePmt + ", methode=" + methode + ", montant=" + montant + ", canceled=" + canceled + '}';
+        return "\n" + "idPmt=" + idPmt + ", idRes=" + idRes + ", datePmt=" + datePmt + ", methode=" + methode + ", montant=" + montant + ", canceled=" + canceled + '.';
+    }
+
+    public String prepareToPDF() {
+        return "\n" + "Numéro de transaction " + idPmt + " \nDate du Paiement " + datePmt + "\nPayée par " + methode + "\nMontant à Parfaire" + montant + "\n";
+
     }
     
     

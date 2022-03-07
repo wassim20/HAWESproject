@@ -27,9 +27,9 @@ public class PaiementService {
     public PaiementService() {
         cnx=MaConnexion.getInstance().getCnx();
     }
-    public void ajoutertPaiement(Paiement pmt){
+    public void ajouterPaiement(Paiement pmt){
         String sql="INSERT INTO `paiement` (`idPmt`, `idRes`, `datePmt`, `methode`, `montant`, `canceled`)"
-                + " VALUES ('" + pmt.getIdPmt() + "', '" + pmt.getIdRes() + "', '" + pmt.getDatePmt() + "', '" + pmt.getMethode() + "', '" + pmt.getMontant() + "', '" + pmt.getCanceled() + "')";
+                + " VALUES ('" + pmt.getIdPmt() + "', '" + pmt.getIdRes() + "', current_timestamp(), '" + pmt.getMethode() + "', '" + pmt.getMontant() + "', '" + pmt.getCanceled() + "')";
         try {
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
@@ -66,8 +66,29 @@ public class PaiementService {
                 pmt.setMethode(rs.getString("methode"));
                 pmt.setMontant(rs.getDouble("montant"));
                 pmt.setCanceled(rs.getInt("canceled"));
-                paiements.add(pmt);
-                
+                paiements.add(pmt);   
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return paiements;
+    }
+    
+        public List<Paiement> afficherPaiementA(){
+        List<Paiement> paiements = new ArrayList<>();
+        String query="select * from Paiement where canceled = 1";
+        try {
+            PreparedStatement ste = cnx.prepareStatement(query);
+            ResultSet rs= ste.executeQuery();
+            while(rs.next()){
+                Paiement pmt = new Paiement();
+                pmt.setIdPmt(rs.getInt("idPmt"));
+                pmt.setIdRes(rs.getInt("idRes"));
+                pmt.setDatePmt(rs.getDate("datePmt"));
+                pmt.setMethode(rs.getString("methode"));
+                pmt.setMontant(rs.getDouble("montant"));
+                pmt.setCanceled(rs.getInt("canceled"));
+                paiements.add(pmt);   
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -138,12 +159,47 @@ public class PaiementService {
             System.out.println(ex.getMessage());
         }
     }
-    
+        
+    public List<Paiement> cherchePaiement(Object o) {
+        String query="";
+        String ch="";
+        int i=0;
+        List<Paiement> paiements = new ArrayList<>();
+        if(o.getClass()==ch.getClass()){
+            ch=(String) o;
+            query="SELECT * FROM `paiement` WHERE `methode` LIKE '%" + ch + "%' OR `datePmt` LIKE '%" + ch + "%' ORDER BY `idPmt` ASC";
+            //System.out.println("is String");
+        }
+        if(o instanceof Integer){
+            i=(Integer) o;
+            query="SELECT * FROM `paiement` WHERE `idPmt` = " + i + " OR `idRes` = " + i + " OR `montant` LIKE '%" + i + "%' "
+            + "OR `canceled` = " + i + " OR `datePmt` LIKE '%" + i + "%' ORDER BY `idPmt` ASC";
+            //System.out.println("isInteger");
+        }
+        try {
+            //System.out.println(query);
+            PreparedStatement ste = cnx.prepareStatement(query);
+            ResultSet rs= ste.executeQuery();
+            while(rs.next()){
+                Paiement pmt = new Paiement();
+                pmt.setIdPmt(rs.getInt("idPmt"));
+                pmt.setIdRes(rs.getInt("idRes"));
+                pmt.setDatePmt(rs.getDate("datePmt"));
+                pmt.setMethode(rs.getString("methode"));
+                pmt.setMontant(rs.getDouble("montant"));
+                pmt.setCanceled(rs.getInt("canceled"));
+                paiements.add(pmt);   
+            }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            return paiements; 
+    }
 }
 
 
 ///  ADD PAIEMENT                       - DONE
 ///  CANCEL PAIEMENT                    - DONE
 ///  EDIT PAIEMENT                      - DONE
-///  SHOW BOTH PAIEMENTS                - DOING
+///  SHOW BOTH PAIEMENTS                - DONE
 ///  STATISTICS ABOUT PAIEMENTS         - STILL

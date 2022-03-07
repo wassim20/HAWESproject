@@ -5,6 +5,9 @@
  */
 package services;
 
+import com.sun.javafx.beans.IDProperty;
+import entities.Paiement;
+import entities.Reservation;
 import entities.Ticket;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -95,9 +98,9 @@ public class TicketService {
         return tickets; 
     }
     
-        public List<Ticket> afficherTicketSupprime(){
-        List<Ticket> tickets = new ArrayList<>();
-        String query="select * from Ticket where deleted=1";
+    public List<Ticket> afficherTicketSupprime(){
+    List<Ticket> tickets = new ArrayList<>();
+    String query="select * from Ticket where deleted=1";
         try {
             PreparedStatement ste = cnx.prepareStatement(query);
             ResultSet rs= ste.executeQuery();
@@ -112,7 +115,41 @@ public class TicketService {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return tickets; 
+    return tickets; 
+    }
+    
+    public int GetTicketByResAndPai(Paiement p, Reservation r){
+    List<Ticket> tickets = new ArrayList<>();
+    int idTicket = 0;
+    String query="SELECT * FROM `ticket` WHERE `idPmt` = " + p.getIdPmt() + " AND `idRes` = " + r.getIdRes() + "";
+        try {
+            PreparedStatement ste = cnx.prepareStatement(query);
+            ResultSet rs= ste.executeQuery();
+            while(rs.next()){
+                idTicket = rs.getInt("idTicket");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    return idTicket; 
+    }
+    
+    public Ticket GetTicketById(int id){
+    Ticket ticket = new Ticket();
+    String query="SELECT * FROM `ticket` WHERE `idTicket` = " + id + "";
+        try {
+            PreparedStatement ste = cnx.prepareStatement(query);
+            ResultSet rs= ste.executeQuery();
+            while(rs.next()){
+                ticket.setIdTicket(rs.getInt("idTicket"));
+                ticket.setIdPmt(rs.getInt("idPmt"));
+                ticket.setIdRes(rs.getInt("idRes"));
+                ticket.setDeleted(rs.getInt("deleted"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    return ticket; 
     }
         
     
