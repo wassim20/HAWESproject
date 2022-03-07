@@ -8,18 +8,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherPaiementsFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherPaiementsFXMLController">
    <children>
-      <ListView fx:id="txtlistPaiement" layoutX="18.0" layoutY="110.0" prefHeight="338.0" prefWidth="764.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="110.0" />
-      <Label layoutX="338.0" layoutY="14.0" text="Paiement">
+        <AnchorPane fx:id="anchor2" prefHeight="767.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <Label alignment="CENTER" layoutX="23.0" layoutY="47.0" prefHeight="38.0" prefWidth="216.0" text="Hawes Voyage" textAlignment="CENTER">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+                <Button layoutX="22.0" layoutY="123.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd; -fx-border-radius: 20px;" text="Gestion des Utilisateurs" textFill="WHITE" />
+                <Button layoutX="22.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Hébérgements" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="230.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="284.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="393.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="25.0" layoutY="696.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Logout" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+      <ListView fx:id="txtlistPaiement" layoutX="276.0" layoutY="110.0" prefHeight="605.0" prefWidth="528.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="110.0" />
+      <Label layoutX="478.0" layoutY="14.0" text="Paiement">
          <font>
             <Font name="Nirmala UI" size="30.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rdafft" layoutX="18.0" layoutY="85.0" mnemonicParsing="false" onAction="#afficherPaiements" text="Toutes" />
-      <RadioButton fx:id="rdaffa" layoutX="144.0" layoutY="85.0" mnemonicParsing="false" onAction="#afficherPaiementAnnulees" text="Annulées" />
-      <TextField fx:id="txtsearch" layoutX="556.0" layoutY="456.0" prefHeight="31.0" prefWidth="151.0" />
-      <Button fx:id="btnsearch" layoutX="717.0" layoutY="456.0" mnemonicParsing="false" onAction="#chercherPaiement" text="Search" />
-      <Button fx:id="btngetback" layoutX="18.0" layoutY="456.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="31.0" prefWidth="208.0" text="Revenir au menu Pricinaple" />
+      <RadioButton fx:id="rdafft" layoutX="276.0" layoutY="75.0" mnemonicParsing="false" onAction="#afficherPaiements" text="Toutes" />
+      <RadioButton fx:id="rdaffa" layoutX="402.0" layoutY="75.0" mnemonicParsing="false" onAction="#afficherPaiementAnnulees" text="Annulées" />
+      <TextField fx:id="txtsearch" layoutX="631.0" layoutY="70.0" onKeyReleased="#chercherPaiement" prefHeight="31.0" prefWidth="151.0" />
+      <Button fx:id="btngetback" layoutX="446.0" layoutY="720.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="31.0" prefWidth="208.0" text="Revenir au menu Pricinaple" />
    </children>
 </AnchorPane>

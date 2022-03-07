@@ -8,20 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherReservationsFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherReservationsFXMLController">
    <children>
-      <ListView fx:id="txtlistReservation" layoutX="14.0" layoutY="95.0" prefHeight="255.0" prefWidth="572.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="95.0" />
-      <RadioButton fx:id="rdafft" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#afficherReservations" text="Toutes" />
-      <RadioButton fx:id="rdaffc" layoutX="153.0" layoutY="64.0" mnemonicParsing="false" onAction="#afficherReservationCourantes" text="Courantes" />
+        <AnchorPane fx:id="anchor2" prefHeight="767.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <Label alignment="CENTER" layoutX="23.0" layoutY="47.0" prefHeight="38.0" prefWidth="216.0" text="Hawes Voyage" textAlignment="CENTER">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btngetback" layoutX="23.0" layoutY="230.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd; -fx-border-radius: 20px;" text="Gestion des Réservations" textFill="WHITE" />
+                <Button layoutX="22.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Hébérgements" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des utilisateurs" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="284.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="393.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="25.0" layoutY="696.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Logout" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+      <ListView fx:id="txtlistReservation" layoutX="284.0" layoutY="95.0" onMouseClicked="#prepareUD" prefHeight="600.0" prefWidth="524.0" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="95.0" />
+      <RadioButton fx:id="rdafft" layoutX="323.0" layoutY="27.0" mnemonicParsing="false" onAction="#afficherReservations" text="Toutes" />
+      <RadioButton fx:id="rdaffc" layoutX="472.0" layoutY="27.0" mnemonicParsing="false" onAction="#afficherReservationCourantes" text="Courantes" />
       <RadioButton fx:id="rdaffa" layoutX="323.0" layoutY="64.0" mnemonicParsing="false" onAction="#afficherReservationsAnnulees" text="Annulées" />
       <RadioButton fx:id="rdaffnt" layoutX="472.0" layoutY="64.0" mnemonicParsing="false" onAction="#afficherReservationNonTraites" text="Non Traités" />
-      <Label layoutX="43.0" layoutY="14.0" prefHeight="46.0" prefWidth="180.0" text="Réservation">
-         <font>
-            <Font name="Calibri" size="33.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtsearch" layoutX="560.0" layoutY="455.0" prefHeight="31.0" prefWidth="151.0" />
-      <Button fx:id="btnsearch" layoutX="721.0" layoutY="455.0" mnemonicParsing="false" onAction="#chercherReservation" text="Search" />
-      <Button fx:id="btngetback" layoutX="15.0" layoutY="455.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="31.0" prefWidth="208.0" text="Revenir au menu Pricinaple" />
+      <TextField fx:id="txtsearch" layoutX="635.0" layoutY="59.0" onKeyReleased="#chercherReservation" prefHeight="31.0" prefWidth="151.0" />
    </children>
 </AnchorPane>

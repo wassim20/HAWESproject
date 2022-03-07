@@ -5,20 +5,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuReservationPaiementController">
-   <children>
-      <Label alignment="CENTER" layoutX="180.0" layoutY="36.0" prefHeight="69.0" prefWidth="441.0" text="Menu Réservation et Paiement">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuReservationPaiementController">
+    <children>
+        <AnchorPane fx:id="anchor2" prefHeight="767.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <Label alignment="CENTER" layoutX="23.0" layoutY="47.0" prefHeight="38.0" prefWidth="216.0" text="Hawes Voyage" textAlignment="CENTER">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+                <Button layoutX="23.0" layoutY="230.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd; -fx-border-radius: 20px;" text="Gestion des Réservations" textFill="WHITE" />
+                <Button layoutX="22.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Hébérgements" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des utilisateurs" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="284.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="393.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="25.0" layoutY="696.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Logout" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+      <Label alignment="CENTER" layoutX="310.0" layoutY="31.0" prefHeight="69.0" prefWidth="441.0" text="Menu Réservation et Paiement">
          <font>
             <Font name="Corbel" size="31.0" />
          </font>
       </Label>
-      <Button fx:id="btnaffr" layoutX="494.0" layoutY="143.0" mnemonicParsing="false" onAction="#afficherReservations" prefHeight="31.0" prefWidth="254.0" text="Afficher tous les Réservations" />
-      <Button fx:id="btntrtr" layoutX="121.0" layoutY="211.0" mnemonicParsing="false" onAction="#traiterReservation" prefHeight="31.0" prefWidth="254.0" text="Traiter les Réservations" />
-      <Button fx:id="btnaffp" layoutX="121.0" layoutY="143.0" mnemonicParsing="false" onAction="#afficherPaiements" prefHeight="31.0" prefWidth="254.0" text="Afficher tous les Paiements" />
-      <Button fx:id="btnrect" layoutX="121.0" layoutY="275.0" mnemonicParsing="false" onAction="#recupererTicket" prefHeight="31.0" prefWidth="254.0" text="Récupérer une Ticket" />
-      <Button fx:id="btnajr" layoutX="494.0" layoutY="341.0" mnemonicParsing="false" onAction="#ajouterReservation" prefHeight="31.0" prefWidth="254.0" text="Effectuer une Réservation" />
-      <Button fx:id="btnmdr" layoutX="494.0" layoutY="211.0" mnemonicParsing="false" onAction="#modifierReservation" prefHeight="31.0" prefWidth="254.0" text="Modifier une Réservation" />
-      <Button fx:id="btnsuppr" layoutX="494.0" layoutY="275.0" mnemonicParsing="false" onAction="#supprimerReservation" prefHeight="31.0" prefWidth="254.0" text="Annuler une Réservation" />
-      <Button fx:id="btnstat" layoutX="121.0" layoutY="341.0" mnemonicParsing="false" onAction="#displayStatistics" prefHeight="31.0" prefWidth="254.0" text="Statistiques" />
+      <Button fx:id="btnaffr" layoutX="558.0" layoutY="141.0" mnemonicParsing="false" onAction="#afficherReservations" prefHeight="31.0" prefWidth="250.0" text="Afficher tous les Réservations" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="btntrtr" layoutX="275.0" layoutY="209.0" mnemonicParsing="false" onAction="#traiterReservation" prefHeight="31.0" prefWidth="250.0" text="Traiter les Réservations" AnchorPane.leftAnchor="275.0" />
+      <Button fx:id="btnaffp" layoutX="275.0" layoutY="141.0" mnemonicParsing="false" onAction="#afficherPaiements" prefHeight="31.0" prefWidth="250.0" text="Afficher tous les Paiements" AnchorPane.leftAnchor="275.0" />
+      <Button fx:id="btnrect" layoutX="275.0" layoutY="273.0" mnemonicParsing="false" onAction="#recupererTicket" prefHeight="31.0" prefWidth="250.0" text="Récupérer une Ticket" AnchorPane.leftAnchor="275.0" />
+      <Button fx:id="btnajr" layoutX="558.0" layoutY="339.0" mnemonicParsing="false" onAction="#ajouterReservation" prefHeight="31.0" prefWidth="250.0" text="Effectuer une Réservation" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="btnmdr" layoutX="558.0" layoutY="209.0" mnemonicParsing="false" onAction="#modifierReservation" prefHeight="31.0" prefWidth="250.0" text="Modifier une Réservation" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="btnsuppr" layoutX="558.0" layoutY="273.0" mnemonicParsing="false" onAction="#supprimerReservation" prefHeight="31.0" prefWidth="250.0" text="Annuler une Réservation" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="btnstat" layoutX="275.0" layoutY="408.0" mnemonicParsing="false" onAction="#displayStatistics" prefHeight="31.0" prefWidth="250.0" text="Statistiques" AnchorPane.leftAnchor="275.0" />
+      <Button fx:id="btnbcp" layoutX="275.0" layoutY="339.0" mnemonicParsing="false" onAction="#bestClient" prefHeight="31.0" prefWidth="250.0" text="BEST CLIENT PRICE" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="297.0" />
    </children>
 </AnchorPane>

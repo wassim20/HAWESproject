@@ -9,32 +9,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatisticsFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatisticsFXMLController">
    <children>
-      <Label contentDisplay="CENTER" layoutX="308.0" layoutY="-1.0" prefHeight="72.0" prefWidth="185.0" text="Statistiques" textAlignment="CENTER">
+        <AnchorPane fx:id="anchor2" prefHeight="767.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <Label alignment="CENTER" layoutX="23.0" layoutY="47.0" prefHeight="38.0" prefWidth="216.0" text="Hawes Voyage" textAlignment="CENTER">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+                <Button layoutX="22.0" layoutY="123.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd; -fx-border-radius: 20px;" text="Gestion des Utilisateurs" textFill="WHITE" />
+                <Button layoutX="22.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Hébérgements" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="230.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="284.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="22.0" layoutY="393.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Button" textFill="#5b4ebd" />
+                <Button layoutX="25.0" layoutY="696.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Logout" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+      <Label contentDisplay="CENTER" layoutX="323.0" layoutY="14.0" prefHeight="72.0" prefWidth="185.0" text="Statistiques" textAlignment="CENTER">
          <font>
             <Font name="Cambria" size="36.0" />
          </font>
       </Label>
-      <ListView fx:id="txtlistStat" layoutX="14.0" layoutY="95.0" prefHeight="390.0" prefWidth="629.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="157.0" />
-      <Separator layoutX="653.0" layoutY="167.0" prefHeight="3.0" prefWidth="136.0" />
-      <Separator layoutX="656.0" layoutY="94.0" prefHeight="3.0" prefWidth="136.0" />
-      <RadioButton fx:id="rdenr" layoutX="21.0" layoutY="61.0" mnemonicParsing="false" onAction="#setEntityPickReservation" text="Réservation" />
-      <RadioButton fx:id="rdenp" layoutX="165.0" layoutY="61.0" mnemonicParsing="false" onAction="#setEntityPickPaiement" text="Paiement" />
-      <Separator layoutX="655.0" layoutY="238.0" prefHeight="3.0" prefWidth="136.0" />
-      <Separator layoutX="656.0" layoutY="308.0" prefHeight="3.0" prefWidth="136.0" />
-      <TextField fx:id="txtattmoy" layoutX="653.0" layoutY="126.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
-      <Button fx:id="btncharger" layoutX="650.0" layoutY="454.0" mnemonicParsing="false" onAction="#chargerStat" text="Charger" />
-      <RadioButton fx:id="rdorc" layoutX="658.0" layoutY="391.0" mnemonicParsing="false" text="Croissant" />
-      <RadioButton fx:id="rdord" layoutX="658.0" layoutY="424.0" mnemonicParsing="false" text="Décroissant" />
+      <ListView fx:id="txtlistStat" layoutX="269.0" layoutY="121.0" prefHeight="422.0" prefWidth="517.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="14.0" />
+      <Separator layoutX="279.0" layoutY="627.0" prefHeight="3.0" prefWidth="136.0" />
+      <RadioButton fx:id="rdenr" layoutX="331.0" layoutY="724.0" mnemonicParsing="false" onAction="#setEntityPickReservation" text="Réservation" />
+      <RadioButton fx:id="rdenp" layoutX="475.0" layoutY="724.0" mnemonicParsing="false" onAction="#setEntityPickPaiement" text="Paiement" />
+      <Separator layoutX="447.0" layoutY="626.0" prefHeight="3.0" prefWidth="136.0" />
+      <TextField fx:id="txtattmoy" layoutX="279.0" layoutY="586.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
+      <Button fx:id="btncharger" layoutX="696.0" layoutY="719.0" mnemonicParsing="false" onAction="#chargerStat" text="Charger" />
+      <RadioButton fx:id="rdorc" layoutX="644.0" layoutY="634.0" mnemonicParsing="false" text="Croissant" />
+      <RadioButton fx:id="rdord" layoutX="644.0" layoutY="667.0" mnemonicParsing="false" text="Décroissant" />
       <Button fx:id="btngetback" layoutX="628.0" layoutY="19.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="31.0" prefWidth="156.0" text="Menu Principale" />
-      <TextField fx:id="txtattsom" layoutX="653.0" layoutY="200.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
-      <TextField fx:id="txtattnb" layoutX="653.0" layoutY="266.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
-      <Label layoutX="690.0" layoutY="98.0" text="Moyenne" />
-      <Label layoutX="696.0" layoutY="174.0" text="Somme" />
-      <Label layoutX="650.0" layoutY="240.0" text="Nombre D'occurence" />
-      <Separator layoutX="656.0" layoutY="381.0" prefHeight="3.0" prefWidth="136.0" />
-      <TextField fx:id="txtattgrb" layoutX="653.0" layoutY="339.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
-      <Label layoutX="703.0" layoutY="312.0" text="Selon" />
+      <TextField fx:id="txtattsom" layoutX="279.0" layoutY="660.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
+      <TextField fx:id="txtattnb" layoutX="450.0" layoutY="589.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
+      <Label layoutX="316.0" layoutY="558.0" text="Moyenne" />
+      <Label layoutX="322.0" layoutY="634.0" text="Somme" />
+      <Label layoutX="447.0" layoutY="558.0" text="Nombre D'occurence" />
+      <Separator layoutX="638.0" layoutY="691.0" prefHeight="3.0" prefWidth="136.0" />
+      <TextField fx:id="txtattgrb" layoutX="447.0" layoutY="660.0" prefHeight="31.0" prefWidth="136.0" promptText="Attribut" />
+      <Label layoutX="497.0" layoutY="634.0" text="Selon" />
+      <Separator layoutX="628.0" layoutY="626.0" prefHeight="3.0" prefWidth="136.0" />
+      <TextField fx:id="txtattidh" layoutX="628.0" layoutY="589.0" prefHeight="31.0" prefWidth="136.0" promptText="Null = tous" />
+      <Label layoutX="651.0" layoutY="558.0" text="Par Hotel" />
    </children>
 </AnchorPane>
