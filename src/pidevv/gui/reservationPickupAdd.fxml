@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevv.controller.ReservationPickupAddController">
+   <children>
+      <Text fill="#6b6565" fontSmoothingType="LCD" layoutX="78.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Reservation Pickups" wrappingWidth="423.7999766469002">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="143.0" layoutY="161.0" text="Pickup" />
+      <Label layoutX="458.0" layoutY="161.0" text="Date" />
+      <Pane layoutX="58.0" layoutY="61.0" prefHeight="63.0" prefWidth="799.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Text fill="#6b6565" fontSmoothingType="LCD" layoutX="38.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Reservation Pickups" wrappingWidth="394.9999888539314">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Button fx:id="btnAdd" layoutX="719.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnAddVol" prefHeight="26.0" prefWidth="88.0" text="Add Reservation" />
+      <Button fx:id="btnBack" layoutX="719.0" layoutY="510.0" mnemonicParsing="false" onAction="#btnBack" prefHeight="26.0" prefWidth="88.0" text="Back" />
+      <ComboBox fx:id="pickup" layoutX="143.0" layoutY="187.0" prefHeight="26.0" prefWidth="224.0" />
+      <DatePicker fx:id="date" layoutX="458.0" layoutY="187.0" />
+   </children>
+</AnchorPane>
