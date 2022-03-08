@@ -163,6 +163,7 @@ public class Test1Controller implements Initializable {
         String b=price.getText();
         String c=adressh.getText();
         String d=etoileh.getText();
+        
         Image image;
         image=img.getImage();
         
