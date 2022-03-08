@@ -56,7 +56,30 @@ String sql="UPDATE `avis` SET `desc_avis` = '" + a.getDesc_avis() + "', `etoile`
 //////////////////////////
 
         
+     public List<Avis> afficherAvis2(){
+        List<Avis> aviss = new ArrayList<>();
+        String query="select * from avis";
+        try {
+            PreparedStatement ste = cnx.prepareStatement(query);
+            ResultSet rs= ste.executeQuery();
+            while(rs.next()){
+                Avis a = new Avis();
+                a.setId_avis(rs.getInt("id_avis"));
+                a.setDesc_avis(rs.getString("desc_avis"));
+                a.setEtoile(rs.getInt("etoile"));
+                a.setDateAjoutavis(rs.getDate("dateAjoutavis"));
+                a.setId_hbg(rs.getInt("id_hbg"));
+                a.setId_user(rs.getInt("idUser"));
+                aviss.add(a);
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
         
+        return aviss;
+        
+    }     
     
   public List<Avis> afficherAvis(){
         List<Avis> aviss = new ArrayList<>();

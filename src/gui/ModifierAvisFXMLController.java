@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import org.controlsfx.control.Rating;
 import services.AvisService;
 
 /**
@@ -29,16 +30,7 @@ public class ModifierAvisFXMLController implements Initializable {
 
     @FXML
     private TextField txtdescavis;
-    @FXML
-    private RadioButton rd1;
-    @FXML
-    private RadioButton rd5;
-    @FXML
-    private RadioButton rd4;
-    @FXML
-    private RadioButton rd3;
-    @FXML
-    private RadioButton rd2;
+ 
     @FXML
     private Button btnmodifavis;
     @FXML
@@ -48,17 +40,15 @@ public class ModifierAvisFXMLController implements Initializable {
     Avis avis = new Avis();
     Avis a = new Avis();
     int choix = 0;
+    @FXML
+    private Rating rating;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        rd1.setToggleGroup(etoile);
-        rd2.setToggleGroup(etoile);
-        rd3.setToggleGroup(etoile);
-        rd4.setToggleGroup(etoile);
-        rd5.setToggleGroup(etoile);
+        
     }    
 
     @FXML
@@ -66,8 +56,9 @@ public class ModifierAvisFXMLController implements Initializable {
         String desc_avis = txtdescavis.getText();
         a.setDesc_avis(desc_avis);
         a.setDateAjoutavis(avis.getDateAjoutavis());
-        a.setDesc_avis(desc_avis);
-        a.setEtoile(choix);
+        //a.setDesc_avis(desc_avis);
+        rating.setRating(a.getEtoile());        
+
         a.setId_avis(avis.getId_avis());
         a.setId_hbg(avis.getId_hbg());
         a.setId_user(avis.getId_user());
@@ -82,9 +73,9 @@ public class ModifierAvisFXMLController implements Initializable {
     
     private void displayMenu(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuReclamationAvis.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAvisFXML.fxml"));
             Parent root =loader.load();
-            MenuReclamationAvisController mr = loader.getController();
+           AfficherAvisFXMLController mr = loader.getController();
             btngetback.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -92,52 +83,11 @@ public class ModifierAvisFXMLController implements Initializable {
     }
 
     void prepare(Avis a) {
-        txtdescavis.setText(String.valueOf(a.getDesc_avis()));
-        switch (a.getEtoile()) {
-            case 1:
-                rd1.setSelected(true);
-                break;
-            case 2:
-                rd2.setSelected(true);
-                break;
-            case 3:
-                rd3.setSelected(true);
-                break;
-            case 4:
-                rd4.setSelected(true);
-                break;
-            case 5:
-                rd5.setSelected(true);
-                break;
-            default:
-                break;
-        }
+  txtdescavis.setText(String.valueOf(a.getDesc_avis()));
+  rating.setRating(a.getEtoile());
         avis = a;
     }
     
-    @FXML
-    private void setEtoile1(ActionEvent event) {
-        choix = 1;
-    }
 
-    @FXML
-    private void setEtoile5(ActionEvent event) {
-        choix = 5;
-    }
-
-    @FXML
-    private void setEtoile4(ActionEvent event) {
-        choix = 4;
-    }
-
-    @FXML
-    private void setEtoile3(ActionEvent event) {
-        choix = 3;
-    }
-
-    @FXML
-    private void setEtoile2(ActionEvent event) {
-        choix = 2;
-    }
     
 }

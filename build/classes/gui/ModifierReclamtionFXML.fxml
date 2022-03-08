@@ -6,21 +6,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.ModifierReclamtionFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierReclamtionFXMLController">
    <children>
-      <Label layoutX="329.0" layoutY="36.0" text="Modifier Reclamation">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="121.0" layoutY="111.0" text="Description">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
       <TextField fx:id="txtdescrec" layoutX="236.0" layoutY="106.0" prefHeight="274.0" prefWidth="468.0" />
-      <Button fx:id="btnmodi" layoutX="672.0" layoutY="440.0" mnemonicParsing="false" onAction="#modifierRec" text="Modifier" />
-      <Button fx:id="btngetback" layoutX="94.0" layoutY="440.0" mnemonicParsing="false" onAction="#loadMenu" text="Menu" />
+      <Label layoutX="330.0" layoutY="31.0" prefHeight="34.0" prefWidth="286.0" text="Modifier votre réclamations">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="91.0" layoutY="118.0" prefHeight="34.0" prefWidth="125.0" text="Description">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="btngetback" layoutX="38.0" layoutY="31.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="48.0" prefWidth="145.0" style="-fx-background-color: #5b4ebd;" text="Menu" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnmodi" layoutX="650.0" layoutY="705.0" mnemonicParsing="false" onAction="#modifierRec" prefHeight="48.0" prefWidth="145.0" style="-fx-background-color: #5b4ebd;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

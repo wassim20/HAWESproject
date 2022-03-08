@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import org.controlsfx.control.Rating;
 import services.AvisService;
 
 /**
@@ -35,32 +36,20 @@ public class AjouterAvisFXMLController implements Initializable {
     private TextField txtdescavis;
     @FXML
     private Button btnajt;
-    @FXML
-    private RadioButton rd1;
-    @FXML
-    private RadioButton rd5;
-    @FXML
-    private RadioButton rd4;
-    @FXML
-    private RadioButton rd3;
-    @FXML
-    private RadioButton rd2;
-    ToggleGroup etoile = new ToggleGroup();
+   
+    
     int choix =5;
     Avis a = new Avis();
     AvisService as = new AvisService();
+    @FXML
+    private Rating rating;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        rd5.setSelected(true);
-        rd1.setToggleGroup(etoile);
-        rd2.setToggleGroup(etoile);
-        rd3.setToggleGroup(etoile);
-        rd4.setToggleGroup(etoile);
-        rd5.setToggleGroup(etoile);
+   
     }    
 
 
@@ -82,38 +71,16 @@ public class AjouterAvisFXMLController implements Initializable {
 
     @FXML
     private void ajoutavis(ActionEvent event) {
+        
         String desc_avis = txtdescavis.getText();
         a.setDesc_avis(desc_avis);
-        a.setEtoile(choix);
+        a.setEtoile((int) rating.getRating());
         a.setId_hbg(1);
         a.setId_user(21);
         as.ajouterAvis(a);
         displayMenu();
     }
 
-    @FXML
-    private void setEtoile1(ActionEvent event) {
-        choix = 1;
-    }
-
-    @FXML
-    private void setEtoile5(ActionEvent event) {
-        choix = 5;
-    }
-
-    @FXML
-    private void setEtoile4(ActionEvent event) {
-        choix = 4;
-    }
-
-    @FXML
-    private void setEtoile3(ActionEvent event) {
-        choix = 3;
-    }
-
-    @FXML
-    private void setEtoile2(ActionEvent event) {
-        choix = 2;
-    }
+   
     
 }

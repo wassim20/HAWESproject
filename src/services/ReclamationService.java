@@ -50,6 +50,17 @@ String sql="UPDATE `reclamation` SET `desc_rec` = '" + r.getDesc_rec() + "', `tr
             System.out.println(ex.getMessage());
         }
     }
+public void traiterReclamation(Reclamation r){
+    String sql="UPDATE `reclamation` SET `traite` = '1' WHERE `reclamation`.`id_rec` = '"+r.getId_rec()+"'";
+    try {
+            Statement ste = cnx.createStatement();
+            ste.executeUpdate(sql);
+            System.out.println("Reclamation Traiteé");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    
+}
 
 /*public void traiterReclamation(Reclamation r,int id) {
 String sql="UPDATE `reclamation` SET `desc_rec` = '" + r.getDesc_rec() + "', `traite` = '" + r.getTraite() + "', `dateAjoutrec` = '" + r.getDateAjoutrec() + "', `id_hbg` = '" + r.getId_hbg() + "', `idUser` = '" + r.getId_user() + "' WHERE `reclamation`.`id_rec` = '"+id+"'";        
@@ -190,6 +201,7 @@ String sql="UPDATE `reclamation` SET `desc_rec` = '" + r.getDesc_rec() + "', `tr
         return reclamations;
         
     }
+   
     
     
     

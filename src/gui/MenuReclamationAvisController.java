@@ -24,20 +24,13 @@ public class MenuReclamationAvisController implements Initializable {
 
     @FXML
     private Button btnaffa;
-    @FXML
     private Button btnajouta;
     @FXML
     private Button btnaffr;
-    @FXML
-    private Button btnajoutr;
-    @FXML
     private Button btnmdr;
-    @FXML
-    private Button btnsuppr;
-    @FXML
-    private Button btnmda;
-    @FXML
     private Button btnsuppa;
+    @FXML
+    private Button btnaffrecadmin;
 
     /**
      * Initializes the controller class.
@@ -59,7 +52,6 @@ public class MenuReclamationAvisController implements Initializable {
         }   
     }
 
-    @FXML
     private void ajouterAvis(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterAvisFXML.fxml"));
@@ -83,7 +75,6 @@ public class MenuReclamationAvisController implements Initializable {
         }  
     }
 
-    @FXML
     private void ajouterReclamation(ActionEvent event) {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterReclamationFXML.fxml"));
@@ -95,7 +86,6 @@ public class MenuReclamationAvisController implements Initializable {
         }  
     }
 
-    @FXML
     private void modifierReclamation(ActionEvent event) {
           try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherReclamationModifFXML.fxml"));
@@ -107,7 +97,6 @@ public class MenuReclamationAvisController implements Initializable {
         } 
     }
 
-    @FXML
     private void supprimerReclamation(ActionEvent event) {
             try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SupprimerReclamationFXML.fxml"));
@@ -120,7 +109,6 @@ public class MenuReclamationAvisController implements Initializable {
         
     }
 
-    @FXML
     private void modifierAvis(ActionEvent event) {
         
            try {
@@ -133,13 +121,25 @@ public class MenuReclamationAvisController implements Initializable {
         } 
     }
 
-    @FXML
     private void supprimerAvis(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SupprimerAvisFXML.fxml"));
             Parent root =loader.load();
             SupprimerAvisFXMLController tr = loader.getController();
             btnsuppa.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }  
+    }
+
+    @FXML
+    private void afficherReclamationAdmin(ActionEvent event) {
+        
+    try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherReclamationAdminFXML.fxml"));
+            Parent root =loader.load();
+            AfficherReclamationAdminFXMLController tr = loader.getController();
+            btnaffrecadmin.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }  

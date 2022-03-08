@@ -8,7 +8,7 @@
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/SupprimerAvisFXMLController.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/MenuReclamationAvisController.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AjouterReclamationFXMLController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AfficherReclamationModifFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AfficherReclamationAdminFXMLController.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/ModifierAvisFXMLController.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/SupprimerReclamationFXMLController.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/tests/Main.java</file>
@@ -16,6 +16,7 @@
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/services/AvisService.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/entities/Avis.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AfficherReclamationFXMLController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/com/tutorialspoint/SendAttachmentInEmail.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/ModifierReclamtionFXMLController.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/FXMain.java</file>
             <file>file:/C:/Users/LENOVO/Desktop/java/JavaApplication3A26/src/gui/AjouterAvisFXMLController.java</file>

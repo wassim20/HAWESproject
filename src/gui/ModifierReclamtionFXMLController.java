@@ -14,8 +14,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 import services.ReclamationService;
 
 /**
@@ -44,7 +46,18 @@ public class ModifierReclamtionFXMLController implements Initializable {
 
     @FXML
     private void modifierRec(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Réclamation Modifié avec succès "); //Succes
+        //alert.setContentText("Réclamation Modifié avec succès");
+        alert.showAndWait();
+
+     /* int input = JOptionPane.showConfirmDialog(null, "Voulez vous vraiment modifier ?", "Choisir une option...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+      if (input==0) {
+*/
+        
         String desc_rec = txtdescrec.getText();
+        
         r.setDesc_rec(desc_rec);
         r.setDateAjoutrec(reclamation.getDateAjoutrec());
         r.setDateTraitrec(reclamation.getDateTraitrec());
@@ -53,7 +66,13 @@ public class ModifierReclamtionFXMLController implements Initializable {
         r.setTraite(reclamation.getTraite());
         rs.modifierReclamation(r, reclamation.getId_rec());
         displayMenu();
-    }
+        
+     /* else {
+          displayMenu();
+          }
+*/
+      }
+    
 
     @FXML
     private void loadMenu(ActionEvent event) {
@@ -62,9 +81,9 @@ public class ModifierReclamtionFXMLController implements Initializable {
     
     private void displayMenu(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuReclamationAvis.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherReclamationFXML.fxml"));
             Parent root =loader.load();
-            MenuReclamationAvisController mr = loader.getController();
+            AfficherReclamationFXMLController mr = loader.getController();
             btngetback.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
