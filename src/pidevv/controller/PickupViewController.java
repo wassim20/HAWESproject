@@ -112,7 +112,7 @@ public class PickupViewController  implements Initializable {
     @FXML
     void btnUpdate(ActionEvent event) throws IOException {
 if(!adresseD.getText().equals("") && !adresseD.getText().equals("") && !hdH.getValue().equals("") && !hdM.getValue().equals("") ) {
-        PickUp pickUp = new PickUp(pickup.getId(), 0, adresseD.getText(), adresseA.getText(), hdH.getValue()+":"+hdM.getValue(), 0);
+        PickUp pickUp = new PickUp(pickup.getId(), 0, adresseD.getText(), adresseA.getText(), hdH.getValue()+":"+hdM.getValue(), Float.parseFloat(prix.getText()));
         PickUpService pus = new PickUpService();
         pus.update(pickUp);
 
@@ -137,7 +137,7 @@ alert.setAlertType(Alert.AlertType.WARNING);
         adresseD.setText(pickUp.getAdresseDepart());
         hdH.setValue(pickUp.getHeureDepart().split(":", 2)[0]);
         hdM.setValue(pickUp.getHeureDepart().split(":", 2)[1]);
-        prix.setText(pickUp.getPrix()+"");
+        prix.setText(((int)pickUp.getPrix())+"");
     }
 
 }

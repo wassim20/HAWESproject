@@ -10,8 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="pidevv.controller.VolAddController">
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevv.controller.VolAddController">
    <children>
       <TextField fx:id="compagnie" layoutX="175.0" layoutY="172.0" />
       <Label layoutX="175.0" layoutY="147.0" text="Compagnie" />
@@ -21,14 +20,14 @@
       <Label layoutX="175.0" layoutY="284.0" text="Avion" />
       <DatePicker fx:id="dateD" layoutX="497.0" layoutY="172.0" />
       <Label layoutX="497.0" layoutY="147.0" text="Date Depart" />
-      <ComboBox fx:id="hdH" layoutX="497.0" layoutY="240.0" prefHeight="26.0" prefWidth="55.0" />
-      <ComboBox fx:id="hdM" layoutX="585.0" layoutY="239.0" prefHeight="26.0" prefWidth="55.0" />
-      <ComboBox fx:id="haH" layoutX="497.0" layoutY="308.0" prefHeight="26.0" prefWidth="55.0" />
-      <ComboBox fx:id="haM" layoutX="585.0" layoutY="308.0" prefHeight="26.0" prefWidth="55.0" />
+      <ComboBox fx:id="hdH" layoutX="497.0" layoutY="240.0" prefHeight="26.0" prefWidth="72.0" />
+      <ComboBox fx:id="hdM" layoutX="596.0" layoutY="239.0" prefHeight="26.0" prefWidth="72.0" />
+      <ComboBox fx:id="haH" layoutX="497.0" layoutY="308.0" prefHeight="26.0" prefWidth="72.0" />
+      <ComboBox fx:id="haM" layoutX="601.0" layoutY="308.0" prefHeight="26.0" prefWidth="65.0" />
       <Label layoutX="497.0" layoutY="215.0" text="Heure Depart" />
       <Label layoutX="497.0" layoutY="284.0" text="Heure Arrivee" />
-      <Label layoutX="567.0" layoutY="244.0" text=":" />
-      <Label layoutX="568.0" layoutY="313.0" text=":" />
+      <Label layoutX="580.0" layoutY="244.0" text=":" />
+      <Label layoutX="583.0" layoutY="312.0" text=":" />
       <TextField fx:id="places" layoutX="176.0" layoutY="375.0" prefHeight="26.0" prefWidth="73.0" />
       <TextField fx:id="prix" layoutX="496.0" layoutY="375.0" prefHeight="26.0" prefWidth="74.0" />
       <Label layoutX="176.0" layoutY="349.0" text="Places" />

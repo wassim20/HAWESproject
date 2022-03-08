@@ -12,10 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import pidevv.entity.PickUp;
 import pidevv.entity.ReservationPickUp;
 import pidevv.entity.Vol;
 import pidevv.util.DataSource;
+import java.util.*;  
+import javax.mail.*;  
+import javax.mail.internet.*;  
+import javax.activation.*; 
 
 /**
  *
@@ -37,6 +46,17 @@ public class PickUpService implements IService<PickUp>{
             pst.setString(4, pickUp.getHeureDepart());
             pst.setFloat(5, pickUp.getPrix());
 			pst.executeUpdate();
+            sendmail(pickUp);
+
+Image img = new Image("/Check.png");
+Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("  Pickup ajouté")
+                              .graphic(new ImageView(img))
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(Duration.seconds(2));
+               n.darkStyle();
+               n.show();
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -89,6 +109,16 @@ public List<PickUp> getAllList() {
             pst.setFloat(5, pickUp.getPrix());
             pst.setInt(6, pickUp.getId());
 			pst.executeUpdate();
+Image img = new Image("/Check.png");
+
+Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("  Pickup modifié")
+                              .graphic(new ImageView(img))
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(Duration.seconds(2));
+               n.darkStyle();
+               n.show();
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -101,6 +131,15 @@ public List<PickUp> getAllList() {
               PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1,pickUp.getId());
             pst.executeUpdate();
+Image img = new Image("/Check.png");
+Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("  Pickup supprimé")
+                              .graphic(new ImageView(img))
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(Duration.seconds(2));
+               n.darkStyle();
+               n.show();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -144,4 +183,41 @@ public List<PickUp> getAllList() {
       
         return pickUp;
 	}
+
+void sendmail(PickUp p) {
+final String username = "anwer.arfewi@esprit.tn";
+        final String password = "181JMT0211";
+
+        Properties prop = new Properties();
+		prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true"); //TLS
+        
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("anwer.arfewi@esprit.tn"));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse("anwer.arfewi@esprit.tn, anwer.arfewi@esprit.tn")
+            );
+            message.setSubject("Pickup Notification");
+            message.setText(" Pickup ajoute: \n "+ p);
+
+            Transport.send(message);
+
+            System.out.println("Done");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+   }  
 }

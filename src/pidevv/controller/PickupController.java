@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -42,25 +43,7 @@ public class PickupController implements Initializable {
     private TextField search;
 
     @FXML
-    private TableColumn<PickUp, String> tcAdresseArrivee;
-
-    @FXML
-    private TableColumn<PickUp, String> tcAdresseDepart;
-
-    @FXML
-    private TableColumn<PickUp, String> tcHeureDepart;
-
-    @FXML
-    private TableColumn<PickUp, String> tcId;
-
-    @FXML
-    private TableColumn<PickUp, String> tcPrix;
-
-    @FXML
-    private TableColumn<PickUp, String> tcUser;
-
-    @FXML
-    private TableView<PickUp> tvVol;
+    private ListView<PickUp> tvVol;
 
     @FXML
     void btnAddPickup(ActionEvent event) throws IOException {
@@ -83,13 +66,6 @@ public class PickupController implements Initializable {
     private void read()
 	{
 		          PickUpService pus = new PickUpService();
-
-                    tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
-                    tcUser.setCellValueFactory(new PropertyValueFactory<>("idUser"));
-                    tcAdresseArrivee.setCellValueFactory(new PropertyValueFactory<>("adresseArrivee"));
-                    tcAdresseDepart.setCellValueFactory(new PropertyValueFactory<>("adresseDepart"));
-					tcHeureDepart.setCellValueFactory(new PropertyValueFactory<>("heureDepart"));
-					tcPrix.setCellValueFactory(new PropertyValueFactory<>("prix"));
                     tvVol.setItems((ObservableList<PickUp>) pus.getAll());
 	}
 

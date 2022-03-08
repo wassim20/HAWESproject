@@ -41,7 +41,7 @@ public class VolAddController implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, 
                 String newValue) {
                 if (!newValue.matches("\\d*")) {
-                    prix.setText(newValue.replaceAll("[^\\d]", ""));
+                    places.setText(newValue.replaceAll("[^\\d]", ""));
                 }
             }
         });

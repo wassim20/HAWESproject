@@ -84,7 +84,7 @@ public class PickupAddController implements Initializable {
 
     @FXML
     void btnAddVol(ActionEvent event) throws IOException {
-if(!adresseD.getText().equals("") && !adresseD.getText().equals("") && !hdH.getValue().equals("") && !hdM.getValue().equals("") ) {
+if(!adresseD.getText().equals("") && !adresseA.getText().equals("") && !hdH.getValue().equals("") && !hdM.getValue().equals("") ) {
         PickUp pickUp = new PickUp(0, 0, adresseD.getText(), adresseA.getText(), hdH.getValue()+":"+hdM.getValue(), Float.parseFloat(prix.getText()));
         PickUpService pus = new PickUpService();
         pus.add(pickUp);

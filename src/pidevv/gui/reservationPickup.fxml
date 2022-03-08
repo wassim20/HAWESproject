@@ -26,8 +26,8 @@
             <TableColumn fx:id="tcId" minWidth="0.0" prefWidth="0.0" text="id" />
             <TableColumn fx:id="tcUser" minWidth="0.0" prefWidth="0.0" text="idUser" />
             <TableColumn fx:id="tcPickup" prefWidth="476.8001022338867" text="Pickup" />
-            <TableColumn fx:id="tcDate" prefWidth="188.7999267578125" text="Date" />
-            <TableColumn fx:id="tcEtat" prefWidth="135.2000732421875" text="etat" />
+            <TableColumn fx:id="tcDate" prefWidth="270.4000244140625" text="Date" />
+            <TableColumn fx:id="tcEtat" minWidth="0.0" prefWidth="54.4000244140625" text="etat" />
          </columns>
       </TableView>
       <TextField fx:id="search" layoutX="68.0" layoutY="159.0" onInputMethodTextChanged="#search" onKeyReleased="#search__" prefHeight="26.0" prefWidth="443.0" />

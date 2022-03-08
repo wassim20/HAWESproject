@@ -10,8 +10,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import org.controlsfx.control.Notifications;
 import pidevv.entity.PickUp;
 import pidevv.entity.ReservationPickUp;
 import pidevv.entity.Vol;
@@ -37,7 +50,17 @@ public class ReservationPickUpService implements IService<ReservationPickUp>{
             pst.setDate(3, rpu.getDate());
             pst.setInt(4, rpu.getEtat());
 			pst.executeUpdate();
+            sendmail(rpu);
 
+Image img = new Image("/Check.png");
+Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("  Reservation pickup ajouté")
+                              .graphic(new ImageView(img))
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(Duration.seconds(2));
+               n.darkStyle();
+               n.show();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -73,6 +96,15 @@ public class ReservationPickUpService implements IService<ReservationPickUp>{
             pst.setInt(4, rpu.getEtat());
             pst.setInt(5, rpu.getId());
 			pst.executeUpdate();
+Image img = new Image("/Check.png");
+Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("  Reservation pickup modifié")
+                              .graphic(new ImageView(img))
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(Duration.seconds(2));
+               n.darkStyle();
+               n.show();
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -86,6 +118,15 @@ public class ReservationPickUpService implements IService<ReservationPickUp>{
               PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1,rpu.getId());
             pst.executeUpdate();
+Image img = new Image("/Check.png");
+Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("  Reservation pickup supprimeé")
+                              .graphic(new ImageView(img))
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(Duration.seconds(2));
+               n.darkStyle();
+               n.show();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -117,4 +158,41 @@ public class ReservationPickUpService implements IService<ReservationPickUp>{
       
         return listRPU;
 	}
+
+void sendmail(ReservationPickUp p) {
+final String username = "anwer.arfewi@esprit.tn";
+        final String password = "181JMT0211";
+
+        Properties prop = new Properties();
+		prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true"); //TLS
+        
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("anwer.arfewi@esprit.tn"));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse("anwer.arfewi@esprit.tn, anwer.arfewi@esprit.tn")
+            );
+            message.setSubject("Reservation Pickup Notification");
+            message.setText(" Reservation pickup ajoute: \n "+ p);
+
+            Transport.send(message);
+
+            System.out.println("Done");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+   }
 }

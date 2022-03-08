@@ -81,13 +81,7 @@ public class VolController implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/pidevv/gui/volAdd.fxml"));
                 ap.getChildren().setAll(pane);
     }
-@FXML
-    void search__(KeyEvent event) {
-VolService vs = new VolService();
 
-                    tvVol.setItems((ObservableList<Vol>) vs.search(search.getText()));
-
-    }
     @FXML
     void tvDoubleClicked(MouseEvent event)  throws IOException {
 if(event.getButton().equals(MouseButton.PRIMARY)){
@@ -108,6 +102,14 @@ if(event.getButton().equals(MouseButton.PRIMARY)){
 
     @FXML
     void search(InputMethodEvent event) {
+    }
+
+@FXML
+    void search__(KeyEvent event) {
+VolService vs = new VolService();
+
+                    tvVol.setItems((ObservableList<Vol>) vs.search(search.getText()));
+
     }
 private void read()
 	{

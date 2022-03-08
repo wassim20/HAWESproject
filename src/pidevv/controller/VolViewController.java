@@ -145,7 +145,7 @@ public class VolViewController implements Initializable {
 if(!avion.getText().equals("") && !destination.getText().equals("") && !compagnie.getText().equals("") && !hdH.getValue().equals("") && !haH.getValue().equals("")&& !haH.getValue().equals("") && !hdM.getValue().equals("") ) {
     Vol voll = new Vol(vol.getId(), compagnie.getText(), destination.getText(), java.sql.Date.valueOf( dateD.getValue() ), hdH.getValue()+":"+hdM.getValue(), haH.getValue()+":"+haM.getValue(), avion.getText(), Integer.parseInt(places.getText()), Float.parseFloat(prix.getText()));
         VolService pus = new VolService();
-        pus.update(vol);
+        pus.update(voll);
 
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/pidevv/gui/vol.fxml"));
                 ap.getChildren().setAll(pane);
@@ -172,7 +172,7 @@ void setVol(Vol voll) {
         haH.setValue(vol.getHeureDepart().split(":", 2)[0]);
         haM.setValue(vol.getHeureDepart().split(":", 2)[1]);
 
-        prix.setText(vol.getPrix()+"");
+        prix.setText(((int)vol.getPrix())+"");
     }
 
 
