@@ -5,19 +5,24 @@
  */
 package gui;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import entities.evenement;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
-import static java.lang.Integer.parseInt;
+import java.net.URL;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import services.EvenementService;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +30,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -33,15 +40,17 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javax.swing.JOptionPane;
-
+import services.EvenementService;
 
 /**
  * FXML Controller class
  *
  * @author achre
  */
-public class InterfaceAdminController implements Initializable {
+public class InterfaceClientController implements Initializable {
 
+    @FXML
+    private TextField cherche;
     @FXML
     private VBox listevent;
     @FXML
@@ -61,39 +70,37 @@ public class InterfaceAdminController implements Initializable {
     @FXML
     private Label prix;
     @FXML
-    private Button btnmodif;
-    @FXML
-    private Button btnsupp;
-    
+    private Button retour;
     EvenementService es = new EvenementService();
     List<evenement> evenements =new ArrayList();
     evenement et = new evenement();
     @FXML
-    private Button ajoute;
+    private RadioButton part;
     @FXML
-    private Button retour;
-    @FXML
-    private TextField cherche;
-    @FXML
-    private Button gerecat;
+    private RadioButton part1;
     
+    ToggleGroup r = new ToggleGroup();
+    @FXML
+    private ImageView imageqr;
     /**
      * Initializes the controller class.
-     * @param url
-     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        evenements = es.afficherEvenement(); 
         
-       displayEvents();
+        evenements = es.afficherEvenement(); 
+        try {
+            qrcode();
+        } catch (WriterException ex) {
+            Logger.getLogger(InterfaceClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        displayEvents();
     }    
     
     
     
     
-    
-        private void displayEvents() {
+            private void displayEvents() {
             
              
             DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");  
@@ -168,21 +175,25 @@ public class InterfaceAdminController implements Initializable {
             prx.setLayoutY(20);
             prx.setTextFill(Color.BLACK);
             String px =Float.toString(e.getPrix());
-            prx.setText(px);            
+            prx.setText(px);
             
-            Button updateBtn = new Button();
-            updateBtn.setPrefHeight(25);
-            updateBtn.setPrefWidth(74); 
-            updateBtn.setLayoutX(714);
-            updateBtn.setLayoutY(8);
-            updateBtn.setText("Modifier");
+            RadioButton rPart1 =new RadioButton();
+            rPart1.setToggleGroup(r);
+            rPart1.setPrefHeight(25);
+            rPart1.setPrefWidth(74);            
+            rPart1.setLayoutX(714);
+            rPart1.setLayoutY(8);
+            rPart1.setText("Non");
+            
+            RadioButton rPart =new RadioButton();
+            rPart.setToggleGroup(r);
+            rPart.setPrefHeight(25);
+            rPart.setPrefWidth(74);            
+            rPart.setLayoutX(714);
+            rPart.setLayoutY(41);
+            rPart.setText("Participer");
+            
 
-            Button deleteBtn = new Button();
-            deleteBtn.setPrefHeight(25);
-            deleteBtn.setPrefWidth(74);            
-            deleteBtn.setLayoutX(714);
-            deleteBtn.setLayoutY(41);
-            deleteBtn.setText("Supprimer");
 
             userPane.getChildren().add(ide);
             userPane.getChildren().add(idh);
@@ -192,47 +203,10 @@ public class InterfaceAdminController implements Initializable {
             userPane.getChildren().add(df);
             userPane.getChildren().add(cat);
             userPane.getChildren().add(prx);
-            userPane.getChildren().add(updateBtn);
-            userPane.getChildren().add(deleteBtn);
+            userPane.getChildren().add(rPart1);
+            userPane.getChildren().add(rPart);
             
             
-            updateBtn.setOnMouseClicked((MouseEvent event) -> {
-                int input = JOptionPane.showConfirmDialog(null, "Etes-vous sure de Modifier cet Evenement ?",
-                        "Confirmer la modification",
-                        JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-                if (input ==0 ){
-                                        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifEve.fxml"));
-            Parent root =loader.load();
-            ModifEventController tr = loader.getController();
-            tr.prepare(e);
-            updateBtn.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }  
-                }
-            });
-
-            deleteBtn.setOnMouseClicked((MouseEvent event) -> {
-                int input = JOptionPane.showConfirmDialog(null, "Etes-vous sure de supprimer cet Evenement ?",
-                        "Confirmer la supression",
-                        JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-
-                if (input == 0) {
-            String sidevent = ide.getText();
-            int idevent = parseInt(sidevent);
-            es.supprimerEvenement(idevent);
-                                                    try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("InterfaceAdmin.fxml"));
-            Parent root =loader.load();
-            InterfaceAdminController tr = loader.getController();
-            deleteBtn.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }  
-            
-                }
-            });
             
             
 
@@ -241,20 +215,10 @@ public class InterfaceAdminController implements Initializable {
         }
 
     }
-        
-        
-            @FXML
-    private void ajouterEvent(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ajoutEvent.fxml"));
-            Parent root =loader.load();
-            AjoutEventController tr = loader.getController();
-            ajoute.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }  
-    }
     
+    
+    
+
         @FXML
     private void loadMenu(ActionEvent event) {
         try {
@@ -268,35 +232,33 @@ public class InterfaceAdminController implements Initializable {
     }
     
     
-    private void chercherEvenements(ActionEvent event) {
-        List<evenement> listEvenement;
-        String tchoix=cherche.getText();
-        try{
-            int nchoix = Integer.parseInt(tchoix);
-            listEvenement = es.chercheEvenement(nchoix);
-        } catch (NumberFormatException e) {
-            listEvenement = es.chercheEvenement(tchoix);
-        }
-        ObservableList<String> items =FXCollections.observableArrayList();
-        for(evenement e : listEvenement) {
-            String ch = e.toString();
-            items.add(ch);
-        }
-       // listevent.getChildren().add(userPane);
-    }
     
-    
-            @FXML
-    private void gerercat(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("GererCat.fxml"));
-            Parent root =loader.load();
-            GererCatController tr = loader.getController();
-            gerecat.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }  
-    }
+        private void qrcode  () throws WriterException {
         
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        List<evenement> event = es.afficherEvenement();
+        String events = String.valueOf(event);
+        int width = 300;
+        int height = 300;
+        
+        BufferedImage bufferedImage = null;
+        BitMatrix byteMatrix = qrCodeWriter.encode(events, BarcodeFormat.QR_CODE, width, height);
+        bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        bufferedImage.createGraphics();
+        Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
+        graphics.setColor(java.awt.Color.WHITE);
+        graphics.fillRect(0, 0, width, height);
+        graphics.setColor(java.awt.Color.BLACK);
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (byteMatrix.get(i, j)) {
+                    graphics.fillRect(i, j, 1, 1);
+                }
+            }
+        }
+        imageqr.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
+
+        
+    }
     
 }

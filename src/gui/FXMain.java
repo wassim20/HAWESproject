@@ -18,26 +18,31 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author LENOVO
+ * @author achre
  */
 public class FXMain extends Application {
-        @Override
+    
+    @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("MenuReclamationAvis.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("MenuEvenement.fxml"));
             Scene scene = new Scene(root,800,500);
-            primaryStage.setTitle("Menu");
+           
+            
+            primaryStage.setTitle("Menu Evenement");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
+
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
-    
-}
+} 
+
