@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" onMousePressed="#Click" prefHeight="300.0" prefWidth="503.0" styleClass="chosen-fruit-card1" stylesheets="@../CSS/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ItemController">
+   <children>
+      <ImageView fx:id="img1" fitHeight="170.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="true" styleClass="shopping-online-card" />
+      <TextField fx:id="type1" editable="false" layoutX="-14.0" layoutY="170.0" prefHeight="25.0" prefWidth="200.0" styleClass="chosen-fruit-card" stylesheets="@../CSS/css.css" />
+      <TextField fx:id="city1" editable="false" layoutX="202.0" layoutY="170.0" prefHeight="25.0" prefWidth="200.0" styleClass="chosen-fruit-card" />
+      <TextField fx:id="adress1" editable="false" layoutX="-14.0" layoutY="203.0" prefHeight="25.0" prefWidth="200.0" styleClass="chosen-fruit-card" />
+      <TextField fx:id="nomh1" editable="false" layoutX="202.0" layoutY="203.0" prefHeight="25.0" prefWidth="200.0" styleClass="chosen-fruit-card" />
+      <TextField fx:id="pisc1" editable="false" layoutX="-14.0" layoutY="236.0" prefHeight="25.0" prefWidth="200.0" styleClass="chosen-fruit-card" />
+      <TextField fx:id="prix1" editable="false" layoutX="202.0" layoutY="236.0" prefHeight="25.0" prefWidth="200.0" styleClass="chosen-fruit-card" />
+   </children>
+</AnchorPane>

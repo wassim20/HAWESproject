@@ -215,11 +215,10 @@ public class hebergementService {
         
     }
     
-    public hebergement getfullHebergement(){
+    public hebergement getfullHebergement(int a){
         hebergement h = new hebergement();
         String query;
-        query = "select * from hebergement";
-        
+        query = "select * from hebergement where id_hbg="+a+"";
         
         try {
             PreparedStatement ste;
@@ -244,7 +243,8 @@ public class hebergementService {
                 h.setNb_suites(rs.getInt("nb_suites"));
                 h.setPiscine(rs.getInt("piscine"));
                 h.setImage(rs.getString("image"));
-                h.setPrix(rs.getInt("prix"));
+                h.setPrix(rs.getInt("prix"));   
+                
                 
                 String query1="select etoile from categorie WHERE id_hbg="+rs.getInt("id_hbg")+"";
                 PreparedStatement ste1;
@@ -452,6 +452,61 @@ public class hebergementService {
         
         return etoiles;
         
+
+    }
+
+    public ArrayList< hebergement> afficherHebergement2() {
+        ArrayList<hebergement> hebergements = new ArrayList<>();
+        String query;
+        query = "select * FROM hebergement ORDER BY prix DESC";
+        
+        
+        try {
+            PreparedStatement ste;
+            ste = cnx.prepareStatement(query);
+            ResultSet rs;
+            rs = ste.executeQuery();
+            
+            //rs.next();
+            while(rs.next()){
+                //id_hbg;nom;city;date_ajout;adress;nom_hotel;nb_chambres;nb_suites;piscine;image;prix;
+                hebergement h = new hebergement();
+                
+                h.setId_hbg(rs.getInt("id_hbg"));
+                h.setNom(rs.getString("nom"));
+                h.setCity(rs.getString("city"));
+                h.setDate_ajout(rs.getDate("date_ajout"));
+                h.setAdress(rs.getString("adress"));
+                
+                h.setNom_hotel(rs.getString("nom_hotel"));
+                
+                h.setNb_chambres(rs.getInt("nb_chambres"));
+                h.setNb_suites(rs.getInt("nb_suites"));
+                h.setPiscine(rs.getInt("piscine"));
+                h.setImage(rs.getString("image"));
+                h.setPrix(rs.getInt("prix"));
+                
+                String query1="select etoile from categorie WHERE id_hbg="+rs.getInt("id_hbg")+"";
+                PreparedStatement ste1;
+                ste1 = cnx.prepareStatement(query1);
+                ResultSet rs1;
+                rs1 = ste1.executeQuery();
+                rs1.next();
+                h.setEtoile(rs1.getInt("etoile"));
+                
+                
+                
+                hebergements.add(h);
+                //rs.next();
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return hebergements;
+        
+
 
     }
 
