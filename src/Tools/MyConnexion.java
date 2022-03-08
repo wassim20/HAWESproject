@@ -15,33 +15,32 @@ import java.sql.SQLException;
 
 /**
  *
- * @author MossMoss
+ * @author Hassen Chouadah
  */
 public class MyConnexion {
-    public String url="jdbc:mysql://localhost:3306/projet-pi";
-    public String user="root";
-    public String pwd="";
-    
+
     private Connection cnx;
     public static MyConnexion ct;
-    private MyConnexion(){
-        try{
-            cnx=DriverManager.getConnection(url,user,pwd);
+
+    private MyConnexion() {
+        try {
+            cnx = DriverManager.getConnection(Statics.url, Statics.user, Statics.pwd);
             System.out.println("Connection etablie");
-        }
-        catch(SQLException ex){
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            
+
         }
     }
-    
-    public static MyConnexion getInstance(){
-        if(ct == null)
+
+    public static MyConnexion getInstance() {
+        if (ct == null) {
             ct = new MyConnexion();
+        }
         return ct;
-        
+
     }
-    public Connection getCnx(){
+
+    public Connection getCnx() {
         return cnx;
     }
 }

@@ -5,15 +5,24 @@
  */
 package Entités;
 
+import java.sql.Date;
+import java.util.Objects;
+import javafx.collections.ObservableList;
+
 /**
  *
- * @author Hassen
+ * @author Hassen Chouadah
  */
 public class utilisateurs {
+
+    
+    
+
     private int idUser;
-    private String cinUser;
-    
-    
+    private String cinUser, voiture;
+    private String image;
+
+    private Boolean isVerified;
     private String nomUser,
             prenomUser,
             emailUser,
@@ -21,11 +30,22 @@ public class utilisateurs {
             adresseUser,
             telUser,
             role;
-   
-    public utilisateurs(){
-        }
+  
+    public utilisateurs(int idUser, String nomUser, String prenomUser,String cinUser,String telUser,String adresseUser, String emailUser, String role) {
+        this.idUser = idUser;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.cinUser = cinUser;
+        this.telUser = telUser;
+        this.adresseUser = adresseUser;
+        this.emailUser = emailUser;
+        this.role = role;
+    }
+    public utilisateurs() {
+        this.idUser = 0;
+    }
 
-    public utilisateurs(int idUser, String cinUser, String nomUser, String prenomUser, String emailUser, String mdpUser, String adresseUser, String telUser, String role) {
+    public utilisateurs(int idUser, String cinUser, String nomUser, String prenomUser, String emailUser, String mdpUser, String adresseUser, String telUser, String role, String voiture, String image) {
         this.idUser = idUser;
         this.cinUser = cinUser;
         this.nomUser = nomUser;
@@ -35,16 +55,32 @@ public class utilisateurs {
         this.adresseUser = adresseUser;
         this.telUser = telUser;
         this.role = role;
+        this.voiture = voiture;
+        this.image = image;
+        this.isVerified = false;
     }
 
 
-
-
-    
-    
     @Override
     public String toString() {
-        return "utilisateurs{" + "idUser=" + idUser + ", cinUser=" + cinUser + ", telUser=" + telUser + ", nomUser=" + nomUser + ", emailUser=" + emailUser + ", mdpUser=" + mdpUser + ", adresseUser=" + adresseUser + ", prenomUser=" + prenomUser + '}';
+        return "utilisateurs{" + "idUser=" + idUser + ", cinUser=" + cinUser + ", voiture=" + voiture + ", image=" + image + ", isVerified=" + isVerified + ", nomUser=" + nomUser + ", prenomUser=" + prenomUser + ", emailUser=" + emailUser + ", mdpUser=" + mdpUser + ", adresseUser=" + adresseUser + ", telUser=" + telUser + ", role=" + role + '}';
+    }
+
+
+    public String getVoiture() {
+        return voiture;
+    }
+
+    public void setVoiture(String voiture) {
+        this.voiture = voiture;
+    }
+
+    public Boolean getIsVerified() {
+        return isVerified;
+    }
+
+    public void setIsVerified(Boolean isVerified) {
+        this.isVerified = isVerified;
     }
 
     public String getRole() {
@@ -54,7 +90,6 @@ public class utilisateurs {
     public void setRole(String role) {
         this.role = role;
     }
-    
 
     public int getIdUser() {
         return idUser;
@@ -119,5 +154,41 @@ public class utilisateurs {
     public void setPrenomUser(String prenomUser) {
         this.prenomUser = prenomUser;
     }
-    
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final utilisateurs other = (utilisateurs) obj;
+        if (this.idUser != other.idUser) {
+            return false;
+        }
+        if (!Objects.equals(this.cinUser, other.cinUser)) {
+            return false;
+        }
+        return true;
+    }
+
+
 }
