@@ -82,7 +82,9 @@ public class InterfaceClientController implements Initializable {
     ToggleGroup r = new ToggleGroup();
     @FXML
     private ImageView imageqr;
-    /**
+    /**            
+     * 
+     *
      * Initializes the controller class.
      */
     @Override
