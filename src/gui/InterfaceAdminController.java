@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI.Login;
+package gui;
 
-import Entités.utilisateurs;
-import Service.utilisateurService;
-import Tools.MyConnexion;
+import entities.utilisateurs;
+import services.utilisateurService;
+import tools.MaConnexion;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -96,7 +96,7 @@ public class InterfaceAdminController implements Initializable {
 
     private void loadData() {
 
-        cnx = MyConnexion.getInstance().getCnx();
+        cnx = MaConnexion.getInstance().getCnx();
         refreshTable();
         idCol.setCellValueFactory(new PropertyValueFactory<>("idUser"));
         nomCol.setCellValueFactory(new PropertyValueFactory<>("nomUser"));
@@ -156,7 +156,7 @@ public class InterfaceAdminController implements Initializable {
 
     @FXML
     private void ModifierRole(MouseEvent event) {
-     cnx = MyConnexion.getInstance().getCnx();
+     cnx = MaConnexion.getInstance().getCnx();
         utilisateurService us = new utilisateurService();
        user = tableUsers.getSelectionModel().getSelectedItem();
         int input = JOptionPane.showConfirmDialog(null, "Voulez vous vraiment modifier ?", "Choisir une option...",
@@ -173,7 +173,7 @@ public class InterfaceAdminController implements Initializable {
 
     @FXML
     private void ConfirmModifRole(ActionEvent event) {
-        cnx = MyConnexion.getInstance().getCnx();
+        cnx = MaConnexion.getInstance().getCnx();
         utilisateurService us = new utilisateurService();
         user = tableUsers.getSelectionModel().getSelectedItem();
         us.ModifierUtilisateurByRole(user.getCinUser(),roleTxt.getText());

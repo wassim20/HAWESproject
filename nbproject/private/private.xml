@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/PDFgenerator.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/MenuReservationPaiementController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/ModifierReservationFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/services/TicketService.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/MenuReservationPaiement.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/services/ReservationService.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/entities/Paiement.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/TraiterReservationFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AjoutReservationFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/tests/Main.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AfficherReservationsFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/entities/Reservation.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/InterfaceAdminController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/entities/Ticket.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/entities/ReservationEvent.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/RecupererTicketFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/StatisticsFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/StatisticsFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/BestClientPriceFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AjoutPaiementFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AjoutPaiementFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/BestClientPriceFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/services/utilisateurService.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/services/PaiementService.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/InterfaceAdmin.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/TraiterReservationFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AfficherReservationsFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/tools/MaConnexion.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AjoutReservationFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/entities/utilisateurs.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/styleFXML.css</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/RecupererTicketFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/FXMain.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/ModifierReservationFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AfficherPaiementsFXMLController.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/Mailing.java</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/ModifierPaiementFXML.fxml</file>
+            <file>file:/C:/Users/Houssem/Downloads/JavaApplication3A26/ProjetPI/src/gui/AfficherPaiementsFXML.fxml</file>
+        </group>
     </open-files>
 </project-private>

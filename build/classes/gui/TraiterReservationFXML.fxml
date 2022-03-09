@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TraiterReservationFXMLController">
+   <children>
+      <ListView fx:id="txtlistReservation" layoutX="271.0" layoutY="111.0" onMouseClicked="#prepareTR" prefHeight="556.0" prefWidth="540.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="11.0" />
+      <Label layoutX="361.0" layoutY="48.0" prefHeight="37.0" prefWidth="232.0" text="Traiter une Réservation">
+         <font>
+            <Font name="Ebrima" size="22.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rdvalider" layoutX="403.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#setEtatValid" text="Valider" />
+      <RadioButton fx:id="rdannuler" layoutX="587.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#CancelReservation" text="Annuler" />
+      <Button fx:id="btngetback" layoutX="684.0" layoutY="70.0" mnemonicParsing="false" onAction="#loadMenu" text="Menu Principale" />
+   </children>
+</AnchorPane>
