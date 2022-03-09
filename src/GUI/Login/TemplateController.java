@@ -140,7 +140,11 @@ public class TemplateController implements Initializable {
     private void GestionHebergement(ActionEvent event) {
         AnchorPane pane;
         try {
-            pane = FXMLLoader.load(getClass().getResource("test.fxml"));
+            if (US.currentUser.getRole().equals("Administrateur")) {
+                pane = FXMLLoader.load(getClass().getResource("../Hebergement/AddhbgFxml.fxml"));
+            } else {
+                pane = FXMLLoader.load(getClass().getResource("../Hebergement/test1.fxml"));
+            }
             mainPane.getChildren().setAll(pane);
             defaultStateButtons();
             gestionHebergementButton.setTextFill(Color.WHITE);
@@ -210,7 +214,7 @@ public class TemplateController implements Initializable {
             } else {
                 pane = FXMLLoader.load(getClass().getResource("../Avis/AfficherReclamationFXML.fxml"));
             }
-            
+
             mainPane.getChildren().setAll(pane);
             defaultStateButtons();
             gestionRelamationButton.setTextFill(Color.WHITE);
@@ -244,8 +248,7 @@ public class TemplateController implements Initializable {
             } else {
                 pane = FXMLLoader.load(getClass().getResource("../Events/InterfaceClient.fxml"));
             }
-            
-            
+
             mainPane.getChildren().setAll(pane);
             defaultStateButtons();
             gestionEvenementButton.setTextFill(Color.WHITE);
