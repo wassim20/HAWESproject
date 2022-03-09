@@ -236,6 +236,34 @@ public class utilisateurService {
 
     }
 
+    public utilisateurs getUserByCin(String cin) {
+        utilisateurs user = new utilisateurs();
+        try {
+            String sql = "SELECT * FROM utilisateurs where cin=?";
+            PreparedStatement ste = cnx.prepareStatement(sql);
+            ste.setString(1, cin);
+            ResultSet rs = ste.executeQuery();//resultat requete sql
+            if (rs.first()) {
+                user.setIdUser(rs.getInt("idUser"));
+                user.setCinUser(rs.getString("cin"));
+                user.setNomUser(rs.getString("nomUser"));
+                user.setPrenomUser(rs.getString("prenomUser"));
+                user.setTelUser(rs.getString("telUser"));
+                user.setAdresseUser(rs.getString("adresseUser"));
+                user.setMdpUser(rs.getString("mdpUser"));
+                user.setRole(rs.getString("role"));
+                user.setEmailUser(rs.getString("emailUser"));
+                user.setVoiture(rs.getString("voiture"));
+                user.setIsVerified(rs.getBoolean("isVerfied"));
+                user.setImage(rs.getString("image"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return user;
+
+    }
+
     //Fonction de hachage mot de passe md5 
     public String mdpconvert(String p) {
         try {

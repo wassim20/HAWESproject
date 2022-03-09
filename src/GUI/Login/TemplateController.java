@@ -154,7 +154,7 @@ public class TemplateController implements Initializable {
     private void gestionReserations(ActionEvent event) {
         AnchorPane pane;
         try {
-            pane = FXMLLoader.load(getClass().getResource("test.fxml"));
+            pane = FXMLLoader.load(getClass().getResource("../Reservation/MenuReservationPaiement.fxml"));
             mainPane.getChildren().setAll(pane);
             defaultStateButtons();
             gestionReservationsButton.setTextFill(Color.WHITE);
