@@ -16,7 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import services.CategorieeveService;
+import Services.CategorieeveService;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -62,6 +63,12 @@ public class AjouterCatController implements Initializable {
     private void ajouterCat(ActionEvent event) {
         
         try {
+             if (nomcat.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Le Nom du categorie est obligatoire");
+                        } else {
+                JOptionPane.showMessageDialog(null, "Categorie ajoutée");
+            }
+            
             String nom = nomcat.getText();
 
 
@@ -70,6 +77,7 @@ public class AjouterCatController implements Initializable {
 
 
             cs.ajouterCategorie(c);
+            
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GererCat.fxml"));        
             Parent root = loader.load();

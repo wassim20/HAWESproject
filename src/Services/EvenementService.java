@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package Services;
 
 
 
@@ -129,7 +129,7 @@ public void modifierEvenement
         (evenement e,int idEvent) {
 
         try { 
-            String sql = "UPDATE evenement SET  id_heb=?, nom=?,nb_place=? ,heureDebut=? ,heureFin=? , idCat=?, prix=? WHERE id=?";
+            String sql = "UPDATE evenement SET  id_heb=?, nom=?,nb_place=? ,heureDebut=? ,heureFin=? , idCat=?, prix=? WHERE idEvent=?";
             PreparedStatement ste= cnx.prepareStatement(sql);
             System.out.println(sql);
             System.out.println(idEvent);

@@ -28,8 +28,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javax.swing.JOptionPane;
-import services.CategorieeveService;
-import services.EvenementService;
+import Services.CategorieeveService;
+import Services.EvenementService;
 
 /**
  * FXML Controller class
@@ -122,6 +122,7 @@ public class GererCatController implements Initializable {
             String sidevent = ide.getText();
             int idevent = parseInt(sidevent);
             es.supprimerCategorie(idevent);
+            JOptionPane.showMessageDialog(null, "Categorie supprimée");
             try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GererCat.fxml"));
             Parent root =loader.load();

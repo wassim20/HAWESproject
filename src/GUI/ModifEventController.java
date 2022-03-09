@@ -35,7 +35,7 @@ import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
-import services.EvenementService;
+import Services.EvenementService;
 import tools.MaConnexion;
 
 /**
@@ -177,7 +177,7 @@ public class ModifEventController implements Initializable {
     }
     @FXML
         
-    private void modifEvent(ActionEvent event) {
+    private void modifEvent(ActionEvent event) throws IOException {
         
                  LocalDate dd= DD.getValue();
          LocalDate df= DF.getValue();
@@ -205,7 +205,7 @@ public class ModifEventController implements Initializable {
                 JOptionPane.showMessageDialog(null, "La categorie d'evenement est obligatoire");
                 
             } else {
-                JOptionPane.showMessageDialog(null, "Evenement ajouté avec succés");
+                JOptionPane.showMessageDialog(null, "Evenement Modifier avec succés");
             }
         
             String nom = nomEve.getText();
@@ -228,8 +228,13 @@ public class ModifEventController implements Initializable {
             int nbPlaces= (int)((double)nbp);
             e.setNb_place(nbPlaces);  
 
-        evenement = e;
+    //    evenement = e;
             es.modifierEvenement(e , id);
+            
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("InterfaceAdmin.fxml"));
+            Parent root =loader.load();
+            InterfaceAdminController tr = loader.getController();
+            btnModif.getScene().setRoot(root);
 
         }
 

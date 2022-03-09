@@ -25,7 +25,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import services.EvenementService;
+import Services.EvenementService;
 import entities.evenement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,7 +36,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.DateCell;
 import javax.swing.JOptionPane;
-import services.CategorieeveService;
+import Services.CategorieeveService;
 import tools.MaConnexion;
 
 

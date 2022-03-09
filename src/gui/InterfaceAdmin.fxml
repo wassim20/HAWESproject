@@ -15,7 +15,7 @@
     <children>
               <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true">
          <image>
-            <Image url="@../assest/logohawes.png" />
+            <Image url="@../assets/logohawes.png" />
          </image>
       </ImageView>
       <Pane layoutX="14.0" layoutY="123.0" prefHeight="50.0" prefWidth="779.0">
@@ -28,7 +28,7 @@
             <Label layoutX="521.0" layoutY="17.0" text="Date Fin" />
             <Label layoutX="590.0" layoutY="17.0" text="Categorie" />
             <Label layoutX="671.0" layoutY="17.0" text="Prix" />
-            <TextField fx:id="cherche" layoutX="671.0" layoutY="13.0" prefHeight="25.0" prefWidth="88.0" promptText="Recherche" />
+            <TextField fx:id="cherche" layoutX="721.0" layoutY="13.0" prefHeight="25.0" prefWidth="74.0" promptText="Recherche" />
          </children>
       </Pane>
       <ScrollPane layoutX="26.0" layoutY="184.0" prefHeight="500.0" prefWidth="791.0">

@@ -14,7 +14,7 @@
     <children>
               <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true">
          <image>
-            <Image url="@../assest/logohawes.png" />
+            <Image url="@../assets/logohawes.png" />
          </image>
       </ImageView>
       <Pane layoutX="14.0" layoutY="123.0" prefHeight="50.0" prefWidth="779.0">
