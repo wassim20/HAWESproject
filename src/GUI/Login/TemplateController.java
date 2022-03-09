@@ -239,7 +239,13 @@ public class TemplateController implements Initializable {
     private void gestionEvenement(ActionEvent event) {
         AnchorPane pane;
         try {
-            pane = FXMLLoader.load(getClass().getResource("test.fxml"));
+            if (US.currentUser.getRole().equals("Administrateur")) {
+                pane = FXMLLoader.load(getClass().getResource("../Events/InterfaceAdmin.fxml"));
+            } else {
+                pane = FXMLLoader.load(getClass().getResource("../Events/InterfaceClient.fxml"));
+            }
+            
+            
             mainPane.getChildren().setAll(pane);
             defaultStateButtons();
             gestionEvenementButton.setTextFill(Color.WHITE);

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Events.ModifCatController">
+   <children>
+      <Label layoutX="52.0" layoutY="43.0" text="Modifier une Categorie">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="83.0" layoutY="169.0" text="Nom Categorie">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomcat" layoutX="312.0" layoutY="173.0" prefHeight="25.0" prefWidth="220.0" />
+      <Button fx:id="btngetback" layoutX="71.0" layoutY="330.0" mnemonicParsing="false" onAction="#loadMenu" text="Menu" />
+      <Button fx:id="btnmodifc" layoutX="481.0" layoutY="330.0" mnemonicParsing="false" onAction="#modifierCat" text="Modifier" />
+   </children>
+</AnchorPane>
