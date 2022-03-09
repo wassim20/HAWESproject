@@ -5,11 +5,31 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reservation.ModifierReservationFXMLController">
    <children>
+      <AnchorPane fx:id="sideBarPane" prefHeight="767.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/logohawes.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="gestionUserButton" layoutX="22.0" layoutY="123.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff; -fx-border-radius: 20px;" text="Gestion des Utilisateurs" textFill="#5b4ebd" />
+            <Button fx:id="gestionHebergementButton" layoutX="22.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Hébérgements" textFill="#5c4fbd" />
+            <Button fx:id="btngetback" layoutX="22.0" layoutY="230.0" mnemonicParsing="false" onAction="#gestionReserations" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Gestion des reservations" textFill="WHITE" />
+            <Button fx:id="gestionPickupButton" layoutX="22.0" layoutY="284.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Vols et Pickups" textFill="#5b4ebd" />
+            <Button fx:id="gestionAvisButton" layoutX="22.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des avis" textFill="#5b4ebd" />
+            <Button fx:id="gestionEvenementButton" layoutX="22.0" layoutY="451.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Evenements" textFill="#5b4ebd" />
+            <Button fx:id="logoutButton" layoutX="25.0" layoutY="696.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Logout" textFill="WHITE" />
+            <Button fx:id="gestionPaiementButton" layoutX="22.0" layoutY="505.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Paiements" textFill="#5b4ebd" />
+            <Button fx:id="gestionRelamationButton" layoutX="22.0" layoutY="394.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des reclamations" textFill="#5b4ebd" />
+         </children>
+      </AnchorPane>
       <Label layoutX="342.0" layoutY="238.0" text="idVol" />
       <Label layoutX="336.0" layoutY="309.0" text="Nombre de personne(s)" />
       <Label layoutX="337.0" layoutY="385.0" text="Nombre de Chambre(s)" />
@@ -23,14 +43,14 @@
       <TextField fx:id="txtnbPersonne" layoutX="554.0" layoutY="304.0" />
       <TextField fx:id="txtnbSuite" layoutX="554.0" layoutY="344.0" />
       <TextField fx:id="txtnbChambre" layoutX="554.0" layoutY="380.0" />
-      <Button fx:id="btnModifier" layoutX="593.0" layoutY="607.0" mnemonicParsing="false" onAction="#editReservation" prefHeight="31.0" prefWidth="181.0" text="Modifier" />
-      <ChoiceBox fx:id="txtforfait" layoutX="554.0" layoutY="269.0" prefHeight="31.0" prefWidth="187.0" />
+      <Button fx:id="btnModifier" layoutX="593.0" layoutY="607.0" mnemonicParsing="false" onAction="#editReservation" prefHeight="31.0" prefWidth="181.0" style="-fx-background-color: #5b4ebd;" text="Modifier" textFill="WHITE" />
+      <ChoiceBox fx:id="txtforfait" layoutX="554.0" layoutY="269.0" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #dddddd;" />
       <Label layoutX="403.0" layoutY="72.0" prefHeight="60.0" prefWidth="314.0" text="Modifier une réservation">
          <font>
             <Font name="Calibri" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btngetback" layoutX="627.0" layoutY="722.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="31.0" prefWidth="181.0" text="Menu Principale" />
-      <Button fx:id="btndelete" layoutX="332.0" layoutY="607.0" mnemonicParsing="false" onAction="#deleteReservation" prefHeight="31.0" prefWidth="181.0" text="Supprimer" />
+      <Button fx:id="btngetback" layoutX="627.0" layoutY="722.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="31.0" prefWidth="181.0" style="-fx-background-color: #5b4ebd;" text="Menu Principale" textFill="WHITE" />
+      <Button fx:id="btndelete" layoutX="332.0" layoutY="607.0" mnemonicParsing="false" onAction="#deleteReservation" prefHeight="31.0" prefWidth="181.0" style="-fx-background-color: #5b4ebd;" text="Supprimer" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -32,8 +32,6 @@ import Service.PaiementService;
 public class ModifierPaiementFXMLController implements Initializable {
 
     @FXML
-    private AnchorPane anchor2;
-    @FXML
     private ChoiceBox txtmethode;
     @FXML
     private TextField txtmontant;
@@ -44,6 +42,24 @@ public class ModifierPaiementFXMLController implements Initializable {
     private Paiement paiement;
     Paiement p = new Paiement();
     PaiementService ps = new PaiementService();
+    @FXML
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
     /**
      * Initializes the controller class.
      */
@@ -104,5 +120,9 @@ public class ModifierPaiementFXMLController implements Initializable {
              System.out.println(ex.getMessage());
         }
     }    
+
+    @FXML
+    private void gestionReserations(ActionEvent event) {
+    }
     
 }

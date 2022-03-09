@@ -91,8 +91,8 @@ public class PDFgenerator {
     private static void addTitlePage(Document document)
             throws DocumentException {
         try {
-            admin.setNomUser("Hosni");
-            admin.setPrenomUser("Houssem");
+            admin.setNomUser(us.currentUser.getNomUser());
+            admin.setPrenomUser(us.currentUser.getPrenomUser());
             Paragraph preface = new Paragraph();
             // We add one empty line
             addEmptyLine(preface, 1);

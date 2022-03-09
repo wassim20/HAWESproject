@@ -52,11 +52,27 @@ public class TraiterReservationFXMLController implements Initializable {
     private RadioButton rdvalider;
     @FXML
     private RadioButton rdannuler;
-    @FXML
-    private AnchorPane anchor2;
     ToggleGroup rdchoix = new ToggleGroup();
     private String role;
     public int etat = 1;
+    @FXML
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
 
     public void setEtat(int etat) {
         this.etat = etat;
@@ -164,5 +180,9 @@ public class TraiterReservationFXMLController implements Initializable {
     @FXML
     private void loadMenu(ActionEvent event) {
         displayMenu();
+    }
+
+    @FXML
+    private void gestionReserations(ActionEvent event) {
     }
 }

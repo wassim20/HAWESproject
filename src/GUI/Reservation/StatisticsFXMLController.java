@@ -67,7 +67,23 @@ public class StatisticsFXMLController implements Initializable {
     private int order = 1;
     private int idHebr = 0;
     @FXML
-    private AnchorPane anchor2;
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
     /**
      * Initializes the controller class.
      */
@@ -136,6 +152,10 @@ public class StatisticsFXMLController implements Initializable {
     @FXML
     private void setOrderByDESC(ActionEvent event) {
         this.order = 0;
+    }
+
+    @FXML
+    private void gestionReserations(ActionEvent event) {
     }
     
 }

@@ -8,6 +8,7 @@ package GUI.Reservation;
 import Entités.Paiement;
 import Entités.Reservation;
 import Entités.Ticket;
+import Entités.utilisateurs;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
@@ -32,6 +33,9 @@ import javafx.scene.layout.AnchorPane;
 import Service.PaiementService;
 import Service.ReservationService;
 import Service.TicketService;
+import Service.utilisateurService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -67,8 +71,10 @@ public class ModifierReservationFXMLController implements Initializable {
     
     Reservation r = new Reservation();
     Reservation nr = new Reservation();
+    utilisateurs u  = new utilisateurs();
     ReservationService rs = new ReservationService();
     PaiementService ps = new PaiementService();
+    utilisateurService us = new utilisateurService();
     TicketService ts = new TicketService();
     Ticket t = new Ticket();
     public void setReservation(Reservation reservation) {
@@ -122,8 +128,21 @@ public class ModifierReservationFXMLController implements Initializable {
         nr.setDateArr(r.getDateArr());
         nr.setDateDep(r.getDateDep());
         nr.setDateRes(r.getDateRes());
+        nr.setIdUser(r.getIdUser());
         nr.setDeadlineAnnulation(r.getDeadlineAnnulation());
-        reservation = r;
+        reservation = nr;
+        System.out.println(nr.getIdUser()+" "+us.currentUser.getIdUser() );
+        if(nr.getIdUser()!=us.currentUser.getIdUser()){
+            try {
+                FXMain.showAlertWithHeaderText(u, "Vous n'avez pas d'accés", "");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherReservationsFXML.fxml"));
+                Parent root =loader.load();
+                AfficherReservationsFXMLController ar = loader.getController();
+                btnModifier.getScene().setRoot(root);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
     
     @FXML

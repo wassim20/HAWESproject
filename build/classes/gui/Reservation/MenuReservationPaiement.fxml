@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reservation.MenuReservationPaiementController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" stylesheets="@styleFXML.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reservation.MenuReservationPaiementController">
     <children>
         
-      <Label alignment="CENTER" layoutX="310.0" layoutY="31.0" prefHeight="69.0" prefWidth="441.0" text="Menu Réservation et Paiement">
+      <Label alignment="CENTER" layoutX="191.0" layoutY="75.0" prefHeight="69.0" prefWidth="441.0" text="Menu Réservation et Paiement">
          <font>
             <Font name="Corbel" size="31.0" />
          </font>
       </Label>
-      <Button id="buttonM" fx:id="btnaffr" layoutX="558.0" layoutY="141.0" mnemonicParsing="false" onAction="#afficherReservations" prefHeight="31.0" prefWidth="250.0" text="Afficher tous les Réservations" AnchorPane.rightAnchor="14.0" />
-      <Button id="buttonM" fx:id="btntrtr" layoutX="275.0" layoutY="209.0" mnemonicParsing="false" onAction="#traiterReservation" prefHeight="31.0" prefWidth="250.0" text="Traiter les Réservations" AnchorPane.leftAnchor="275.0" />
-      <Button id="buttonM" fx:id="btnaffp" layoutX="275.0" layoutY="141.0" mnemonicParsing="false" onAction="#afficherPaiements" prefHeight="31.0" prefWidth="250.0" text="Afficher tous les Paiements" AnchorPane.leftAnchor="275.0" />
-      <Button id="buttonM" fx:id="btnrect" layoutX="275.0" layoutY="273.0" mnemonicParsing="false" onAction="#recupererTicket" prefHeight="31.0" prefWidth="250.0" text="Récupérer une Ticket" AnchorPane.leftAnchor="275.0" />
-      <Button id="buttonM" fx:id="btnajr" layoutX="558.0" layoutY="339.0" mnemonicParsing="false" onAction="#ajouterReservation" prefHeight="31.0" prefWidth="250.0" text="Effectuer une Réservation" AnchorPane.rightAnchor="14.0" />
-      <Button id="buttonM" fx:id="btnstat" layoutX="275.0" layoutY="408.0" mnemonicParsing="false" onAction="#displayStatistics" prefHeight="31.0" prefWidth="250.0" text="Statistiques" AnchorPane.leftAnchor="275.0" />
+      <Button fx:id="btnaffr" layoutX="287.0" layoutY="307.0" mnemonicParsing="false" onAction="#afficherReservations" prefHeight="31.0" prefWidth="250.0" text="Afficher tous les Réservations" AnchorPane.leftAnchor="287.0" />
+      <Button fx:id="btntrtr" layoutX="287.0" layoutY="439.0" mnemonicParsing="false" onAction="#traiterReservation" prefHeight="31.0" prefWidth="250.0" text="Traiter les Réservations" AnchorPane.leftAnchor="287.0" />
+      <Button fx:id="btnaffp" layoutX="287.0" layoutY="374.0" mnemonicParsing="false" onAction="#afficherPaiements" prefHeight="31.0" prefWidth="250.0" text="Afficher tous les Paiements" AnchorPane.leftAnchor="287.0" />
+      <Button fx:id="btnrect" layoutX="286.0" layoutY="565.0" mnemonicParsing="false" onAction="#recupererTicket" prefHeight="31.0" prefWidth="250.0" text="Récupérer une Ticket" AnchorPane.leftAnchor="286.0" />
+      <Button fx:id="btnajr" layoutX="287.0" layoutY="248.0" mnemonicParsing="false" onAction="#ajouterReservation" prefHeight="31.0" prefWidth="250.0" text="Effectuer une Réservation" AnchorPane.leftAnchor="287.0" />
+      <Button fx:id="btnstat" layoutX="287.0" layoutY="500.0" mnemonicParsing="false" onAction="#displayStatistics" prefHeight="31.0" prefWidth="250.0" text="Statistiques" AnchorPane.leftAnchor="287.0" />
    </children>
 </AnchorPane>

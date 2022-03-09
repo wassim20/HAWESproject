@@ -6,6 +6,7 @@
 package GUI.Reservation;
 import Entités.Reservation;
 import Entités.utilisateurs;
+import GUI.Login.TemplateController;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -31,6 +32,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import Service.ReservationService;
 import Service.utilisateurService;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -55,10 +58,29 @@ public class AfficherReservationsFXMLController implements Initializable {
     private RadioButton rdaffnt;
     @FXML
     private TextField txtsearch;
-    @FXML
     private Button btngetback;
     private String role;
     ToggleGroup rdaff = new ToggleGroup();
+    @FXML
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button gestionReservationsButton;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
     /**
      * Initializes the controller class.
      */
@@ -79,6 +101,13 @@ public class AfficherReservationsFXMLController implements Initializable {
                     items.add(r);
                 }
                 txtlistReservation.setItems(items);
+            }else if(role.equals("Chef d'agence")){
+                ObservableList<Reservation> items =FXCollections.observableArrayList();
+                List<Reservation> listReservation = rs.afficherReservation(u);
+                for(Reservation r : listReservation) {
+                    items.add(r);
+                }
+                txtlistReservation.setItems(items);
             }else if(role.equals("Client")){
                 ObservableList<Reservation> items =FXCollections.observableArrayList();
                 List<Reservation> listReservation = rs.afficherMesReservation(u);
@@ -89,6 +118,7 @@ public class AfficherReservationsFXMLController implements Initializable {
             }
     }
     
+    @FXML
     public void prepareUD(MouseEvent click) throws Exception {
         if (click.getClickCount() == 2) {
             Reservation r = txtlistReservation.getSelectionModel().getSelectedItem();
@@ -172,9 +202,21 @@ public class AfficherReservationsFXMLController implements Initializable {
         }
         txtlistReservation.setItems(items);
     }
-
+    
     @FXML
     private void loadMenu(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Reservation/MenuReservationPaiement.fxml"));
+            Parent root =loader.load();
+            MenuReservationPaiementController mr = loader.getController();
+            btngetback.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherReservationsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void gestionReserations(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuReservationPaiement.fxml"));
             Parent root =loader.load();

@@ -24,8 +24,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -56,6 +59,26 @@ public class AjoutReservationFXMLController implements Initializable {
     Reservation r = new Reservation();
     ReservationService rs = new ReservationService();
     utilisateurService US ;
+    @FXML
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
+    @FXML
+    private Label nomHebr;
     /**
      * Initializes the controller class.
      */
@@ -163,13 +186,17 @@ public class AjoutReservationFXMLController implements Initializable {
     @FXML
     private void loadMenu(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuReservationPaiement.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Reservation/MenuReservationPaiement.fxml"));
             Parent root =loader.load();
             MenuReservationPaiementController mr = loader.getController();
             btngetback.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(AfficherReservationsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void gestionReserations(ActionEvent event) {
     }
     
 }

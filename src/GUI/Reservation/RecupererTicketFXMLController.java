@@ -30,6 +30,7 @@ import Service.PaiementService;
 import Service.ReservationService;
 import Service.TicketService;
 import Service.utilisateurService;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -62,6 +63,24 @@ public class RecupererTicketFXMLController implements Initializable {
     ReservationService rs = new ReservationService();
     PaiementService ps = new PaiementService();
     List<Reservation> reservations = new ArrayList<>();
+    @FXML
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
 
     /**
      * Initializes the controller class.
@@ -117,6 +136,10 @@ public class RecupererTicketFXMLController implements Initializable {
         } catch (IOException ex) {
              System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void gestionReserations(ActionEvent event) {
     }
     
 }

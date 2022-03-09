@@ -4,11 +4,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reservation.TraiterReservationFXMLController">
    <children>
+      <AnchorPane fx:id="sideBarPane" prefHeight="767.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/logohawes.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="gestionUserButton" layoutX="22.0" layoutY="123.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff; -fx-border-radius: 20px;" text="Gestion des Utilisateurs" textFill="#5b4ebd" />
+            <Button fx:id="gestionHebergementButton" layoutX="22.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Hébérgements" textFill="#5c4fbd" />
+            <Button fx:id="btngetback" layoutX="22.0" layoutY="230.0" mnemonicParsing="false" onAction="#gestionReserations" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Gestion des reservations" textFill="WHITE" />
+            <Button fx:id="gestionPickupButton" layoutX="22.0" layoutY="284.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Vols et Pickups" textFill="#5b4ebd" />
+            <Button fx:id="gestionAvisButton" layoutX="22.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des avis" textFill="#5b4ebd" />
+            <Button fx:id="gestionEvenementButton" layoutX="22.0" layoutY="451.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Evenements" textFill="#5b4ebd" />
+            <Button fx:id="logoutButton" layoutX="25.0" layoutY="696.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd;" text="Logout" textFill="WHITE" />
+            <Button fx:id="gestionPaiementButton" layoutX="22.0" layoutY="505.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Paiements" textFill="#5b4ebd" />
+            <Button fx:id="gestionRelamationButton" layoutX="22.0" layoutY="394.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des reclamations" textFill="#5b4ebd" />
+         </children>
+      </AnchorPane>
       <ListView fx:id="txtlistReservation" layoutX="271.0" layoutY="111.0" onMouseClicked="#prepareTR" prefHeight="556.0" prefWidth="540.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="11.0" />
       <Label layoutX="361.0" layoutY="48.0" prefHeight="37.0" prefWidth="232.0" text="Traiter une Réservation">
          <font>
@@ -17,6 +37,6 @@
       </Label>
       <RadioButton fx:id="rdvalider" layoutX="403.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#setEtatValid" text="Valider" />
       <RadioButton fx:id="rdannuler" layoutX="587.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#CancelReservation" text="Annuler" />
-      <Button fx:id="btngetback" layoutX="684.0" layoutY="70.0" mnemonicParsing="false" onAction="#loadMenu" text="Menu Principale" />
+      <Button fx:id="btngetback" layoutX="728.0" layoutY="70.0" mnemonicParsing="false" onAction="#loadMenu" style="-fx-background-color: #5b4ebd;" text="Menu " textFill="WHITE" />
    </children>
 </AnchorPane>

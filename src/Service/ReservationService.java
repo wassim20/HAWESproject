@@ -149,7 +149,7 @@ public class ReservationService {
             case "Administrateur":
                 query="select * from reservation";
                 break;
-            case "Chef d'Agence":
+            case "Chef d'agence":
                 query="select * from reservation";
                 break;
             case "Client":
@@ -248,7 +248,7 @@ public class ReservationService {
             case "Administrateur":
                 query="SELECT * FROM `reservation` WHERE `dateDep` >= CURRENT_TIMESTAMP() AND `valide` = 1";
                 break;
-            case "Chef d'Agence":
+            case "Chef d'agence":
                 query="SELECT * FROM `reservation` WHERE `dateDep` >= CURRENT_TIMESTAMP() AND `valide` = 1";
                 break;
             case "Client":
@@ -292,7 +292,7 @@ public class ReservationService {
             case "Administrateur":
                 query="SELECT * FROM `reservation` WHERE `valide` = -1 OR dateArr < CURRENT_TIMESTAMP()";
                 break;
-            case "Chef d'Agence":
+            case "Chef d'agence":
                 query="SELECT * FROM `reservation` WHERE `valide` = -1 OR dateArr < CURRENT_TIMESTAMP()";
                 break;
             case "Client":
@@ -337,7 +337,7 @@ public class ReservationService {
             case "Administrateur":
                 query="select * from reservation where valide = 0 AND dateArr >= CURRENT_TIMESTAMP()";
                 break;
-            case "Chef d'Agence":
+            case "Chef d'agence":
                 query="select * from reservation where valide = 0 AND dateArr >= CURRENT_TIMESTAMP()";
                 break;
             case "Client":

@@ -29,6 +29,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import Service.ReservationService;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -48,12 +49,30 @@ public class AfficherPaiementsFXMLController implements Initializable {
     @FXML
     private TextField txtsearch;
     @FXML
-    private Button btnsearch;
-    @FXML
     private Button btngetback;
     ToggleGroup rdaff = new ToggleGroup();
     Reservation r = new Reservation();
     ReservationService rs = new ReservationService();
+    @FXML
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
+    @FXML
+    private Button btngetback1;
     /**
      * Initializes the controller class.
      */
@@ -148,6 +167,10 @@ public class AfficherPaiementsFXMLController implements Initializable {
             Logger.getLogger(AfficherReservationsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
+
+    @FXML
+    private void gestionReserations(ActionEvent event) {
+    }
 }
  ///    EDIT PAIEMENT           - DONE
  ///    CANCEL PAIEMENT         - DONE

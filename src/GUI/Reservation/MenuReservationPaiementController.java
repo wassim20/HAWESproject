@@ -8,6 +8,8 @@ package GUI.Reservation;
 import Entités.Paiement;
 import java.io.IOException;
 import Entités.Reservation;
+import Entités.utilisateurs;
+import Service.utilisateurService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -16,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -35,24 +38,49 @@ public class MenuReservationPaiementController implements Initializable {
     @FXML
     private Button btnajr;
     @FXML
-    private Button btnmdr;
-    @FXML
-    private Button btnsuppr;
-    @FXML
     private Button btnstat;
-    @FXML
-    private Button btnbcp;
 
     Reservation r = new Reservation();
     Paiement p = new Paiement();
+    utilisateurs u = new utilisateurs();
+    utilisateurService us;
+    @FXML
+    private AnchorPane sideBarPane;
+    @FXML
+    private Button gestionUserButton;
+    @FXML
+    private Button gestionHebergementButton;
+    @FXML
+    private Button btngetback;
+    @FXML
+    private Button gestionPickupButton;
+    @FXML
+    private Button gestionAvisButton;
+    @FXML
+    private Button gestionEvenementButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button gestionPaiementButton;
+    @FXML
+    private Button gestionRelamationButton;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        us = new utilisateurService();
+        System.out.println(us.currentUser.getRole());
+        u=us.currentUser;
+        if(u.getRole().equals("Client")){
+            btnstat.setVisible(false);
+            btnaffp.setVisible(false);
+            btntrtr.setVisible(false);
+        }else if(u.getRole().equals("Chef d'agence")){
+            btnrect.setVisible(false);
+        }
     }
-
+    
     @FXML
     private void afficherReservations(ActionEvent event) {
         try {
@@ -130,6 +158,7 @@ public class MenuReservationPaiementController implements Initializable {
             System.out.println(ex.getMessage());
         } 
     }
+
     
 }
 /// NOTIFICATIONS RESERVATIONS NON TRAITEES
