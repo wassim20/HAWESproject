@@ -109,7 +109,7 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="100.0" prefWidth="315.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="shadow" stylesheets="@../CSS/css.css" text="STATISTIQUE" textFill="#f16c31" />
+                              <Button mnemonicParsing="false" onAction="#stat" prefHeight="50.0" prefWidth="200.0" styleClass="shadow" stylesheets="@../CSS/css.css" text="STATISTIQUE" textFill="#f16c31" />
                            </children>
                         </VBox>
                         <Pane prefHeight="100.0" prefWidth="131.0" HBox.hgrow="ALWAYS" />

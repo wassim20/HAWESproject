@@ -15,7 +15,7 @@ public class hebergementfx extends Application {
     public void start(Stage primaryStage) throws IOException {
         
       try {
-            Parent root =FXMLLoader.load(getClass().getResource("test1.fxml"));
+            Parent root =FXMLLoader.load(getClass().getResource("AddhbgFxml.fxml"));
             Scene scene = new Scene(root);
             //String css=this.getClass().getResource("/css/dark-theme.css").toExternalForm();
             String css1=this.getClass().getResource("/css/css.css").toExternalForm();

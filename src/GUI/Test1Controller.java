@@ -15,6 +15,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -24,6 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.hebergementService;
 
 /**
@@ -190,6 +193,35 @@ public class Test1Controller implements Initializable {
                         alert.setTitle(" PDF CREATION!");
                         alert.setContentText("votre pdf est creé");
        }
+    }
+
+    @FXML
+    private void stat(ActionEvent event) {
+        
+        
+        try {
+            
+            FXMLLoader chart= new FXMLLoader(getClass().getResource("stats.fxml"));
+            Parent root = chart.load();
+            StatsController mc = chart.getController();
+            //System.out.println("aslema");
+           
+            Scene scene = new Scene(root);
+           Stage modifStage = new Stage();
+            modifStage.setTitle("Hello World!");
+            modifStage.setScene(scene);
+            modifStage.show();
+            
+            
+            
+            
+            
+            
+        } catch (IOException ex) {
+           
+        }
+        
+        
     }
 
 }
