@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package Service;
 
-import entities.Reclamation;
-import entities.Reclamation1;
+import Entités.Reclamation;
+import Entités.Reclamation1;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

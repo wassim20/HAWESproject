@@ -5,8 +5,8 @@
  */
 package gui;
 
-import entities.Reclamation;
-import entities.Reclamation1;
+import Entités.Reclamation;
+import Entités.Reclamation1;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -31,7 +31,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import services.ReclamationService;
+import Service.ReclamationService;
 
 /**
  * FXML Controller class

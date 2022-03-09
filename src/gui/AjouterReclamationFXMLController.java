@@ -5,7 +5,7 @@
  */
 package gui;
 
-import entities.Reclamation;
+import Entités.Reclamation;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.awt.Graphics;
@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-import services.ReclamationService;
+import Service.ReclamationService;
 /**
  * FXML Controller class
  *

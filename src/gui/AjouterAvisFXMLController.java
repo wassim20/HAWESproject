@@ -5,7 +5,7 @@
  */
 package gui;
 
-import entities.Avis;
+import Entités.Avis;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +21,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import org.controlsfx.control.Rating;
-import services.AvisService;
+import Service.AvisService;
 
 /**
  * FXML Controller class

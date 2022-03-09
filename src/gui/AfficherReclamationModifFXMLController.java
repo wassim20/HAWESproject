@@ -5,8 +5,8 @@
  */
 package gui;
 
-import entities.Avis;
-import entities.Reclamation;
+import Entités.Avis;
+import Entités.Reclamation;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
@@ -22,7 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import services.ReclamationService;
+import Service.ReclamationService;
 
 /**
  * FXML Controller class

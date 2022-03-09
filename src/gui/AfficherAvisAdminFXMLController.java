@@ -5,7 +5,7 @@
  */
 package gui;
 
-import entities.Avis;
+import Entités.Avis;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -22,7 +22,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javax.swing.JOptionPane;
-import services.AvisService;
+import Service.AvisService;
 
 /**
  * FXML Controller class
