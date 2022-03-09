@@ -39,9 +39,9 @@ import services.ReclamationService;
  * @author LENOVO
  */
 public class AfficherReclamationAdminFXMLController implements Initializable {
-    
+
     ReclamationService rs = new ReclamationService();
-    Reclamation r =new Reclamation();
+    Reclamation r = new Reclamation();
 
     @FXML
     private ListView<Reclamation1> txtlistrec;
@@ -56,46 +56,46 @@ public class AfficherReclamationAdminFXMLController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) { 
-          
-        ObservableList<Reclamation1> items =FXCollections.observableArrayList();
+    public void initialize(URL url, ResourceBundle rb) {
+
+        ObservableList<Reclamation1> items = FXCollections.observableArrayList();
         List<Reclamation1> listReclamation = rs.afficherReclamation2();
-        for(Reclamation1 r : listReclamation) {
-        //  String ch = r.Showall(); 
+        for (Reclamation1 r : listReclamation) {
+            //  String ch = r.Showall(); 
             items.add(r);
-            
-        } 
-         txtlistrec.setItems(items);
-         
+
+        }
+        txtlistrec.setItems(items);
+
     }
 
     @FXML
     private void chercherReclamation(KeyEvent event) {
-         ObservableList<Reclamation1> items =FXCollections.observableArrayList();
+        ObservableList<Reclamation1> items = FXCollections.observableArrayList();
         List<Reclamation1> listReclamation;
-        String tchoix=txtsearch.getText();
-        try{
+        String tchoix = txtsearch.getText();
+        try {
             int nchoix = Integer.parseInt(tchoix);
             listReclamation = rs.chercherReclamation2(nchoix);
         } catch (NumberFormatException e) {
             listReclamation = rs.chercherReclamation2(tchoix);
         }
-        for(Reclamation1 a : listReclamation) {
+        for (Reclamation1 a : listReclamation) {
             String ch = a.toString();
             items.add(a);
         }
         txtlistrec.setItems(items);
     }
 
-      @FXML
+    @FXML
     private void loadMenu(ActionEvent event) {
         displayMenu();
     }
-    
-    private void displayMenu(){
+
+    private void displayMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuReclamationAvis.fxml"));
-            Parent root =loader.load();
+            Parent root = loader.load();
             MenuReclamationAvisController mr = loader.getController();
             btngetback.getScene().setRoot(root);
         } catch (IOException ex) {
@@ -106,66 +106,59 @@ public class AfficherReclamationAdminFXMLController implements Initializable {
     @FXML
     private void Traiterreccal(ActionEvent event) {
         Reclamation1 r1 = new Reclamation1();
-         
+
         r1 = txtlistrec.getSelectionModel().getSelectedItem();
         rs.traiterReclamation(r1);
-         try {
+        try {
             System.out.println(r);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherReclamationAdminFXML.fxml"));
-            Parent root =loader.load();
-            
+            Parent root = loader.load();
+
             AfficherReclamationAdminFXMLController mda = loader.getController();
-            
+
             btntraiterrec.getScene().setRoot(root);
-            
+
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-         this.EnvoyerEmail("mohamedbenhamida10@gmail.com");
+        this.EnvoyerEmail("mohamedbenhamida10@gmail.com");
         //com.tutorialspoint.SendAttachmentInEmail.main();
 
-    
     }
-    
-    
-    public void EnvoyerEmail(String adressemail){
-	
 
- Properties props;
-props = System.getProperties();
-props.put("mail.smtp.auth", "true");
-props.put("mail.smtp.starttls.enable", "true");
-props.put("mail.smtp.host", "smtp.gmail.com");
- props.setProperty("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
- props.setProperty("mail.smtp.socketFactory.fallback", "false");					
-props.setProperty("mail.smtp.port", "465");
-props.setProperty("mail.smtp.socketFactory.port", "465");
+    public void EnvoyerEmail(String adressemail) {
+
+        Properties props;
+        props = System.getProperties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
 //props.setProperty("mail.smtp.ssl.enable", "true");
-   
-   
-String username = "tt6800734@gmail.com";
-		 String  password = "M20199caca";
-Session session = Session.getInstance(props,new javax.mail.Authenticator() {
-protected PasswordAuthentication getPasswordAuthentication() {
-return new PasswordAuthentication(username, password);
-}
-});
-try {
-      Message message = new MimeMessage(session);
-      
-       
-       
-        
 
-message.setFrom(new InternetAddress("ServiceReclamation@gmail.com"));
-message.addRecipient(Message.RecipientType.TO, new InternetAddress(adressemail));
+        String username = "tt6800734@gmail.com";
+        String password = "M20199caca";
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+        try {
+            Message message = new MimeMessage(session);
 
-message.setSubject("Reclamation Client");
-message.setText("Votre réclamation a été traitée "); 
+            message.setFrom(new InternetAddress("ServiceReclamation@gmail.com"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(adressemail));
 
+            message.setSubject("Reclamation Client");
+            message.setText("Votre réclamation a été traitée ");
 
-Transport.send(message);
-} catch (MessagingException e) {e.printStackTrace();}
-}
-    
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
