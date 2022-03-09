@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevv.controller.PickupController">
+   <children>
+      <Pane layoutX="50.0" layoutY="57.0" prefHeight="63.0" prefWidth="799.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Text fill="#6b6565" fontSmoothingType="LCD" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Pickups" wrappingWidth="186.99998885393143">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnAddPickup" layoutX="648.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnAddPickup" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #5ed84f;" text="Add Pickup" textFill="WHITE" />
+         </children>
+      </Pane>
+      <TextField fx:id="search" layoutX="50.0" layoutY="136.0" onInputMethodTextChanged="#search" onKeyReleased="#searchPressed" prefHeight="26.0" prefWidth="443.0" />
+      <ListView fx:id="tvVol" layoutX="50.0" layoutY="177.0" onMouseClicked="#tvDoubleClicked" prefHeight="330.0" prefWidth="799.0" />
+   </children>
+</AnchorPane>
