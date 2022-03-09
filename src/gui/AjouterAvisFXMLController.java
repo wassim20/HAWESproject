@@ -60,9 +60,9 @@ public class AjouterAvisFXMLController implements Initializable {
     
     private void displayMenu(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuReclamationAvis.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAvisFXML.fxml"));
             Parent root =loader.load();
-            MenuReclamationAvisController mr = loader.getController();
+            AfficherAvisFXMLController mr = loader.getController();
             btngetback.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

@@ -104,6 +104,9 @@ String sql="UPDATE `avis` SET `desc_avis` = '" + a.getDesc_avis() + "', `etoile`
         
         return aviss;
         
+        
+        
+        
     }
     
     
