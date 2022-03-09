@@ -55,8 +55,6 @@ public class AfficherReclamationFXMLController implements Initializable {
     private ListView<Reclamation>  txtlistrec;
     @FXML
     private Button btncon;
-    @FXML
-    private AnchorPane anchor2;
 
     /**
      * Initializes the controller class.
@@ -65,17 +63,12 @@ public class AfficherReclamationFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) { 
           
         ObservableList<Reclamation> items =FXCollections.observableArrayList();
-        List<Reclamation> listReclamation = rs.afficherReclamation();
+        List<Reclamation> listReclamation = rs.afficherReclamation();//session user
         for(Reclamation r : listReclamation) {
             String ch = r.toString();
             items.add(r);
         }
-        
-      
-        
    //txtlistrec.getItems().add(r);
-      
-        
    txtlistrec.setItems(items);
         
     }    
@@ -147,7 +140,7 @@ public class AfficherReclamationFXMLController implements Initializable {
          else {
              Alert alert = new Alert(AlertType.INFORMATION);
         alert.setHeaderText("Alert");
-        alert.setContentText("reclamation deja traiteé");
+        alert.setContentText("Réclamation deja traitée, impossible de supprimer");
         alert.showAndWait();
         }
         //displayMenu();
@@ -168,6 +161,8 @@ public class AfficherReclamationFXMLController implements Initializable {
         Reclamation r = new Reclamation();
         r = txtlistrec.getSelectionModel().getSelectedItem();
          if(r.getTraite()==0 ){
+             
+             
         try {
             System.out.println(r);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierReclamtionFXML.fxml"));
@@ -186,7 +181,7 @@ public class AfficherReclamationFXMLController implements Initializable {
         else {
              Alert alert = new Alert(AlertType.INFORMATION);
         alert.setHeaderText("Alert");
-        alert.setContentText("reclamation deja traiteé");
+        alert.setContentText("reclamation deja traiteé , impossible de modifier");
         alert.showAndWait();
         }
          }

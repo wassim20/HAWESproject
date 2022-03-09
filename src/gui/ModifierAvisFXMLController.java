@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -53,12 +54,16 @@ public class ModifierAvisFXMLController implements Initializable {
 
     @FXML
     private void modifierAvis(ActionEvent event) {
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Avis modifiée avec succès "); //Succes
+        //alert.setContentText("Réclamation Modifié avec succès");
+        alert.showAndWait();
         String desc_avis = txtdescavis.getText();
         a.setDesc_avis(desc_avis);
         a.setDateAjoutavis(avis.getDateAjoutavis());
         //a.setDesc_avis(desc_avis);
-        rating.setRating(a.getEtoile());        
-
+       // rating.setRating(a.getEtoile());        
+ a.setEtoile((int) rating.getRating());
         a.setId_avis(avis.getId_avis());
         a.setId_hbg(avis.getId_hbg());
         a.setId_user(avis.getId_user());
@@ -84,7 +89,8 @@ public class ModifierAvisFXMLController implements Initializable {
 
     void prepare(Avis a) {
   txtdescavis.setText(String.valueOf(a.getDesc_avis()));
-  rating.setRating(a.getEtoile());
+ // a.setEtoile((int) rating.getRating());
+ rating.setRating(a.getEtoile());  
         avis = a;
     }
     

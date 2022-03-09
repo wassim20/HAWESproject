@@ -6,6 +6,7 @@
 package gui;
 
 import entities.Reclamation;
+import entities.Reclamation1;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -43,7 +44,7 @@ public class AfficherReclamationAdminFXMLController implements Initializable {
     Reclamation r =new Reclamation();
 
     @FXML
-    private ListView<Reclamation> txtlistrec;
+    private ListView<Reclamation1> txtlistrec;
     @FXML
     private TextField txtsearch;
     @FXML
@@ -57,27 +58,29 @@ public class AfficherReclamationAdminFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
           
-        ObservableList<Reclamation> items =FXCollections.observableArrayList();
-        List<Reclamation> listReclamation = rs.afficherReclamation();
-        for(Reclamation r : listReclamation) {
-            String ch = r.toString();
+        ObservableList<Reclamation1> items =FXCollections.observableArrayList();
+        List<Reclamation1> listReclamation = rs.afficherReclamation2();
+        for(Reclamation1 r : listReclamation) {
+        //  String ch = r.Showall(); 
             items.add(r);
+            
         } 
          txtlistrec.setItems(items);
+         
     }
 
     @FXML
     private void chercherReclamation(KeyEvent event) {
-         ObservableList<Reclamation> items =FXCollections.observableArrayList();
-        List<Reclamation> listReclamation;
+         ObservableList<Reclamation1> items =FXCollections.observableArrayList();
+        List<Reclamation1> listReclamation;
         String tchoix=txtsearch.getText();
         try{
             int nchoix = Integer.parseInt(tchoix);
-            listReclamation = rs.chercherReclamation(nchoix);
+            listReclamation = rs.chercherReclamation2(nchoix);
         } catch (NumberFormatException e) {
-            listReclamation = rs.chercherReclamation(tchoix);
+            listReclamation = rs.chercherReclamation2(tchoix);
         }
-        for(Reclamation a : listReclamation) {
+        for(Reclamation1 a : listReclamation) {
             String ch = a.toString();
             items.add(a);
         }
@@ -102,9 +105,10 @@ public class AfficherReclamationAdminFXMLController implements Initializable {
 
     @FXML
     private void Traiterreccal(ActionEvent event) {
+        Reclamation1 r1 = new Reclamation1();
          
-        r = txtlistrec.getSelectionModel().getSelectedItem();
-        rs.traiterReclamation(r);
+        r1 = txtlistrec.getSelectionModel().getSelectedItem();
+        rs.traiterReclamation(r1);
          try {
             System.out.println(r);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherReclamationAdminFXML.fxml"));
@@ -153,11 +157,11 @@ try {
        
         
 
-message.setFrom(new InternetAddress("tt6800734@gmail.com"));
+message.setFrom(new InternetAddress("ServiceReclamation@gmail.com"));
 message.addRecipient(Message.RecipientType.TO, new InternetAddress(adressemail));
 
 message.setSubject("Reclamation Client");
-message.setText("evenement est mal organisé cette fois"); 
+message.setText("Votre réclamation a été traitée "); 
 
 
 Transport.send(message);

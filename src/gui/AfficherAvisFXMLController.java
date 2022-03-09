@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javax.swing.JOptionPane;
 import org.controlsfx.control.Rating;
@@ -39,8 +40,6 @@ public class AfficherAvisFXMLController implements Initializable {
     AvisService as = new AvisService();
     Avis a = new Avis();
     @FXML
-    private Button btnsearch;
-    @FXML
     private TextField txtsearch;
     @FXML
     private Button btnsuppa;
@@ -48,10 +47,6 @@ public class AfficherAvisFXMLController implements Initializable {
     private Button btnmda;
     @FXML
     private Button btnajouta;
-    @FXML
-    private AnchorPane anchor2;
-    @FXML
-    private Rating rating;
     
     /**
      * Initializes the controller class.
@@ -84,23 +79,7 @@ public class AfficherAvisFXMLController implements Initializable {
         }
     }
   
- @FXML
-    private void chercherAvis(ActionEvent event) {
-        ObservableList<Avis> items =FXCollections.observableArrayList();
-        List<Avis> listAvis;
-        String tchoix=txtsearch.getText();
-        try{
-            int nchoix = Integer.parseInt(tchoix);
-            listAvis = as.chercherAvis(nchoix);
-        } catch (NumberFormatException e) {
-            listAvis = as.chercherAvis(tchoix);
-        }
-        for(Avis a : listAvis) {
-            String ch = a.toString();
-            items.add(a);
-        }
-        txtlistavis.setItems(items);
-    }
+
        @FXML
     private void ajouterAvis(ActionEvent event) {
         try {
@@ -118,13 +97,43 @@ public class AfficherAvisFXMLController implements Initializable {
 
     @FXML
     private void supprimerAvis(ActionEvent event) {
+        int input = JOptionPane.showConfirmDialog(null, "Voulez vous vraiment supprimer ?", "Choisir une option...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+      if (input==0) {
+       
          a = txtlistavis.getSelectionModel().getSelectedItem();
         as.supprimerAvis(a.getId_avis());
-        displayMenu();
+     try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAvisFXML.fxml"));
+            Parent root =loader.load();
+            AfficherAvisFXMLController mr = loader.getController();
+            btnsuppa.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+      }
+      else
+      {
+           try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAvisFXML.fxml"));
+            Parent root =loader.load();
+            AfficherAvisFXMLController mr = loader.getController();
+            btnsuppa.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+          
+      }
+      
+        
     }
 
     @FXML
     private void modifierAvis(ActionEvent event) {
+        
+        int input = JOptionPane.showConfirmDialog(null, "Voulez vous vraiment modifier ?", "Choisir une option...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+      if (input==0) {
         
      
         Avis a = new Avis();
@@ -142,6 +151,37 @@ public class AfficherAvisFXMLController implements Initializable {
             
         }
       }
+        else {
+                   try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAvisFXML.fxml"));
+            Parent root =loader.load();
+            AfficherAvisFXMLController mr = loader.getController();
+            btnsuppa.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+                }
+                
+                
+      }
+
+    @FXML
+    private void chercherAvis(KeyEvent event) {
+           ObservableList<Avis> items =FXCollections.observableArrayList();
+        List<Avis> listAvis;
+        String tchoix=txtsearch.getText();
+        try{
+            int nchoix = Integer.parseInt(tchoix);
+            listAvis = as.chercherAvis(nchoix);
+        } catch (NumberFormatException e) {
+            listAvis = as.chercherAvis(tchoix);
+        }
+        for(Avis a : listAvis) {
+            String ch = a.toString();
+            items.add(a);
+        }
+        txtlistavis.setItems(items);
+    }
       
        
     }

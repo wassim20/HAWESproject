@@ -14,6 +14,8 @@ import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,15 +30,24 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import services.ReclamationService;
-
 /**
  * FXML Controller class
  *
  * @author LENOVO
  */
 public class AjouterReclamationFXMLController implements Initializable {
+//String[] badword=new String[5];
+String[] badword = {"russia", "ukraine", "nato","lolo","holo"};
+//badword = ;
+ 
+ 
 
-    @FXML
+
+
+
+
+
+            @FXML
     private TextField txtdescrec;
     @FXML
     private Button btngetback;
@@ -51,6 +62,7 @@ public class AjouterReclamationFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
 
  @FXML
@@ -71,13 +83,27 @@ public class AjouterReclamationFXMLController implements Initializable {
 
     @FXML
     private void ajoutrec(ActionEvent event) {
+        String des=txtdescrec.getText();
      
 if(txtdescrec.getText().trim().isEmpty()){
         Alert fail= new Alert(AlertType.INFORMATION);
-        fail.setHeaderText("failure");
-        fail.setContentText("you havent typed something");
+        fail.setHeaderText("Echec");
+        fail.setContentText("Vous n'avez rien saisi ");
         fail.showAndWait();
-    } else {
+}
+        
+           
+        else if(des.contains("russia")||des.contains("ukraine"))
+        {
+            System.out.println("wselet");
+           
+            
+                  Alert fail= new Alert(AlertType.INFORMATION);
+        fail.setHeaderText("failure");
+        fail.setContentText("you have typed bad words");
+        fail.showAndWait();
+}   
+     else {
     
        /* Alert alert = new Alert(AlertType.INFORMATION);
         alert.setHeaderText("Succes");
@@ -88,7 +114,7 @@ if(txtdescrec.getText().trim().isEmpty()){
        Notifications notifications =Notifications.create();
        notifications.graphic(new ImageView(image));
        
-       notifications.text("hello");
+       notifications.text("Votre Opération a été faite avec succès");
        notifications.title("success Message");
        notifications.hideAfter(Duration.seconds(4));
        notifications.show();

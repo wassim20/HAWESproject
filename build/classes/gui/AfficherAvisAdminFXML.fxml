@@ -4,28 +4,39 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherAvisAdminFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherAvisAdminFXMLController">
    <children>
-      <ListView fx:id="txtlistavis" layoutX="244.0" layoutY="86.0" prefHeight="576.0" prefWidth="539.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="244.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="86.0" />
-      <Button fx:id="btnsearch" layoutX="689.0" layoutY="38.0" mnemonicParsing="false" onAction="#chercherAvis" text="Rechercher" />
-      <TextField fx:id="txtsearch" layoutX="543.0" layoutY="38.0" prefHeight="31.0" prefWidth="135.0" />
-      <Label layoutX="321.0" layoutY="13.0" prefHeight="34.0" prefWidth="158.0" text="Listes Des Avis">
+      <ImageView fitHeight="461.0" fitWidth="595.0" layoutX="160.0" layoutY="120.0">
+         <image>
+            <Image url="@../assets/cloudy-purple-color-background-wallpaper-use-design-layout-text-images-cloudy-purple-color-background-wallpaper-154981486.jpg" />
+         </image>
+      </ImageView>
+      <ListView fx:id="txtlistavis" layoutX="194.0" layoutY="151.0" prefHeight="401.0" prefWidth="529.0" AnchorPane.bottomAnchor="215.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="151.0" />
+      <TextField fx:id="txtsearch" layoutX="603.0" layoutY="39.0" onKeyReleased="#chercherAvis" prefHeight="31.0" prefWidth="169.0" styleClass="search-box" stylesheets="@css.css" />
+      <Label layoutX="332.0" layoutY="30.0" prefHeight="34.0" prefWidth="158.0" text="Listes Des Avis">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="btnsuppa" layoutX="638.0" layoutY="690.0" mnemonicParsing="false" onAction="#supprimerAvis" prefHeight="48.0" prefWidth="145.0" style="-fx-background-color: #5b4ebd;" text="Supprimer" textFill="WHITE">
+      <Button fx:id="btnsuppa" layoutX="586.0" layoutY="661.0" mnemonicParsing="false" onAction="#supprimerAvis" prefHeight="48.0" prefWidth="169.0" style="-fx-background-color: #5b4ebd;" styleClass="search-button" stylesheets="@css.css" text="Supprimer" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btngetback" layoutX="41.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="48.0" prefWidth="145.0" style="-fx-background-color: #5b4ebd;" text="Menu" textFill="WHITE">
+      <Button fx:id="btngetback" layoutX="29.0" layoutY="30.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="48.0" prefWidth="169.0" style="-fx-background-color: #5b4ebd;" styleClass="search-button" stylesheets="@css.css" text="Menu" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <ImageView fitHeight="48.0" fitWidth="32.0" layoutX="587.0" layoutY="661.0">
+         <image>
+            <Image url="@../assets/recycling-bin-vector-delete-icon-png-black-11563002079w1isxqyyiv.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

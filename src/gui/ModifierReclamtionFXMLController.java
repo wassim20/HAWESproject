@@ -47,7 +47,7 @@ public class ModifierReclamtionFXMLController implements Initializable {
     @FXML
     private void modifierRec(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("Réclamation Modifié avec succès "); //Succes
+        alert.setHeaderText("Réclamation modifiée avec succès "); //Succes
         //alert.setContentText("Réclamation Modifié avec succès");
         alert.showAndWait();
 
