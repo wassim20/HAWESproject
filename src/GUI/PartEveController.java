@@ -40,8 +40,6 @@ import javax.swing.JOptionPane;
 public class PartEveController implements Initializable {
 
     @FXML
-    private TextField cherche;
-    @FXML
     private VBox listevent;
     @FXML
     private Label idevent;
@@ -63,40 +61,28 @@ public class PartEveController implements Initializable {
     private Button btnsupp;
     @FXML
     private Button retour;
-    
+
     ParticipantsService ps = new ParticipantsService();
     EvenementService es = new EvenementService();
-    List<evenement> evenements =new ArrayList();
+    List<evenement> evenements = new ArrayList();
     evenement et = new evenement();
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-                evenements = es.afficherEvenement(); 
-        
-       displayEvents();
-    }    
-    
-    
-    
-    
-    
-    
-            private void displayEvents() {
-            
-             
-            DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");  
 
+        evenements = es.afficherEvenement();
 
-            
-            
-            
-            
-            
+        displayEvents();
+    }
+
+    private void displayEvents() {
+
+        DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+
         listevent.getChildren().clear();
         for (int i = 0; i < evenements.size(); i++) {
             evenement e = evenements.get(i);
@@ -107,18 +93,17 @@ public class PartEveController implements Initializable {
             userPane.setLayoutX(0);
             userPane.setLayoutY(0);
 
-
             Label ide = new Label();
             ide.setLayoutY(20);
             ide.setTextFill(Color.BLACK);
-            String id =Integer.toString(e.getIdEvent()) ;
+            String id = Integer.toString(e.getIdEvent());
             ide.setText(id);
 
             Label idh = new Label();
             idh.setLayoutX(100);
             idh.setLayoutY(20);
             idh.setTextFill(Color.BLACK);
-            String idhe =Integer.toString(e.getId_heb()) ;
+            String idhe = Integer.toString(e.getId_heb());
             idh.setText(idhe);
 
             Label nom = new Label();
@@ -131,7 +116,7 @@ public class PartEveController implements Initializable {
             nbp.setLayoutX(309);
             nbp.setLayoutY(20);
             nbp.setTextFill(Color.BLACK);
-            String nb =Integer.toString(e.getNb_place());
+            String nb = Integer.toString(e.getNb_place());
             nbp.setText(nb);
 
             Label dd = new Label();
@@ -148,25 +133,24 @@ public class PartEveController implements Initializable {
             df.setLayoutX(500);
             df.setLayoutY(20);
             df.setTextFill(Color.BLACK);
-            df.setText(datef);  
-            
+            df.setText(datef);
+
             Label cat = new Label();
             cat.setLayoutX(595);
             cat.setLayoutY(20);
             cat.setTextFill(Color.BLACK);
-            cat.setText(e.getIdCat()); 
-            
+            cat.setText(e.getIdCat());
+
             Label prx = new Label();
             prx.setLayoutX(657);
             prx.setLayoutY(20);
             prx.setTextFill(Color.BLACK);
-            String px =Float.toString(e.getPrix());
-            prx.setText(px);            
-            
+            String px = Float.toString(e.getPrix());
+            prx.setText(px);
 
             Button deleteBtn = new Button();
             deleteBtn.setPrefHeight(25);
-            deleteBtn.setPrefWidth(74);            
+            deleteBtn.setPrefWidth(74);
             deleteBtn.setLayoutX(714);
             deleteBtn.setLayoutY(5);
             deleteBtn.setText("Annuler");
@@ -180,7 +164,6 @@ public class PartEveController implements Initializable {
             userPane.getChildren().add(cat);
             userPane.getChildren().add(prx);
             userPane.getChildren().add(deleteBtn);
-            
 
             deleteBtn.setOnMouseClicked((MouseEvent event) -> {
                 int input = JOptionPane.showConfirmDialog(null, "Etes-vous sure d'annuler la participation ?",
@@ -188,45 +171,36 @@ public class PartEveController implements Initializable {
                         JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
 
                 if (input == 0) {
-            String sidevent = ide.getText();
-            int idevent = parseInt(sidevent);
-            es.supprimerEvenement(idevent);
-            try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("PartEve.fxml"));
-            Parent root =loader.load();
-            PartEveController tr = loader.getController();
-            deleteBtn.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }  
-            
+                    String sidevent = ide.getText();
+                    int idevent = parseInt(sidevent);
+                    es.supprimerEvenement(idevent);
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("PartEve.fxml"));
+                        Parent root = loader.load();
+                        PartEveController tr = loader.getController();
+                        deleteBtn.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+
                 }
             });
-            
-            
-
 
             listevent.getChildren().add(userPane);
         }
 
     }
-    
-    
-    
-    
-    
-    
 
     @FXML
     private void loadMenu(ActionEvent event) {
-                        try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("InterfaceClient.fxml"));
-            Parent root =loader.load();
+            Parent root = loader.load();
             InterfaceClientController tr = loader.getController();
             retour.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        }  
+        }
     }
-    
+
 }
