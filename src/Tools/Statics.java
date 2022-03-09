@@ -16,15 +16,15 @@ public class Statics {
 
 
     //Production database
-    /*public String url = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11477015";
-    public String user = "sql11477015";
-    public String pwd = "UEMX6G21Lz";
-    public static String wsURI = "wss://hawes.herokuapp.com";*/
+    public static String url = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11477015";
+    public static String user = "sql11477015";
+    public static String pwd = "UEMX6G21Lz";
+    public static String wsURI = "wss://hawes.herokuapp.com";
     
     //Dev database
-    public static String url = "jdbc:mysql://localhost:3306/projet-pi";
+    /*public static String url = "jdbc:mysql://localhost:3306/hawes";
     public static String user = "root";
     public static String pwd = "";
-    public static String wsURI = "ws://localhost:3000/";
+    public static String wsURI = "ws://localhost:3000/";*/
     
 }

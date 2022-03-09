@@ -114,19 +114,23 @@ public class LoginController implements Initializable {
                     }
 
                 } else if (currentUser.getRole().equals("Client")) {
-                    Stage stage = (Stage) txtpassword.getScene().getWindow();
-                    stage.close();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Template.fxml"));
-                    Parent root = loader.load();
-                    Stage stageprofil = new Stage();
-                    stageprofil.show();
+
+                    try {
+                        Parent root = loader.load();
+                        txtmail.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
                 } else if (currentUser.getRole().equals("Chef d'agence")) {
-                    Stage stage = (Stage) txtpassword.getScene().getWindow();
-                    stage.close();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Template.fxml"));
-                    Parent root = loader.load();
-                    Stage stageprofil = new Stage();
-                    stageprofil.show();
+
+                    try {
+                        Parent root = loader.load();
+                        txtmail.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
                 } else if (currentUser.getRole().equals("Chauffeur")) {
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Template.fxml"));
@@ -138,7 +142,7 @@ public class LoginController implements Initializable {
                         System.out.println(ex.getMessage());
                     }
 
-                }else{
+                } else {
                     System.out.println("role invalid");
                 }
             } else {

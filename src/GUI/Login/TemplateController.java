@@ -67,6 +67,9 @@ public class TemplateController implements Initializable {
     LocalStorage localStorage;
     utilisateurService US;
     RealTimeService realTime;
+    @FXML
+    private Button gestionRelamationButton;
+
     /**
      * Initializes the controller class.
      */
@@ -79,7 +82,7 @@ public class TemplateController implements Initializable {
         } catch (URISyntaxException ex) {
             System.out.println("error in init realtime service");
         }
-        
+
         connectedFullname.setText(US.currentUser.getPrenomUser() + " " + US.currentUser.getNomUser());
         connectedRole.setText(US.currentUser.getRole());
         Image img = new Image(Statics.imgPath + US.currentUser.getImage());
@@ -122,6 +125,9 @@ public class TemplateController implements Initializable {
 
         gestionAvisButton.setTextFill(Color.web("#5b4ebd"));
         gestionAvisButton.setStyle("-fx-background-color :#ffffff");
+
+        gestionRelamationButton.setTextFill(Color.web("#5b4ebd"));
+        gestionRelamationButton.setStyle("-fx-background-color :#ffffff");
 
         gestionEvenementButton.setTextFill(Color.web("#5b4ebd"));
         gestionEvenementButton.setStyle("-fx-background-color :#ffffff");
@@ -179,11 +185,36 @@ public class TemplateController implements Initializable {
 
         AnchorPane pane;
         try {
-            pane = FXMLLoader.load(getClass().getResource("test.fxml"));
+            if (US.currentUser.getRole().equals("Administrateur")) {
+                pane = FXMLLoader.load(getClass().getResource("../Avis/AfficherAvisAdminFXML.fxml"));
+            } else {
+                pane = FXMLLoader.load(getClass().getResource("../Avis/AfficherAvisFXML.fxml"));
+            }
+
             mainPane.getChildren().setAll(pane);
             defaultStateButtons();
             gestionAvisButton.setTextFill(Color.WHITE);
             gestionAvisButton.setStyle("-fx-background-color :#5b4ebd");
+        } catch (IOException ex) {
+            Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void gestionReclamation(ActionEvent event) {
+        AnchorPane pane;
+        try {
+
+            if (US.currentUser.getRole().equals("Administrateur")) {
+                pane = FXMLLoader.load(getClass().getResource("../Avis/AfficherReclamationAdminFXML.fxml"));
+            } else {
+                pane = FXMLLoader.load(getClass().getResource("../Avis/AfficherReclamationFXML.fxml"));
+            }
+            
+            mainPane.getChildren().setAll(pane);
+            defaultStateButtons();
+            gestionRelamationButton.setTextFill(Color.WHITE);
+            gestionRelamationButton.setStyle("-fx-background-color :#5b4ebd");
         } catch (IOException ex) {
             Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
         }
