@@ -30,6 +30,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -77,6 +78,8 @@ public class ModifierprofilController implements Initializable {
     private PasswordField newpwTxt2;
     @FXML
     private Pane ModalPane;
+    @FXML
+    private Label UserRole;
 
     /**
      * Initializes the controller class.
@@ -93,8 +96,10 @@ public class ModifierprofilController implements Initializable {
         AdresseTxt.setText(currentUser.getAdresseUser());
         CinTxt.setText(currentUser.getCinUser());
         EmailTxt.setText(currentUser.getEmailUser());
+        UserRole.setText(currentUser.getRole());
+        
         imgName = currentUser.getImage();
-
+           
         profilimg.setImage(new Image(Statics.imgPath + currentUser.getImage()));
         Rectangle clip = new Rectangle(
                 profilimg.getFitWidth(), profilimg.getFitHeight()

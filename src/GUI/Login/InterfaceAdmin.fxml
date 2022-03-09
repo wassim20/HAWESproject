@@ -66,6 +66,35 @@
             </VBox>
         </content>
       </ScrollPane>
+      <Pane layoutX="23.0" layoutY="159.0">
+         <children>
+            <Button fx:id="TousFilterBtn" mnemonicParsing="false" onAction="#FilterTous" prefHeight="44.0" prefWidth="72.0" style="-fx-background-color: white;" text="Tous" textFill="#5b4ebd">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="AdminFilterBtn" layoutX="190.0" mnemonicParsing="false" onAction="#FilterAdministrateur" prefHeight="44.0" prefWidth="166.0" style="-fx-background-color: white;" text="Administrateur">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="ClientsFilterBtn" layoutX="78.0" mnemonicParsing="false" onAction="#FilterClients" prefHeight="44.0" prefWidth="105.0" style="-fx-background-color: white;" text="Clients">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="ChauffeurFilterBtn" layoutX="363.0" mnemonicParsing="false" onAction="#FilterChauffeur" prefHeight="44.0" prefWidth="120.0" style="-fx-background-color: white;" text="Chauffeur">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="ChefFilterBtn" layoutX="491.0" mnemonicParsing="false" onAction="#FiltrerChef" prefHeight="44.0" prefWidth="159.0" style="-fx-background-color: white;" text="Chef d'agence">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
       <Pane fx:id="ModalPane" prefHeight="767.0" prefWidth="822.0" style="-fx-background-color: transparent;" visible="false">
          <children>
             <ImageView fitHeight="767.0" fitWidth="822.0" pickOnBounds="true">
@@ -84,31 +113,6 @@
             </Pane>
          </children>
       </Pane>
-      <Button fx:id="TousFilterBtn" layoutX="23.0" layoutY="159.0" mnemonicParsing="false" onAction="#FilterTous" prefHeight="44.0" prefWidth="72.0" style="-fx-background-color: white;" text="Tous" textFill="#5b4ebd">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="AdminFilterBtn" layoutX="213.0" layoutY="159.0" mnemonicParsing="false" onAction="#FilterAdministrateur" prefHeight="44.0" prefWidth="166.0" style="-fx-background-color: white;" text="Administrateur">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="ClientsFilterBtn" layoutX="101.0" layoutY="159.0" mnemonicParsing="false" onAction="#FilterClients" prefHeight="44.0" prefWidth="105.0" style="-fx-background-color: white;" text="Clients">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="ChauffeurFilterBtn" layoutX="386.0" layoutY="159.0" mnemonicParsing="false" onAction="#FilterChauffeur" prefHeight="44.0" prefWidth="120.0" style="-fx-background-color: white;" text="Chauffeur">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="ChefFilterBtn" layoutX="514.0" layoutY="159.0" mnemonicParsing="false" onAction="#FiltrerChef" prefHeight="44.0" prefWidth="159.0" style="-fx-background-color: white;" text="Chef d'agence">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
     </children>
       
     

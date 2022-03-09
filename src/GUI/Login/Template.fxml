@@ -9,18 +9,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.TemplateController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.TemplateController">
     <stylesheets>
         <URL value="@interfaceadmin.css" />
     </stylesheets>
    <children>
       <AnchorPane fx:id="sideBarPane" prefHeight="767.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Label alignment="CENTER" layoutX="23.0" layoutY="47.0" prefHeight="38.0" prefWidth="216.0" text="Hawes Voyage" textAlignment="CENTER">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/logohawes.png" />
+               </image>
+            </ImageView>
             <Button fx:id="gestionUserButton" layoutX="22.0" layoutY="123.0" mnemonicParsing="false" onAction="#gestionUser" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #5b4ebd; -fx-border-radius: 20px;" text="Gestion des Utilisateurs" textFill="WHITE" />
             <Button fx:id="gestionHebergementButton" layoutX="22.0" layoutY="176.0" mnemonicParsing="false" onAction="#GestionHebergement" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des Hébérgements" textFill="#5b4ebd" />
             <Button fx:id="gestionReservationsButton" layoutX="22.0" layoutY="230.0" mnemonicParsing="false" onAction="#gestionReserations" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #ffffff;" text="Gestion des reservations" textFill="#5b4ebd" />
