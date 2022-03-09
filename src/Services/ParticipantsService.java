@@ -5,7 +5,6 @@
  */
 package Services;
 
-import entities.categorieeve;
 import entities.evenement;
 import entities.participants;
 import java.sql.Connection;

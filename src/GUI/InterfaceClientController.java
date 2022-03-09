@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -41,6 +41,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javax.swing.JOptionPane;
 import Services.EvenementService;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javafx.scene.input.KeyEvent;
+import tools.MaConnexion;
 
 /**
  * FXML Controller class
@@ -72,50 +77,43 @@ public class InterfaceClientController implements Initializable {
     @FXML
     private Button retour;
     EvenementService es = new EvenementService();
-    List<evenement> evenements =new ArrayList();
+    List<evenement> evenements = new ArrayList<>();
     evenement et = new evenement();
     @FXML
     private RadioButton part;
     @FXML
     private RadioButton part1;
-    
+
     ToggleGroup r = new ToggleGroup();
     @FXML
     private ImageView imageqr;
-    /**            
-     * 
+    @FXML
+    private Button eve;
+
+    /**
+     *
      *
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        evenements = es.afficherEvenement(); 
+
+        evenements = es.afficherEvenement();
         try {
             qrcode();
         } catch (WriterException ex) {
             Logger.getLogger(InterfaceClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        displayEvents();
-    }    
-    
-    
-    
-    
-            private void displayEvents() {
-            
-             
-            DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");  
+        displayEvents(evenements);
+    }
 
+    private void displayEvents(List<evenement> events) {
 
-            
-            
-            
-            
-            
+        DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+
         listevent.getChildren().clear();
-        for (int i = 0; i < evenements.size(); i++) {
-            evenement e = evenements.get(i);
+        for (int i = 0; i < events.size(); i++) {
+            evenement e = events.get(i);
             Pane userPane = new Pane();
             userPane.setBackground(Background.EMPTY);
             userPane.setPrefHeight(150.0);
@@ -123,18 +121,17 @@ public class InterfaceClientController implements Initializable {
             userPane.setLayoutX(0);
             userPane.setLayoutY(0);
 
-
             Label ide = new Label();
             ide.setLayoutY(20);
             ide.setTextFill(Color.BLACK);
-            String id =Integer.toString(e.getIdEvent()) ;
+            String id = Integer.toString(e.getIdEvent());
             ide.setText(id);
 
             Label idh = new Label();
             idh.setLayoutX(100);
             idh.setLayoutY(20);
             idh.setTextFill(Color.BLACK);
-            String idhe =Integer.toString(e.getId_heb()) ;
+            String idhe = Integer.toString(e.getId_heb());
             idh.setText(idhe);
 
             Label nom = new Label();
@@ -147,7 +144,7 @@ public class InterfaceClientController implements Initializable {
             nbp.setLayoutX(309);
             nbp.setLayoutY(20);
             nbp.setTextFill(Color.BLACK);
-            String nb =Integer.toString(e.getNb_place());
+            String nb = Integer.toString(e.getNb_place());
             nbp.setText(nb);
 
             Label dd = new Label();
@@ -164,38 +161,28 @@ public class InterfaceClientController implements Initializable {
             df.setLayoutX(500);
             df.setLayoutY(20);
             df.setTextFill(Color.BLACK);
-            df.setText(datef);  
-            
+            df.setText(datef);
+
             Label cat = new Label();
             cat.setLayoutX(595);
             cat.setLayoutY(20);
             cat.setTextFill(Color.BLACK);
-            cat.setText(e.getIdCat()); 
-            
+            cat.setText(e.getIdCat());
+
             Label prx = new Label();
             prx.setLayoutX(657);
             prx.setLayoutY(20);
             prx.setTextFill(Color.BLACK);
-            String px =Float.toString(e.getPrix());
+            String px = Float.toString(e.getPrix());
             prx.setText(px);
-            
-            RadioButton rPart1 =new RadioButton();
-            rPart1.setToggleGroup(r);
-            rPart1.setPrefHeight(25);
-            rPart1.setPrefWidth(74);            
-            rPart1.setLayoutX(714);
-            rPart1.setLayoutY(8);
-            rPart1.setText("Non");
-            
-            RadioButton rPart =new RadioButton();
-            rPart.setToggleGroup(r);
-            rPart.setPrefHeight(25);
-            rPart.setPrefWidth(74);            
-            rPart.setLayoutX(714);
-            rPart.setLayoutY(41);
-            rPart.setText("Participer");
-            
 
+            Button rPart = new Button();
+
+            rPart.setPrefHeight(25);
+            rPart.setPrefWidth(74);
+            rPart.setLayoutX(714);
+            rPart.setLayoutY(8);
+            rPart.setText("Participer");
 
             userPane.getChildren().add(ide);
             userPane.getChildren().add(idh);
@@ -205,44 +192,68 @@ public class InterfaceClientController implements Initializable {
             userPane.getChildren().add(df);
             userPane.getChildren().add(cat);
             userPane.getChildren().add(prx);
-            userPane.getChildren().add(rPart1);
             userPane.getChildren().add(rPart);
-            
-            
-            
-            
 
+            rPart.setOnMouseClicked((MouseEvent event) -> {
+                int input = JOptionPane.showConfirmDialog(null, "Etes-vous sure de Participer a cet Evenement ?",
+                        "Confirmer la modification",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+                if (input == 0) {
+                    if (e.getNb_place() < 500) {
+                        Connection cnx;
+                        cnx = MaConnexion.getInstance().getCnx();
+                        String sql = "INSERT INTO `participants`(`idUser`, `idEvent`)"
+                                + " VALUES ('" + 1 + "','" + e.getIdEvent() + "')";
+
+                        try {
+                            Statement ste = cnx.createStatement();
+
+                            ste.executeUpdate(sql);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(InterfaceClientController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println("Client Participé");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "L'evenement est Complet");
+                    }
+
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("InterfaceClient.fxml"));
+                        Parent root = loader.load();
+                        InterfaceClientController tr = loader.getController();
+
+                        rPart.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            });
 
             listevent.getChildren().add(userPane);
         }
 
     }
-    
-    
-    
 
-        @FXML
+    @FXML
     private void loadMenu(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuEvenement.fxml"));
-            Parent root =loader.load();
+            Parent root = loader.load();
             MenuEvenementController tr = loader.getController();
             retour.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        }  
+        }
     }
-    
-    
-    
-        private void qrcode  () throws WriterException {
-        
+
+    private void qrcode() throws WriterException {
+
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         List<evenement> event = es.afficherEvenement();
         String events = String.valueOf(event);
         int width = 300;
         int height = 300;
-        
+
         BufferedImage bufferedImage = null;
         BitMatrix byteMatrix = qrCodeWriter.encode(events, BarcodeFormat.QR_CODE, width, height);
         bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -260,7 +271,35 @@ public class InterfaceClientController implements Initializable {
         }
         imageqr.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
 
-        
     }
-    
+
+    @FXML
+    private void evenements(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PartEve.fxml"));
+            Parent root = loader.load();
+            GUI.PartEveController tr = loader.getController();
+            eve.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void searchEvents(KeyEvent event) {
+        List<evenement> newList;
+        String tchoix = cherche.getText();
+        try {
+            int nchoix = Integer.parseInt(tchoix);
+            newList = es.chercheEvenement(nchoix);
+        } catch (NumberFormatException e) {
+            newList = es.chercheEvenement(tchoix);
+        }
+        if (!cherche.getText().isEmpty()) {
+            displayEvents(newList);
+        } else {
+            displayEvents(evenements);
+        }
+    }
+
 }

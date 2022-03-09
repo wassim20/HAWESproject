@@ -8,7 +8,7 @@ package Services;
 
 
 import entities.categorieeve;
-import gui.AjoutEventController;
+import GUI.AjoutEventController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

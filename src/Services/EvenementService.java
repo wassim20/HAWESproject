@@ -187,6 +187,37 @@ public void modifierEvenement
 
             return evenements;   
         }
+       
+       
+       
+           public List<evenement> afficherEvenementPart(){
+        List<evenement> evenements;
+        evenements = new ArrayList<>();
+        String query="select idEvent, id_heb, nom, nb_place, heureDebut, heureFin ,idCat, prix from evenement "
+                + "participants   where idUser= "+1+"";
+        try {
+            PreparedStatement ste = cnx.prepareStatement(query);
+            ResultSet rs= ste.executeQuery();
+            while(rs.next()){
+                evenement e = new evenement();
+                e.setIdEvent(rs.getInt("idEvent"));
+                e.setId_heb(rs.getInt("id_heb"));
+                e.setNom(rs.getString("nom"));
+                e.setNb_place(rs.getInt("nb_place"));
+                e.setHeureDebut(rs.getDate("heureDebut"));
+                e.setHeureFin(rs.getDate("heureFin"));
+                e.setCategorie(rs.getString("idCat"));
+                e.setPrix(rs.getInt("prix"));
+                evenements.add(e);
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return evenements;
+        
+    }
         
 }
 // SELECT nomCat from categorieeve where id=? ;

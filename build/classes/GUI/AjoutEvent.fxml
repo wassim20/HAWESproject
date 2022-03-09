@@ -7,13 +7,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" accessibleRole="PAGINATION" prefHeight="767.0" prefWidth="822.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutEventController">
+<AnchorPane id="AnchorPane" accessibleRole="PAGINATION" prefHeight="767.0" prefWidth="822.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutEventController">
     <stylesheets>
         <URL value="@ajoutevent.css" />
     </stylesheets>
@@ -40,10 +38,5 @@
       <TextField fx:id="id_heb" layoutX="292.0" layoutY="103.0" prefHeight="25.0" prefWidth="174.0" />
       <Button fx:id="btngetback" layoutX="43.0" layoutY="408.0" mnemonicParsing="false" onAction="#loadMenu" text="Menu" />
       <ComboBox fx:id="catcombo" layoutX="292.0" layoutY="308.0" onAction="#fillbox" prefHeight="25.0" prefWidth="174.0" promptText="Saisir une categorie..." />
-      <ImageView fitHeight="223.0" fitWidth="160.0" layoutX="560.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/logohawes.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

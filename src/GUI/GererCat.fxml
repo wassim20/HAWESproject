@@ -3,20 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GererCatController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GererCatController">
     <children>
-              <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true">
-         <image>
-            <Image url="@../assets/logohawes.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="14.0" layoutY="123.0" prefHeight="50.0" prefWidth="779.0">
          <children>
             <Label layoutX="120.0" layoutY="17.0" text="Nom Categorie" />
