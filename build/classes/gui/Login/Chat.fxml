@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.ChatController">
+   <children>
+      <ScrollPane layoutY="75.0" prefHeight="694.0" prefWidth="234.0" style="-fx-background: transparent; -fx-background-color: transparent;">
+         <content>
+            <VBox fx:id="usersList" prefWidth="227.0">
+               <children>
+                  <Pane prefHeight="56.0" prefWidth="235.0">
+                     <children>
+                        <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" x="5.0" y="5.0">
+                           <image>
+                              <Image url="@../../assets/274413969_499577734884511_5810491001122804746_n.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="53.0" layoutY="5.0" prefHeight="45.0" prefWidth="180.0" text="Hassen chouadah">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="56.0" prefWidth="235.0">
+                     <children>
+                        <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" x="5.0" y="5.0">
+                           <image>
+                              <Image url="@../../assets/274413969_499577734884511_5810491001122804746_n.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="53.0" layoutY="5.0" prefHeight="45.0" prefWidth="180.0" text="Hassen chouadah">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Pane layoutX="234.0" prefHeight="767.4" prefWidth="1.0" style="-fx-background-color: #e8e8e8;" />
+      <Pane layoutX="235.0" layoutY="55.0" prefHeight="1.0" prefWidth="588.0" style="-fx-background-color: #e8e8e8;" />
+      <ScrollPane fx:id="messageScroll" layoutX="240.0" layoutY="58.0" prefHeight="658.0" prefWidth="576.0" style="-fx-background: transparent; -fx-background-color: transparent;">
+         <content>
+            <VBox fx:id="messagesList" minWidth="-Infinity" prefWidth="538.0" spacing="1.0">
+               <children>
+                  <Pane maxWidth="383.0" minHeight="27.0" minWidth="460.0" prefHeight="55.0" prefWidth="383.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../assets/274413969_499577734884511_5810491001122804746_n.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_LEFT" layoutX="62.0" layoutY="5.0" maxWidth="522.0" prefHeight="54.0" prefWidth="383.0" text="Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum." wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="10.0" maxWidth="580.0" minHeight="50.0" minWidth="564.0" prefHeight="59.0" prefWidth="564.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../assets/274413969_499577734884511_5810491001122804746_n.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_LEFT" layoutX="62.0" layoutY="5.0" maxWidth="522.0" prefHeight="54.0" prefWidth="383.0" text="Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum." wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane maxWidth="531.0" minHeight="50.0" minWidth="531.0" prefHeight="59.0" prefWidth="531.0">
+                     <children>
+                        <Label alignment="TOP_RIGHT" layoutX="147.0" layoutY="5.0" maxWidth="383.0" prefHeight="54.0" prefWidth="398.0" text="Hello" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Pane layoutX="240.0" layoutY="717.0" prefHeight="50.0" prefWidth="583.0">
+         <children>
+            <TextField fx:id="textfieldMessage" layoutX="5.0" layoutY="5.0" prefHeight="38.0" prefWidth="503.0" promptText="Aa" style="-fx-background-color: #f0f2f5;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Button layoutX="513.0" layoutY="5.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="38.0" prefWidth="64.0" text="Envoyer" />
+         </children>
+      </Pane>
+      <ImageView fx:id="friendImage" fitHeight="44.0" fitWidth="44.0" layoutX="246.0" layoutY="8.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../assets/274413969_499577734884511_5810491001122804746_n.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="friendName" layoutX="300.0" layoutY="7.0" prefHeight="27.0" prefWidth="511.0" text="Hassen chouadah">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="friendRole" layoutX="300.0" layoutY="25.0" prefHeight="27.0" prefWidth="405.0" text="Administrateur">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="6.0" layoutY="1.0" prefHeight="33.0" prefWidth="102.0" text="Contacts">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchUsersTextField" layoutX="6.0" layoutY="33.0" onKeyReleased="#searchUsersAction" prefHeight="38.0" prefWidth="222.0" promptText="Rechercher dans vos contacts" style="-fx-background-color: #f0f2f5;" />
+   </children>
+</AnchorPane>

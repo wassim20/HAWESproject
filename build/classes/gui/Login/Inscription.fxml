@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.InscriptionController">
+    <stylesheets>
+        <URL value="@inscription.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="nomtxt" layoutX="842.0" layoutY="108.0" promptText="Nom" />
+      <TextField fx:id="prenomtxt" layoutX="1105.0" layoutY="108.0" promptText="prenom" />
+      <TextField fx:id="emailtxt" layoutX="845.0" layoutY="258.0" prefHeight="31.0" prefWidth="449.0" promptText="Adresse mail" />
+      <TextField fx:id="teltxt" layoutX="1105.0" layoutY="156.0" promptText="téléphone" />
+      <TextField fx:id="cintxt" layoutX="844.0" layoutY="156.0" promptText="Carte d'identité" />
+      <TextField fx:id="adressetxt" layoutX="844.0" layoutY="204.0" prefHeight="31.0" prefWidth="449.0" promptText="Adresse" />
+      <PasswordField fx:id="mdptxt" layoutX="843.0" layoutY="313.0" prefHeight="31.0" prefWidth="187.0" promptText="Mot de passe" />
+      <PasswordField fx:id="confirmationpassword" layoutX="1104.0" layoutY="313.0" promptText="Retapez votre mot de passe" />
+      <Button fx:id="Confirmerinscription" layoutX="1028.0" layoutY="442.0" mnemonicParsing="false" onAction="#SignUpAction" text="S'inscrire" />
+      <ComboBox fx:id="comb" layoutX="845.0" layoutY="384.0" prefWidth="150.0" promptText="Vous etes ?" />
+      <Label layoutX="844.0" layoutY="347.0" prefHeight="39.0" prefWidth="150.0" />
+      <AnchorPane fx:id="anchorHide" layoutX="926.0" layoutY="587.0" prefHeight="175.0" prefWidth="397.0" visible="false">
+         <children>
+            <Label fx:id="codeTxt" layoutX="17.0" layoutY="53.0" prefHeight="21.0" prefWidth="70.0" text="Code" visible="false" />
+            <TextField fx:id="codeActivation" layoutX="14.0" layoutY="85.0" visible="false" />
+            <Button fx:id="confirmerCodebtn" layoutX="122.0" layoutY="125.0" mnemonicParsing="false" onAction="#confirmCode" text="Confirmer" visible="false" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="voiturePane" layoutX="1041.0" layoutY="384.0">
+         <children>
+            <TextField fx:id="voitureTxt" layoutX="64.0" promptText="Marque de voiture" />
+            <Label layoutY="5.0" />
+         </children>
+      </Pane>
+      <TextArea fx:id="messageCode" layoutX="897.0" layoutY="499.0" prefHeight="109.0" prefWidth="433.0" text="Hawes Voyage a le plaisir de confirmer la création&#10;de votre compte,&#10;un code que vous devez entrer si-dessous a été&#10;envoyé sur votre boite mail." visible="false" />
+      <ImageView fitHeight="770.0" fitWidth="707.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../assets/LOGOHAWES2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="95.0" fitWidth="249.0" layoutX="985.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/logohawes.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="quitBtn" layoutX="1321.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#LoginRedirect" prefHeight="31.0" prefWidth="32.0" text="X" />
+      <Pane layoutX="1.0" layoutY="2.0" opacity="0.21" prefHeight="770.0" prefWidth="707.0" style="-fx-background-color: blue;" />
+   </children>
+</AnchorPane>
