@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="767.2" prefWidth="822.4" styleClass="right-bar" stylesheets="@../CSS/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddFxmlController">
+   <children>
+      <Label layoutX="192.0" layoutY="97.0" prefHeight="35.0" text="nom :" />
+      <Label layoutX="192.0" layoutY="153.0" prefHeight="35.0" text="city :" />
+      <TextField fx:id="tnom" alignment="CENTER" layoutX="283.0" layoutY="97.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="tcity" alignment="CENTER" layoutX="283.0" layoutY="153.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></TextField>
+      <Label layoutX="192.0" layoutY="217.0" prefHeight="35.0" text="date_ajout :" />
+      <Label layoutX="192.0" layoutY="288.0" prefHeight="35.0" text="adress :" />
+      <Label layoutX="192.0" layoutY="366.0" prefHeight="35.0" text="nom_hotel :" />
+      <Label layoutX="494.0" layoutY="366.0" prefHeight="35.0" text="nb_chambres :" />
+      <Label layoutX="496.0" layoutY="288.0" prefHeight="35.0" text="nb_suites :" />
+      <Label layoutX="496.0" layoutY="217.0" prefHeight="35.0" text="piscine :" />
+      <Label layoutX="496.0" layoutY="153.0" prefHeight="35.0" text="image :" />
+      <Label layoutX="496.0" layoutY="97.0" prefHeight="35.0" text="prix :" />
+      <TextField fx:id="tadress" alignment="CENTER" layoutX="283.0" layoutY="288.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </TextField>
+                  <ComboBox fx:id="tpiscine" layoutX="617.0" layoutY="215.0" opacity="0.83" prefHeight="35.0" promptText="YES" styleClass="chosen-fruit-card1" stylesheets="@../CSS/css.css" />
+      <TextField fx:id="tnom_hotel" alignment="CENTER" layoutX="283.0" layoutY="366.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tprix" alignment="CENTER" layoutX="617.0" layoutY="97.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="tnb_suites" alignment="CENTER" layoutX="617.0" layoutY="288.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="tnb_chambres" alignment="CENTER" layoutX="617.0" layoutY="366.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <DatePicker fx:id="tdate_ajout" layoutX="283.0" layoutY="217.0" prefHeight="35.0" />
+      <Button fx:id="tchoisir" layoutX="617.0" layoutY="152.0" mnemonicParsing="false" onAction="#filechoix" prefHeight="35.0" text="CHOISIR" textAlignment="CENTER" />
+      <Label layoutX="198.0" layoutY="435.0" prefHeight="35.0" text="nb_etoile :" />
+      <TextField fx:id="tetoile" alignment="CENTER" layoutX="283.0" layoutY="432.0" prefHeight="35.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Button fx:id="aff" layoutX="747.0" layoutY="14.0" mnemonicParsing="false" onAction="#afficher" prefHeight="35.0" text="AFFICHER" textAlignment="CENTER" />
+      <ImageView fx:id="chosendisplay" fitHeight="265.0" fitWidth="585.0" layoutX="235.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="displayimg" fitHeight="94.0" fitWidth="381.0" layoutX="14.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0">
+         <image>
+            <Image url="@../../../../../Downloads/logohawes.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="add" layoutX="703.0" layoutY="432.0" mnemonicParsing="false" onAction="#addhbg" prefHeight="35.0" text="AJOUTER" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

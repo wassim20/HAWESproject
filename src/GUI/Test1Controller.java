@@ -2,7 +2,6 @@
 package GUI;
 
 import entities.hebergement;
-import GUI.pdf;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,11 +9,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -56,6 +57,8 @@ public class Test1Controller implements Initializable {
     private mylistener myListener;
     @FXML
     private Label pricer;
+    @FXML
+    private ImageView hawes;
     
     
     private List<hebergement> getData() {
@@ -94,6 +97,18 @@ public class Test1Controller implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        
+        try {
+            hawes.setImage(new Image(new FileInputStream("C:\\Users\\GX15\\Downloads\\logohawes.PNG")));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Test1Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
         
         hbgs.addAll(getData());
         if(hbgs.size()>0){
@@ -168,15 +183,13 @@ public class Test1Controller implements Initializable {
         image=img.getImage();
         
         pdf p =new pdf();
-        p.makepdf(a,b,c,d,imagepath);
-        
-        
-        
-      
-        
-        
-        
-        
+       if( p.makepdf(a,b,c,d,imagepath))
+       {
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.show();
+                        alert.setTitle(" PDF CREATION!");
+                        alert.setContentText("votre pdf est creé");
+       }
     }
 
 }
